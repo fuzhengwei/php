@@ -1,0 +1,6 @@
+测试使用说明：
+1、在mysql数据库，建库itstack导入表category.sql
+2、mysql数据库为utf-8编码
+3、把项目加载到Monitor Apache Servers服务器中
+4、启动服务，访问stackphp项目
+5、运行状态下默认打印sql语句，可以关闭【private $isPrintSql = TRUE;】在ReflectQueryDao.php中

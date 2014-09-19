@@ -1,0 +1,48 @@
+一下内容都可以学习测试使用
+
+/**
+ * 对于其他包下的类需要引入
+ */
+require_once 'com/stack/bean/PageBean.php';
+/**
+ * 建立 Person这个类的反射类  
+ */
+$class = new ReflectionClass ( 'PageBean' ); 
+/**
+ * 实例化Person 类  
+ */
+$instance = $class->newInstance();
+
+/**
+ * 对于获取属性，可以获取所有属性也可以只获取公有属性或者私有属性
+ * getProperties(ReflectionProperty::IS_PRIVATE);
+ * 
+ * ReflectionProperty::IS_STATIC
+ * ReflectionProperty::IS_PUBLIC
+ * ReflectionProperty::IS_PROTECTED
+ * ReflectionProperty::IS_PRIVATE
+ */
+echo "<br/><br/>===获取所有属性===<br/><br/>";
+
+$properties = $class->getProperties ();
+foreach ( $properties as $property ) {
+	echo $property->getName () . "<br/>";
+}
+
+echo "<br/><br/>===调用set get方法===<br/><br/>";
+$set = $class->getMethod("setFirstResult");
+$set->invoke($instance,"东软帝国群号：5307397");
+
+$get=$class->getmethod('getFirstResult');  
+echo $get->invoke($instance);      
+
+require_once 'com/stack/util/rsq/ReflectQueryDao.php'; 
+require_once 'com/stack/bean/CategoryBean.php';
+echo "<br/><br/>===调用set get方法===<br/><br/>";
+
+
+$rqd = new ReflectQueryDao("CategoryBean");
+
+$bean = new CategoryBean();
+$bean->setCat_id(2);
+$bean->setCat_name("123");
