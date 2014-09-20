@@ -1,0 +1,314 @@
+﻿/* CSS Document */
+	*{
+		margin:0;
+		outline:none;
+	}
+	
+	body{
+		margin:0;
+		background-image:url(../zimages/linkbodybg.jpg);
+	}
+	
+	.headDiv{
+		height:117px;
+		width:100%px;
+		background-image:url(../zimages/linkheadbg.jpg);
+	}
+	
+	.logoDiv{
+		margin:0 auto;
+		width:1100px;
+		height:117px;
+	}
+	
+	.logoDiv ul li{
+		float:left;
+		list-style:none;
+		margin-right:10px;
+	}
+	
+	.logoDiv ul li a{
+		color:#FFFFFF;
+		text-decoration:none;
+	}
+	
+	#logo_it{
+		margin-top:20px;
+		font-size:70px;
+		color:#FFFFFF;
+	}
+	
+	#logo_it a{
+		color:#FFFFFF;
+		list-style:none;
+	}
+	
+	#logo_word{
+		font-size:20px;
+		color:#FFFFFF;
+		margin-top:63px;
+	}
+
+	.link_common{
+		background-color:#CC6600;
+		color:#FFFFFF;
+		padding-top:5px;
+		padding-bottom:5px;
+		padding-left:20px;
+		padding-right:20px;
+		margin-top:80px;
+		margin-left:10px;
+		cursor:pointer;
+		
+	}
+	
+	/*身体部分*/
+	.bodyDiv{
+		margin:0 auto;
+		width:1100px;
+		height:700px;
+		margin-top:20px;
+	}
+	
+	.bodyLeft{
+		width:200px;
+		height:500px;
+		float:left;
+	}
+	
+	.bodyLeft ul li a{
+		color:#333333;
+		text-decoration:none;
+	}
+	
+	.user_div{
+		padding-top:5px;
+		padding-bottom:5px;
+		width:195px;
+		color:#333333;
+		padding-left:5px;
+		text-align:left;
+		font-weight:bolder;
+		margin-bottom:10px;
+	}
+	
+	.user_div a{
+		color:#333333;
+		text-decoration:none;
+	}
+	
+	.bodyLeft ul{
+		margin-left:0px;
+	}
+	
+	.bodyLeft ul li{
+		padding-left:5px;
+		padding-top:5px;
+		padding-bottom:5px;
+		list-style:none;
+		border-bottom:1px #999999 solid;
+		margin-bottom:10px;
+		font-size:12px;
+		color:#333333;
+		cursor:pointer;
+	}
+	
+	.bodyCenter{
+		width:700px;
+		height:500px;
+		float:left;
+	}
+	
+	.bodyCenter ul li{
+		margin-bottom:10px;
+		list-style:none;
+	}
+	
+	.pagination{
+		width:700px;
+		height:50px;
+		float:left;
+		margin-bottom:20px;
+	}
+	
+	.pagination ul{
+		margin-top:10px;
+	}
+	
+	.pagination ul li{
+		float:right;
+		margin-right:20px;
+		list-style:none;
+		background-color:#333333;
+		color:#FFFFFF;
+		font-weight:bolder;
+		padding:5px;
+		padding-left:20px;
+		padding-right:20px;
+		cursor:pointer;
+	}
+	
+	.pagination ul li a{
+		color:#FFFFFF;
+		text-decoration:none;
+	}
+	
+	.link_div{
+		width:600px;
+		height:20px;
+	}
+	
+	.link_title{
+		width:490px;
+		height:20px;
+		background-color:#333333;
+		float:left;
+		padding-top:5px;
+		padding-left:10px;
+		font-size:12px;
+		color:#FFFFFF;
+		text-overflow: ellipsis;
+   		-o-text-overflow: ellipsis;
+    	overflow: hidden;
+		white-space: nowrap;
+	}
+	
+	.link_title a{
+		color:#FFFFFF;
+		text-decoration:none;
+	}
+	
+	.link_detail_but{
+		width:100px;
+		height:20px;
+		float:left;
+		background-color:#006666;
+		font-size:12px;
+		text-align:center;
+		padding-top:5px;
+		color:#FFFFFF;
+		cursor:pointer;
+		
+	}
+	
+	.link_detail{
+		margin-bottom:10px;
+		margin-left:7px;
+		width:593px;
+		background-color:#006666;
+		float:left;
+		display:none;
+	}
+	
+	.link_detail ul{
+		margin-left:-30px;
+	}
+	
+	.link_detail ul li{
+		list-style:none;
+		font-size:12px;
+		color:#CCCCCC;
+		margin-top:2px;
+	}
+	
+	
+	.bodyRight{
+		width:200px;
+		height:500px;
+		float:left;
+	}
+	
+	.serachDiv{
+		width:200px;
+		height:50px;
+	}
+	
+	#search_link_title{
+		margin:0 auto;
+		width:200px;
+		height:38px;
+		font-size:14px;
+		background:transparent;
+		color:#333333;
+		padding:10px;
+		border:1px #CCCCCC solid;
+	}
+	
+	.share_link{
+		width:200px;
+		height:400px;
+	}
+	
+	.share_title{
+		margin:0 auto;
+		width:200px;
+		padding-top:10px;
+		padding-bottom:10px;
+		text-align:center;
+		border-top:1px #CCCCCC solid;
+		border-bottom:1px #CCCCCC solid;
+		margin-top:10px;
+		color:#333333;
+		font-weight:bolder;
+		cursor:pointer;
+	}
+	
+	.sort_Div{
+		display:none;
+	}
+	
+	.sort_Div select{
+		width:90px;
+		background-color:#666666;
+		color:#FFFFFF;
+		border:0;
+	}
+	
+	.link_name{
+		margin-top:5px;
+		width:200px;
+		height:20px;
+		border:0px;
+		background-color:#666666;
+		margin-bottom:5px;
+		color:#FFFFFF;
+		display:none;
+	}
+	
+	.link_url{
+		width:200px;
+		height:150px;
+		background-color:#666666;
+		border:0px;
+		margin-bottom:5px;
+		color:#FFFFFF;
+		display:none;
+	}
+	
+	.link_content{
+		width:200px;
+		height:150px;
+		background-color:#666666;
+		border:0px;
+		color:#FFFFFF;
+		display:none;
+	}
+	
+	#subShare{
+		margin-top:5px;
+		color:#FFFFFF;
+		width:200px;
+		height:30px;
+		font-size:20px;
+		background-color:#666666;
+		border:0;
+		display:none;
+	}
+	
+	
+	
+	/*选中的*/
+	.sortselect{
+		background-color:#993300;
+		cursor:default;
+	}

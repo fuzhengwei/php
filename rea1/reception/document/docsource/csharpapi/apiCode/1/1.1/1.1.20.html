@@ -1,0 +1,70 @@
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>using 关键字--引入命名空间</title>
+
+<link type="text/css" rel="stylesheet" 
+
+href="../../../js/SyntaxHighlighter/SyntaxHighlighter.css"></link>
+
+	<style>
+	/* @import url(SyntaxHighlighter.css); */
+
+	body {
+		font-family: Arial;
+		font-size: 12px;
+	}
+	</style>
+</head>
+
+<body>
+<h3>using 关键字--引入命名空间</h3>
+<h5>using关键字组要有两个用途<br/>
+	1、作为指令，用于命名空间创建别名或导入其他命名空间中定义的类型<br/>
+	2、作为语句，用于定义一个范围，在次范围的末尾将释放对象。</h5>
+<textarea name="code" class="c#">
+//语法
+using namespace;
+using alias = type|namespace;
+
+//示例
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+
+//using语句 语法
+using(Font font1 = new Font("Arial",10.0f))
+
+//示例
+using(OpenFileDialog OFD = new OpenFileDialog())
+{
+	if(OFD.ShowDialog() == DialogResult.OK)
+	{
+		MessageBox.Show(OFD.FileName);
+	}
+}
+</textarea>
+
+</body>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushCSharp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPhp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushVb.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushSql.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushDelphi.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPython.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>

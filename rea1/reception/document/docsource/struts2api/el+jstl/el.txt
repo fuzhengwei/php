@@ -1,0 +1,194 @@
+<%@ page language="java" import="java.util.*" pageEncoding="GB18030"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'el.jsp' starting page</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+  </head>
+  
+  <body>
+   <div style="font-size: 24px;">EL标签笔记</div><br/>
+   <!-- el表达式的输出方式 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">el表达式的输出方式</div>
+   ${"hello el tag"} 
+   <hr/>
+   <!-- el存取数组运算符 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">el存取数组运算符</div>
+   <%
+   		String[] arrFruit = {"香蕉","苹果","西红柿","荔枝"};
+   		request.setAttribute("fruit",arrFruit);
+   %>
+   ${requestScope.fruit[1]} 
+   <hr/>
+   <!-- el对list集合获取 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">el对list集合获取</div>
+   <%
+   		List<String> list = new ArrayList<String>();
+   		list.add("香蕉");
+   		list.add("苹果");
+   		list.add("荔枝");
+   		session.setAttribute("fruitList",list);
+   %>
+   ${ sessionScope.fruitList }
+   <br/>
+   ${ sessionScope.fruitList[1] }
+   <hr/>
+   <!-- el对map集合获取 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">el对map集合获取</div>
+   <%
+   		Map<String,String> map = new HashMap<String,String>();
+   		map.put("1","香蕉");
+   		map.put("2","苹果");
+   		map.put("3","鸭梨");
+   		application.setAttribute("fruitMap",map);
+   %>
+   ${ applicationScope.fruitMap }
+   <br/>
+   ${ applicationScope.fruitMap["1"] }
+   <hr/>
+   
+   <!-- el算数运算符 (反斜杠表示转义字符) -->
+   <div style="color:fuchsia;border: 1px aqua solid;">el算数运算符 (反斜杠表示转义字符)</div>
+   \${ 10 == 10 }:${ 10 == 10 }
+   \${ 10 eq 10 }:${ 10 eq 10 }
+   <br/>
+   \${ 10 != 10 }:${ 10 != 10 }
+   \${ 10 ne 10 }:${ 10 ne 10 }
+   <br/>
+   \${ 5 < 3 }:${ 5 < 3 }
+   \${ 5 lt 3 }:${ 5 lt 3 }
+   <br/>
+   \${ 5 > 3 }:${ 5 > 3 }
+   \${ 5 gt 3 }:${ 5 gt 3 }
+   <br/>
+   \${ 3 <= 4 }:${ 3 <= 4 }
+   \${ 3 le 4 }:${ 3 le 4 } 
+   <br/>
+   \${ 3 >= 4 }:${ 3 >= 4 }
+   \${ 3 ge 4 }:${ 3 ge 4 }
+   
+   <!-- el逻辑运算符 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">el逻辑运算符</div>
+   <hr>
+   <%
+   		String userName = "xiaofu";
+   		String password = "123";
+   		pageContext.setAttribute("userName",userName);
+   		pageContext.setAttribute("password",password);
+   %>
+   \${ pageScope.userName == "xiaofu" && pageScope.password == "123"}:
+   ${ pageScope.userName == "xiaofu" && pageScope.password == "123"}
+   <br/>
+   \${ pageScope.userName == "xiaofu" and pageScope.password == "123"}:
+   ${ pageScope.userName == "xiaofu" and pageScope.password == "123"}
+   <br/>
+    \${ pageScope.userName == "xiaofu" || pageScope.password == "1231"}:
+   ${ pageScope.userName == "xiaofu" || pageScope.password == "1231"}
+   <br/>
+   \${ pageScope.userName == "xiaofu" or pageScope.password == "1231"}:
+   ${ pageScope.userName == "xiaofu" or pageScope.password == "1231"}
+   <br/>
+   \${ !pageScope.userName == "xiaofu" }:
+   ${ !pageScope.userName == "xiaofu" }
+   <hr/>
+   <!-- empty运算符 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">empty运算符</div>
+   \${ empty pageScope.userName }:
+   ${ empty pageScope.userName }
+   <br/>
+   \${ not empty pageScope.userName }:
+   ${ not empty pageScope.userName }
+   <hr/>
+   <!-- empty条件运算符 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">empty条件运算符</div>
+   ${ empty pageScope.userName?"userName为空":"userName不为空" }
+   <hr/>
+   <!-- 运算符优先级 -->
+   <div style="color:fuchsia;border: 1px aqua solid;"> </div>
+   <table border="1">
+   		<tr align="center"><td colspan="2">运算符优先级表</td></tr>
+   		<tr>
+   			<td>[]</td><td>1</td>
+   		</tr>
+   		<tr>
+   			<td>()</td><td>2</td>
+   		</tr>
+   		<tr>	
+   			<td>-(负号)not ! empty</td><td>3</td>
+   		</tr>
+   		<tr>
+   			<td>* / div % mod</td><td>4</td>
+   		</tr>
+   		<tr>	
+   			<td>+(加号) -(减号)</td><td>5</td>
+   		</tr>
+   		<tr>	
+   			<td>< > <= >= lt gt le ge</td><td>6</td>
+   		</tr>
+   		<tr>
+   			<td>== != eq ne</td><td>7</td>
+   		</tr>
+   		<tr>
+   			<td>&& and</td><td>8</td>
+   		</tr>
+   		<tr>	
+   			<td>|| or</td><td>9</td>
+   		</tr>
+   		<tr>
+   			<td>?:</td><td>10</td>
+   		</tr>
+   </table>
+   
+   <hr/>
+   <!-- PageContext对象的应用 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">PageContext对象的应用</div>
+   <%
+   		session.setAttribute("user","徒弟-李冰-李楠");
+   %>
+   \${ PageContext.session.user }:${ user }
+   <hr/>
+   <!-- param和paramValues对象应用 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">param和paramValues对象应用</div>
+   <form action="el.jsp">
+   		<input name = "puser" type="text" id="puser"/>
+   		<label><input name = "affect" type="checkbox" id="affect" value="chess">chess</label>
+   		<label><input name = "affect" type="checkbox" id="affect" value="music">music</label>
+   		<input type="submit" value="提交到本页面并获得值">
+   </form>
+ 	  获得提交的信息：${ param.puser }|${  paramValues.affect[0] }|${  paramValues.affect[1] }
+   <hr/>
+   <!-- header 和 headerValues对象的应用 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">header 和 headerValues对象的应用</div>
+   \${ header.host }:${ header.host }<br/>
+   \${ header[host] }:${ header[host] }<br/>
+   \${ header["user-agent"] }:${ header["user-agent"] }
+   <hr/>
+   <!-- cookie 对象的应用 -->
+   <div style="color:fuchsia;border: 1px aqua solid;">cookie 对象的应用</div>
+   <%
+   		Cookie cookie = new Cookie("userMessage","xiaofuge");
+   		response.addCookie(cookie);
+   %>
+   \${ cookie.userMessage.value }:${ cookie.userMessage.value }
+   <hr/>
+   <!-- initParam对象  -->
+   <div style="color:fuchsia;border: 1px aqua solid;">initParam对象</div>
+   \${ initParam.author }:${ initParam.author }
+  </body>
+</html>

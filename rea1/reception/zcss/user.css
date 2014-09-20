@@ -1,0 +1,97 @@
+/* CSS Document */
+	
+	*{
+		margin:0;
+  		outline:none;
+	}
+	
+	.body{
+		margin:0;
+	}
+	
+	.top{
+		width:100%;
+		height:30px;
+		background-color:#999999;
+	}
+	
+	.loginDiv{
+		margin:0 auto;
+		margin-top:100px;
+		width:600px;
+		height:350px;
+		border:1px #CCCCCC solid;
+	}
+	
+	.registerDiv{
+		margin:0 auto;
+		margin-top:100px;
+		width:600px;
+		height:350px;
+		border:1px #CCCCCC solid;
+	}
+	
+	.logoDiv{	
+		width:316px;
+		height:110px;
+		background-image:url(../zimages/loginlogo.png);
+	}
+	
+	.logoInfo{
+		width:270px;
+		height:220px;
+		background-color:#CCCCCC;
+		float:left;
+		margin-left:20px;
+	}
+	
+	.registerInfo{
+		width:560px;
+		height:220px;
+		background-color:#CCCCCC;
+		float:left;
+		margin-left:20px;
+	}
+	
+	.logoInfo input{
+		width:200px;
+		height:25px;
+		background:transparent;
+		border:1px #FFFFFF solid;
+		font-size:16px;
+		color:#CCCCCC;
+	}
+	
+	.registerInfo input{
+		width:280px;
+		height:25px;
+		background:transparent;
+		border:1px #FFFFFF solid;
+		font-size:16px;
+		color:#CCCCCC;
+	}
+	
+	.logoInfo table{
+		width:270px;
+		height:220px;
+	}
+	
+	.registerInfo table{
+		width:560px;
+		height:220px;
+	}
+	
+	.logoMess{
+		width:270px;
+		height:220px;
+		background-color:#333300;
+		color:#FFFFFF;
+		float:left;
+		margin-left:20px;
+		border:2px #CCCCCC solid;
+	}
+	
+	.logoMess ul{
+		margin-left:-20px;
+	}
+	

@@ -1,0 +1,94 @@
+/* CSS Document */
+
+	html,body { 
+		overflow:hidden; 
+		margin:0px; 
+		width:100%; 
+		height:100%;
+	
+	} 
+	
+	.cd ul li a:link{
+		color: #CCCCCC;
+		text-decoration: none;
+	}
+	.cd ul li a:visited {
+		text-decoration: none;
+		color: #CCCCCC;
+	}
+	.cd ul li a:hover {
+		text-decoration: underline;
+		color: #FFFFFF;
+	}
+	.cd ul li a:active{
+		text-decoration: none;
+		color: #FFFFFF;
+	}
+	
+	
+	/*左面的菜单栏*/
+	.leftDiv{
+		width:260px;
+		height:575px;
+		border:1px #FFFFFF solid;
+		float:left;
+		position:absolute;
+		background-image:url(../img/bg.jpg);
+	}
+	
+	.topName{
+		width:100%;
+		height:50px;
+		float:left;
+		border-bottom:1px #FFFFFF solid;
+	}
+	
+	.cd{
+		float:left;
+		width:100%;
+		color:#FFFFFF;
+		margin-top:10px;
+	}
+	
+	.cd ul li{
+		cursor:pointer;
+		margin-top:5px;
+	}
+	
+	.topName span{
+		margin-top:10px;
+		margin-left:35px;
+		font-size:36px;
+		font-weight:bold;
+		font-family:"楷体_GB2312";
+		color:#FF0000;
+		position:absolute;
+		
+	}
+	
+	/*右面的菜单栏*/
+	.rightDiv{
+		//width:78%; 
+		height:100%; 
+		overflow-y:scroll; 
+		overflow-x:auto;
+		float:right;
+		color:#FFFFFF;
+	}
+	
+	/*标题名字和背景图片*/
+	.btName{
+		color:#FFFFFF;
+	}
+	
+	.spanhead{
+		color:#FFFFFF;
+	}
+	
+	.spanbody{
+		color:#00FF00;
+	}
+	
+	.spancj{
+		color:#FF00FF;
+	}

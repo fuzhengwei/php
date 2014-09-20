@@ -1,0 +1,62 @@
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>lock关键字--锁定</title>
+
+<link type="text/css" rel="stylesheet" 
+
+href="../../../js/SyntaxHighlighter/SyntaxHighlighter.css"></link>
+
+	<style>
+	/* @import url(SyntaxHighlighter.css); */
+
+	body {
+		font-family: Arial;
+		font-size: 12px;
+	}
+	</style>
+</head>
+
+<body>
+<h3>lock关键字--锁定</h3>
+<h5>lock关键字可以用来确保代码块完成运行，而不会被其他线程中断，它是通过在代码块运行期间为给定对象获取互斥锁来实现的。</h5>
+<textarea name="code" class="c#">
+//语法
+Object thisLock = new Object();
+lock(thisLock)
+{
+	//运行的代码块
+}
+/*
+ *提供给lock语句的参数必须为基于引用类型的对象，该对象用来定义锁的范围
+ */
+
+//本示例使用lock关键字锁定当前线程，在当前线程释放锁定之前，其他线程将无法访问该锁定的标记
+static void Main(string[] args)
+{
+	lock(new Program())
+	{
+		Console.WriteLine("锁定线程");
+		Console.ReadLine();
+	}
+}
+</textarea>
+
+</body>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushCSharp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPhp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushVb.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushSql.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushDelphi.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPython.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>

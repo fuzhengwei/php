@@ -1,0 +1,193 @@
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="http://localhost:8088/el jstl/">
+    <title>My JSP 'jstl.jsp' starting page</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+  </head>
+  
+  <body>
+  	<div style="font-size: 24px;">JSTL标签笔记</div><br/>
+  	<!-- jstl c:out 输出标签  escapeXml属性-->
+  	<div style="color:fuchsia;border: 1px aqua solid;">jstl c:out 输出标签  escapeXml属性</div>
+    escapeXml属性值为false时：<hr>
+    escapeXml属性值为true时：&lt;hr&gt;
+  	<hr/>
+  	
+  	<!-- jstl 测试两种语法 -->
+  	<div style="color:fuchsia;border: 1px aqua solid;">jstl 测试两种语法</div>
+  	第一种语法格式：user值为空<br/>
+  	第二种语法格式：user值为空
+  	<hr/>
+  	
+  	<!-- jstl c:set 设置标签 -->
+  	<div style="color:fuchsia;border: 1px aqua solid;">jstl c:set 设置标签 </div>
+  	应用语法1定义一个session范围内的变量user，值为 xiaofu<br/>
+  	
+  	输出变量user的值为：xiaofu
+  	<p/>
+  	应用语法2定义一个request范围内的变量money，值为12.5*6的结果<br/>
+  	
+  	输出变量money的值为：75.0
+  	<p/>
+  	应用语法3为JavaBean "LinkmanForm"设置各种属性并应用&lt;c:out&gt;标签输出个属性值<br/>
+  	
+  	
+  	id属性值为：1<br/>
+  	name属性值：xiaofu
+  	<p/>
+  	应用语法4为JavaBean "LinkmanForm" 设置各属性并应用&lt;c:out&gt;标签输出各种属性值<br/>
+  	
+  	tel属性值为：83952008
+  	<hr/>
+  	
+  	<!-- c:remove移除标签 -->
+  	<div style="color:fuchsia;border: 1px aqua solid;">c:remove移除标签</div>
+  	
+  		移除前输出变量softName的值：小付JSTL笔记
+  		<br/>
+  		
+  		移除后输出变量softName的值：softName的值为空
+  	<hr/>
+  	
+  	<!-- c:catch捕获异常标签 -->
+  	<div style="color:fuchsia;border: 1px aqua solid;">jstl c:out 输出标签  escapeXml属性</div>
+  	
+  		
+	抛出异常信息:java.lang.NumberFormatException: null
+	<hr/>
+	<!-- 条件标签 c:if -->
+	<div style="color:fuchsia;border: 1px aqua solid;">条件标签 c:if</div>
+	未来的世界是：方向比努力重要，能力比知识重要，健康比成绩重要，生活比文凭重要，情商比智商重要！
+	
+		<form action="" method="post">
+			评论：
+			<textarea rows="4" cols="30" name="comment"></textarea>
+			<br/>
+			<br/>
+			<input type="submit" value="发表评论">
+		</form>
+	
+	
+	<hr/>
+	<!-- 条件标签 c:choose c:when c:otherwise -->	
+	<div style="color:fuchsia;border: 1px aqua solid;">条件标签 c:choose c:when c:otherwise</div>
+	
+	
+		
+			<form action="" method="post">
+				用户名：<input name="cuser" type="text" id="cuser"/>
+				<input type="submit" value="登录"><br/>
+			</form>
+		
+		
+	
+	<hr/>
+	<!-- 条件标签 c:choose c:when c:otherwise 显示时间问候 -->
+	<div style="color:fuchsia;border: 1px aqua solid;">条件标签 c:choose c:when c:otherwise 显示时间问候</div>
+	
+		15:30
+		
+			
+			
+			
+			
+			
+				下午好
+			
+			
+		
+		<hr/>
+	<!-- 循环标签c:forEach -->
+	<div style="color:fuchsia;border: 1px aqua solid;">循环标签c:forEach</div>
+	
+	利用&lt;c:forEcah&gt;标签遍历List集合的结果如下：<br/>
+	
+			0&nbsp;床上等你<br/>
+	
+			1&nbsp;CSDN<br/>
+	
+			2&nbsp;http://www.csdn.net/<br/>
+	
+	<hr/>
+	<!-- 循环标签c:forTokens -->
+	<div style="color:fuchsia;border: 1px aqua solid;">循环标签c:forTokens</div>
+	
+	原字符串：编程词典软件涵盖技术、函数、控件、实例、项目、方案、界面，以及所有实例程序。
+	是开发人员必备的工具
+	<br/>******************分割后的字符串******************<br/>
+	
+		编程词典软件涵盖技术<br/>
+	
+		函数<br/>
+	
+		控件<br/>
+	
+		实例<br/>
+	
+		项目<br/>
+	
+		方案<br/>
+	
+		界面<br/>
+	
+		以及所有实例程序<br/>
+	
+		
+	是开发人员必备的工具<br/>
+	
+	<hr/>
+	<!-- 导入标签c:import -->
+	<div style="color:fuchsia;border: 1px aqua solid;">导入标签c:import</div>
+	c:import导入标签<br/>
+	
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="http://localhost:8088/el jstl/">
+    
+    <title>My JSP 'index.jsp' starting page</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+  </head>
+  
+  <body>
+    <a href="el.jsp">EL标签</a>|
+    <a href="jstl.jsp">JSTL标签</a>
+  </body>
+</html>
+
+	<hr/>
+	<!-- 重定向标签c:redirect -->
+	<div style="color:fuchsia;border: 1px aqua solid;">重定向标签c:redirect</div>
+	不传参数的重定向<br/>
+	&lt;c:redirect url=""&gt;&lt;/c:redirect&gt;<br/>
+	传参数的重定向<br/>
+	&lt;c:redirect url=""&gt;
+		&lt;c:param name="user" value="xiaofu"&gt;&lt;/c:param&gt;
+	&lt;/c:redirect&gt;
+	<hr/>
+	<!-- 生成URL标签c:url -->
+	<div style="color:fuchsia;border: 1px aqua solid;">生成URL标签c:url</div>
+	
+	<a href="index.jsp?user=xiaofu">生成的url</a>
+	<hr/>
+  </body>
+</html>

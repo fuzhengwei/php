@@ -1,0 +1,50 @@
+/* CSS Document */
+*{
+	margin:0;
+	outline:none;
+}
+
+body{
+	margin:0;
+	background-image:url(../zimges/backbj.jpg);
+	background-repeat:repeat-x;
+	background-attachment:fixed;
+}
+
+.loginDiv{
+	margin:0 auto;
+	margin-top:200px;
+	width:450px;
+	height:300px;
+	background-color:#333333;
+}
+
+.loginName,.loginPwd,.loginCk{
+	margin-left:75px;
+	margin-top:10px;
+	margin-bottom:10px;
+	float:left;
+	width:300px;
+	height:50px;
+	background-color:#FFFFFF;
+	border:0px;
+	font-size:24px;
+	text-align:center;
+	color:#003300;
+	border:1px #FFFFFF solid;
+}
+
+.loginRea1{
+	margin-top:30px;
+	margin-left:50px;
+	float:left;
+	width:350px;
+	height:40px;
+	background-color:#330000;
+	border:1px #330000 solid;
+	color:#FFFFFF;
+	cursor:pointer;
+	letter-spacing:2px;
+	font-size:18px;
+	font-weight:bold;
+}

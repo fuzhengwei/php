@@ -1,0 +1,64 @@
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Object 类型--所有类型的基类</title>
+
+<link type="text/css" rel="stylesheet" 
+
+href="../../../js/SyntaxHighlighter/SyntaxHighlighter.css"></link>
+
+	<style>
+	/* @import url(SyntaxHighlighter.css); */
+
+	body {
+		font-family: Arial;
+		font-size: 12px;
+	}
+	</style>
+</head>
+
+<body>
+<h3>Object 类型--所有类型的基类</h3>
+<h5>Object类型在.NET FrameWork中是Object的别名。</h5>
+<textarea name="code" class="c#">
+class ObjectClass
+{
+	public int i = 60;
+}
+class Program
+{
+	static void Main(string[] args)
+	{
+		object a;
+		a = 1;
+		Console.WriteLine(a);
+		Console.WriteLine(a.GetType());
+		Console.WriteLine(a.ToString());
+		Console.WriteLine();
+		a = new ObjcetClass(); //重新实例化a
+		ObjectClass classRef;
+		classRef = (ObjectClass)a;
+		Console.WriteLine(classRef.i);
+		Console.Read();
+	}
+}
+</textarea>
+
+</body>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushCSharp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPhp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushVb.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushSql.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushDelphi.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPython.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>

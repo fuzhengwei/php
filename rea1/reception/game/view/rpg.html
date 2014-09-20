@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="620" height="420" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<img src="images/girl1.jpg" id = "role" hidden />
+<img src="images/flower1.jpg" id = "flower" hidden />
+<img src="images/npc1.jpg" id = "npc1" hidden />
+<img src="images/stone1.jpg" id = "stone1" hidden />
+<img src="images/water1.jpg" id = "water1" hidden />
+<script>
+
+var c=document.getElementById("myCanvas");
+var pen=c.getContext("2d");
+pen.shadowBlur = 20, pen.shadowColor = "#0f0";
+pen.strokeText("开始",280,190);
+//context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+var dirs = [[ 0, 1 ], [ 0, -1 ], [-1, 0 ], [ 1, 0 ]];
+var keyLeft=37,keyUp=38,keyRight=39,keyDown=40;
+var left=1;down=0;right=2;up=3;
+var size=20;
+var wCut=21;
+var hCut=21;
+var autoGo;
+var okX=280;
+var okY=190;
+var cancelX=280;
+var cancelY=210;
+var flowers=[
+	[21,11],[21,12],[21,13],[22,11],[22,13],[23,11],[23,12],[23,13]
+];
+var stones=[
+	[3,2],[4,2],[4,3],[4,4],[3,4]
+];
+var waters=[
+	[22,12]
+]
+var map;
+var r = document.getElementById("role");
+var f= document.getElementById("flower");
+var imgNpc1= document.getElementById("npc1");
+var imgStone1= document.getElementById("stone1");
+var imgWater1= document.getElementById("water1");
+var barrier;
+var pause=false;
+
+function Map(flowers,stones,waters,npcs){
+	this.flowers=flowers;
+	this.stones=stones;
+	this.waters=waters;
+	this.npcs=npcs;
+}
+var task=0;
+c.doOk=start;
+function Npc(name,img,x,y){
+	this.name=name;
+	this.img=img;
+	this.x=x;
+	this.y=y;
+}
+c.onmousedown=function(e){
+	if(e.x>280&&e.x<320&&e.y>190&&e.y<210){
+		if(c.doOk!=undefined)
+			c.doOk();
+			c.doOk=null;
+	}
+	if(e.x>280&&e.x<320&&e.y>210&&e.y<230){
+		if(c.doCancel!=undefined){
+			c.doCancel();
+			c.doCancel=null;
+		}
+	}
+}
+c.ommouseover=function(e){
+	pen.strokeText("x:"+e.x+",y:".e.y,10,10);
+}
+
+document.onkeydown=function(ev){
+	var e = window.event||ev;
+	switch(e.keyCode){
+		case keyLeft:
+		role.dir=left;
+		role.x--;
+		if(!checkRole(role)){
+			role.x++;
+		}
+		break;
+		case keyRight:
+		role.dir=right;
+		role.x++;
+		if(!checkRole(role)){
+			role.x--;
+		}
+		break;
+		case keyUp:
+		role.dir=up;
+		role.y--;
+		if(!checkRole(role)){
+			role.y++;
+		}
+		break;
+		case keyDown:
+		role.dir=down;
+		role.y++;
+		if(!checkRole(role)){
+			role.y--;
+		}
+		break;
+	}
+	role.walk();
+}
+
+function checkRole(o){
+	for(var i=0;i<barrier.length;i++){
+		if(o.x==barrier[i][0]&&o.y==barrier[i][1]){
+			for(var i=0;i<map.npcs.length;i++){
+				if(o.x==map.npcs[i].x&&o.y==map.npcs[i].y){
+					map.npcs[i].talk();
+				}
+			}
+			return false;
+		}
+	}
+	return true;
+}
+
+function Role(dir,x,y){
+	this.x=x;
+	this.y=y;
+	this.dir=dir;
+	this.walk=function(){
+		
+		this.x=this.x<0?0:this.x;
+		this.y=this.y<0?0:this.y;
+		this.x=this.x>29?29:this.x;
+		this.y=this.y>19?19:this.y;
+		if(this.action==undefined){
+			this.action=0;
+		}
+		this.action++;
+		this.action=this.action==3?0:this.action;
+		this.print();
+		if(this.walkMore!=undefined){
+			this.walkMore();
+		}
+	}
+	
+	this.print=function(){
+		if(!pause){
+			pen.shadowBlur = 0;
+			pen.fillStyle='#222';
+			pen.fillRect(0,0,620,420);
+			pen.fillStyle='#888';
+			pen.fillRect(10,10,600,400);
+			pen.fillStyle='#fff';
+			var vx=10+((this.x-2)*20<0?0:(this.x-2)*20);
+			var vy=10+((this.y-2)*20<0?0:(this.y-2)*20);
+			var xsize=10+(this.x+3)*20-vx;
+			var ysize=10+(this.y+3)*20-vy;
+			ysize=ysize+vy>=410?410-vy:ysize;
+			xsize=xsize+vx>=610?610-vx:xsize;
+			pen.fillRect(vx,vy,xsize,ysize);		
+			pen.fillStyle='#00f';
+			this.drawArray(map.flowers,f);
+			this.drawArray(map.stones,imgStone1);
+			this.drawArray(map.waters,imgWater1);
+			this.drawNpc(map.npcs);
+			if(this.printMore!=undefined){
+				this.printMore();
+				this.printMore=undefined;
+			}
+			pen.drawImage(r,this.action*wCut,this.dir*hCut,wCut,hCut,10+20*this.x,10+20*this.y,20,20);
+		}
+	}
+	this.drawNpc=function(o){
+		for(var i=0;i<o.length;i++){
+			this.drawXY(pen,o[i].x,o[i].y,o[i].img);
+		}
+	}
+	this.drawArray = function(o,img){
+		for(var i=0;i<o.length;i++){
+				this.drawXY(pen,o[i][0],o[i][1],img);
+		}
+	}
+	this.drawXY=function(pen,x,y,img){
+		if(x>this.x-3&&x<this.x+3&&y>this.y-3&&y<this.y+3)
+			pen.drawImage(img,10+20*x,10+20*y,20,20);
+	}
+	
+}
+var role;
+var npc1
+function drawOKText(t){
+	if(t!=undefined){
+		drawText(t,okX,okY);
+	}else{
+		drawText("确定",okX,okY);
+	}
+}
+function drawCancelText(t){
+	if(t!=undefined){
+		drawText(t,cancelX,cancelY);
+	}else{
+		drawText("取消",cancelX,cancelY);
+	}
+}
+
+function drawMsgText(txt){
+	var t=6;
+	if(txt.length<10){
+		t=9;
+	}
+	var temp=txt.length*t;
+	drawText(txt,310-temp,170);
+}
+
+function drawText(txt,x,y){
+	pen.shadowBlur = 20;
+	pen.strokeText(txt,x,y);
+	pen.shadowBlur = 0;
+}
+function start(){
+	map = new Map(flowers,stones,waters,new Array());
+	npc1= new Npc('花花',imgNpc1,3,3);
+	npc1.talk = function(){
+		pen.fillStyle="#eee"
+		if(task==0){
+			drawMsgText(this.name+":给我一点水,我将支付你20G");
+			drawOKText();
+			drawCancelText();
+			pause=true;
+			c.doOk=function(){
+				task++;
+				pause=false;
+			}
+			c.doCancel=function(){
+				pause=false;
+			}
+		}else if(task==1){
+			drawMsgText(this.name+":东南方有一个花园,我把水桶藏在右下角的花丛中");
+			drawCancelText("知道了");
+			pause=true;
+			c.doCancel=function(){
+				pause=false;	
+			}
+			role.walkMore=function(){
+				if(role.x==23&&role.y==13){
+					drawMsgText("发现一个水桶");
+					drawOKText("捡起");
+					pause=true;
+					c.doOk=function(){
+						task++;
+						pause=false;
+					}
+					drawCancelText("放弃");
+					c.doCancel=function(){
+						pause=false;
+					}
+					this.walkMore=undefined;
+				}
+			}
+		}else if(task==2){
+			drawMsgText(this.name+":花丛中有个水池,但只能从他左边取水!!");
+			pause=true;
+			drawCancelText("知道了");
+			c.doCancel=function(){
+						pause=false;
+					}
+			role.walkMore=function(){
+				if(role.x==21&&role.y==12){
+					drawMsgText("可以取水,是否打水?");
+					drawOKText("打水");
+					pause=true;
+					c.doOk=function(){
+						task++;
+						pause=false;
+					}
+					drawCancelText("不打");
+					c.doCancel=function(){
+						pause=false;
+					}
+					this.walkMore=undefined;
+				}
+			}
+		}else if(task==3){
+			drawMsgText("得到20G,任务完成");
+			drawOKText("重新游戏");
+			pause=true;
+			c.doOk=function(){
+				task=0;
+				pause=false;
+			}
+			drawCancelText("   否");
+			c.doCancel=function(){
+				pause=false;
+			}
+		}
+		
+	}
+	map.npcs.push(npc1);
+	createbarrierFromMap(map);
+	role=new Role(down,0,0);
+	autoGo=setInterval(autoG,500);
+}
+
+function createbarrierFromMap(o){
+	barrier=new Array();
+	for(var i=0;i<o.stones.length;i++){
+		barrier[barrier.length]=o.stones[i];
+	}
+	for(var i=0;i<o.waters.length;i++){
+		barrier[barrier.length]=o.waters[i];
+	}
+	for(var i=0;i<o.npcs.length;i++){
+		barrier[barrier.length]=[o.npcs[i].x,o.npcs[i].y];
+	}
+}
+	
+function autoG(){
+	role.walk();
+}
+
+
+</script>
+
+</body>
+</html>

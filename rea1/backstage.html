@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="backstage/zcss/backstage.css" />
+<script language="javascript" type="text/javascript" src="backstage/zjs/jquery-1.8.3.js"></script>
+<script language="javascript" type="text/javascript" src="backstage/zjs/jquery.corner.js"></script>
+<script language="javascript" type="text/javascript">
+	$(function(){
+		$(".loginDiv,.loginPwd,.loginCk,.loginName,.loginRea1").corner("5px");
+		
+		$(".loginName,.loginPwd,.loginCk").hover(
+			function(){
+				$(this).css({"border-color":"#CC0000"});
+			},
+			function(){
+				$(this).css({"border-color":"#FFFFFF"});
+			}
+		).click(function(){
+			if($(this).val() == "请输入用户名" ||$(this).val() == "*****" ||$(this).val() == "请输入仓库码"){
+				$(this).val("");
+			}
+			
+		});
+	});
+</script>
+<title>REA1|后台登录</title>
+</head>
+
+<body>
+<form action="backstage/emp/control/empcontrol.php" method="post">
+<input type="hidden" value="doLogin" name="type"/>
+<div class="loginDiv">
+	<input type="text" name="emp_name" class="loginName" value="请输入用户名"/>
+	
+	<input type="password" name="emp_pwd" class="loginPwd" value="*****"/>
+	
+	<input type="password" name="loginCk" class="loginCk" value="请输入仓库码"/>
+	
+	<input type="submit"  class="loginRea1" value="登录REA1后台管理系统" />
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,1727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>struts小付版本文档</title>
+<link type="text/css" rel="stylesheet" href="css/index.css" />
+<script language="javascript" type="text/javascript" src="js/jquery-1.4.2.js"></script>
+<script language="javascript" type="text/javascript" src="js/index.js"></script>
+</head>
+
+<body>
+	<div class="mainDiv">
+		<div class="leftDiv">
+			<div style="font-size:45px;color:#FFFFFF;font-family:'华文行楷';margin-top:5px;text-align:center;width:300px;">Struts2</div>
+			<hr/>
+			
+			<div class="leftBottomDiv">
+				<ul class="ulli">
+				<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_0100_Introduction</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										(default package)
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0100_Introduction/T.html" target="myif">T.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0100_Introduction/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0100_Introduction/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0100_Introduction/Hello.txt" target="myif">Hello.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_0200_Namespace</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										(default package)
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0200_Namespace/T.txt" target="myif">T.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0200_Namespace/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0200_Namespace/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0200_Namespace/Namespace.txt" target="myif">Namespace.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_0300_Action</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.front.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0300_Action/IndexAction1.txt" target="myif">IndexAction1.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0300_Action/IndexAction2.txt" target="myif">IndexAction2.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0300_Action/IndexAction3.txt" target="myif">IndexAction3.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0300_Action/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0300_Action/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0300_Action/ActionIntroduction.txt" target="myif">ActionIntroduction.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_0400_Path</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.front.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0400_Path/PathAction.txt" target="myif">PathAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0400_Path/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0400_Path/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0400_Path/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0400_Path/path.txt" target="myif">path.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0400_Path/T.txt" target="myif">T.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_0500_ActionMethod</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.front.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0500_ActionMethod/UserAction.txt" target="myif">UserAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0500_ActionMethod/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0500_ActionMethod/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0500_ActionMethod/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0500_ActionMethod/user_add_success.txt" target="myif">user_add_success.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_0600_ActionWildcard</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0600_ActionWildcard/StudentAction.txt" target="myif">StudentAction.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0600_ActionWildcard/TeacherAction.txt" target="myif">TeacherAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0600_ActionWildcard/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0600_ActionWildcard/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0600_ActionWildcard/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0600_ActionWildcard/Studentadd_success.txt" target="myif">Studentadd_success.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0600_ActionWildcard/Studentdelete_success.txt" target="myif">Studentdelete_success.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0600_ActionWildcard/Teacher_add_success.txt" target="myif">Teacher_add_success.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0600_ActionWildcard/Teacher_delete_success.txt" target="myif">Teacher_delete_success.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_0700_ActionAttrParamInput</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0700_ActionAttrParamInput/UserAction.txt" target="myif">UserAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0700_ActionAttrParamInput/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0700_ActionAttrParamInput/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0700_ActionAttrParamInput/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0700_ActionAttrParamInput/user_add_success.txt" target="myif">user_add_success.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_0800_DomainModelParamInput</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0800_DomainModelParamInput/UserAction.txt" target="myif">UserAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.dto
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0800_DomainModelParamInput/UserDTO.txt" target="myif">UserDTO.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.model
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0800_DomainModelParamInput/User.txt" target="myif">User.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0800_DomainModelParamInput/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0800_DomainModelParamInput/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0800_DomainModelParamInput/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0800_DomainModelParamInput/user_add_success.txt" target="myif">user_add_success.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_0900_ModelDrivenParamInput</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0900_ModelDrivenParamInput/UserAction.txt" target="myif">UserAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.model
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0900_ModelDrivenParamInput/User.txt" target="myif">User.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0900_ModelDrivenParamInput/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_0900_ModelDrivenParamInput/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0900_ModelDrivenParamInput/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_0900_ModelDrivenParamInput/user_add_success.txt" target="myif">user_add_success.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_1000_CharacterEncoding</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1000_CharacterEncoding/UserAction.txt" target="myif">UserAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1000_CharacterEncoding/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1000_CharacterEncoding/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1000_CharacterEncoding/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1000_CharacterEncoding/user_add_success.txt" target="myif">user_add_success.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--start this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+							<span id="openSpan">Struts2_1100_SimpleDataValiation</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1100_SimpleDataValiation/UserAction.txt" target="myif">UserAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1100_SimpleDataValiation/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1100_SimpleDataValiation/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1100_SimpleDataValiation/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1100_SimpleDataValiation/user_add_success.txt" target="myif">user_add_success.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1100_SimpleDataValiation/user_add_error.txt" target="myif">user_add_error.jsp</a>
+									</li>
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">Struts2_1200_AccessWebElements</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1200_AccessWebElements/LoginAction1.txt" target="myif">LoginAction1.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1200_AccessWebElements/LoginAction2.txt" target="myif">LoginAction2.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1200_AccessWebElements/LoginAction3.txt" target="myif">LoginAction3.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1200_AccessWebElements/LoginAction4.txt" target="myif">LoginAction4.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1200_AccessWebElements/struts.xml" target="myif">struts.xml</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1200_AccessWebElements/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1200_AccessWebElements/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1200_AccessWebElements/user_login_success.txt" target="myif">user_login_success.jsp</a>
+									</li>
+									
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">Struts2_1300_IncludeModules</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1300_IncludeModules/LoginAction1.txt" target="myif">LoginAction1.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1300_IncludeModules/LoginAction2.txt" target="myif">LoginAction2.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1300_IncludeModules/LoginAction3.txt" target="myif">LoginAction3.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1300_IncludeModules/LoginAction4.txt" target="myif">LoginAction4.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1300_IncludeModules/login.xml" target="myif">login.xml</a>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1300_IncludeModules/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1300_IncludeModules/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1300_IncludeModules/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1300_IncludeModules/user_login_success.txt" target="myif">user_login_success.jsp</a>
+									</li>
+									
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">Struts2_1400_DefaultAction</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1400_DefaultAction/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1400_DefaultAction/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1400_DefaultAction/default.txt" target="myif">default.jsp</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">Struts2_1500_ResultType</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1500_ResultType/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1500_ResultType/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1500_ResultType/index.txt" target="myif">index.jsp</a>
+									</li>
+										<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1500_ResultType/r1.txt" target="myif">r1.jsp</a>
+									</li>
+										<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1500_ResultType/r2.txt" target="myif">r2.jsp</a>
+									</li>
+										<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1500_ResultType/r3.txt" target="myif">r3.jsp</a>
+									</li>
+										<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1500_ResultType/r4.txt" target="myif">r4.jsp</a>
+									</li>
+									
+								</ul>
+								
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">Struts2_1600_GlobalResult</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1600_GlobalResult/AdminAction.txt" target="myif">AdminAction.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a  href="Struts2_1600_GlobalResult/UserAction.txt" target="myif">UserAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1600_GlobalResult/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1600_GlobalResult/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1600_GlobalResult/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1600_GlobalResult/main.txt" target="myif">main.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1600_GlobalResult/user_error.txt" target="myif">user_error.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1600_GlobalResult/user_success.txt" target="myif">user_success.jsp</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">Struts2_1700_DynamicResult</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1700_DynamicResult/UserAction.txt" target="myif">UserAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1700_DynamicResult/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1700_DynamicResult/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1700_DynamicResult/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1700_DynamicResult/user_error.txt" target="myif">user_error.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1700_DynamicResult/user_success.txt" target="myif">user_success.jsp</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">Struts2_1800_ResultWithParams</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.user.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1800_ResultWithParams/UserAction.txt" target="myif">UserAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1800_ResultWithParams/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1800_ResultWithParams/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1800_ResultWithParams/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1800_ResultWithParams/user_success.txt" target="myif">user_success.jsp</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">Struts2_1900_OGNL</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.ognl
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1900_OGNL/Cat.txt" target="myif">Cat.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1900_OGNL/Dog.txt" target="myif">Dog.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1900_OGNL/OgnlAction.txt" target="myif">OgnlAction.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1900_OGNL/S.txt" target="myif">S.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1900_OGNL/TestAction.txt" target="myif">TestAction.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1900_OGNL/User.txt" target="myif">User.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1900_OGNL/ognl.xml" target="myif">ognl.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1900_OGNL/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_1900_OGNL/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1900_OGNL/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_1900_OGNL/ognl.txt" target="myif">ognl.jsp</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">Struts2_2000_StrutsTags</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.tags
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_2000_StrutsTags/Dog.txt" target="myif">Dog.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_2000_StrutsTags/S.txt" target="myif">S.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_2000_StrutsTags/TagsAction.txt" target="myif">TagsAction.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_2000_StrutsTags/User.txt" target="myif">User.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_2000_StrutsTags/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_2000_StrutsTags/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_2000_StrutsTags/_include1.html" target="myif">_include1.html</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_2000_StrutsTags/_include2.html" target="myif">_include2.html</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_2000_StrutsTags/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_2000_StrutsTags/tags.txt" target="myif">tags.jsp</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">Struts2_2100_Theme_1</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.struts2.theme
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_2100_Theme_1/ThemeAction.txt" target="myif">ThemeAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_2100_Theme_1/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="Struts2_2100_Theme_1/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_2100_Theme_1/index.txt" target="myif">index.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="Struts2_2100_Theme_1/theme.txt" target="myif">theme.jsp</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">struts2_3100_I18N_Test</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										(default package)
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="struts2_3100_I18N_Test/Test.txt" target="myif">Test.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-10.jpg)">&nbsp;&nbsp;</span>
+										<a href="struts2_3100_I18N_Test/app_en_US.text" target="myif">app_en_US.properties</a>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-10.jpg)">&nbsp;&nbsp;</span>
+										<a href="struts2_3100_I18N_Test/app_zh_CN.text" target="myif">app_zh_CN.properties</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">struts2_3200_my_interceptor</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="struts2_3200_my_interceptor/TestAction.txt" target="myif">TestAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.interceptor
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="struts2_3200_my_interceptor/MyInterceptor.txt" target="myif">MyInterceptor</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="struts2_3200_my_interceptor/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="struts2_3200_my_interceptor/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="struts2_3200_my_interceptor/test.txt" target="myif">test.jsp</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+					<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">struts2_3600_token_interceptor</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="struts2_3600_token_interceptor/InputAction.txt" target="myif">InputAction.txt</a>
+											</li>
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="struts2_3600_token_interceptor/UserAction.txt" target="myif">UserAction.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="struts2_3600_token_interceptor/struts.xml" target="myif">struts.xml</a>
+										
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="struts2_3600_token_interceptor/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="struts2_3600_token_interceptor/addOK.txt" target="myif">addOK.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="struts2_3600_token_interceptor/error.txt" target="myif">error.jsp</a>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="struts2_3600_token_interceptor/input.txt" target="myif">input.jsp</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+						<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">struts2_3700_type_conversion</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.bjsxt.action
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="struts2_3700_type_conversion/TestAction.txt" target="myif">TestAction.txt</a>
+											</li>
+										</ul>
+										com.bjsxt.converter
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="struts2_3700_type_conversion/MyPointConverter.txt" target="myif">MyPointConverter.txt</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="struts2_3700_type_conversion/struts.xml" target="myif">struts.xml</a>
+									</li>
+									<li>
+										<span class="imgtb" style="background-image:url(images/tubiao-6.png)">&nbsp;&nbsp;</span>
+										<a href="struts2_3700_type_conversion/xwork-conversion.txt" target="myif">xwork-conversion.properties</a>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Referenced Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="struts2_3700_type_conversion/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="struts2_3700_type_conversion/test.txt" target="myif">test.jsp</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+						<!--strat this-->
+					<li>
+						<span class="imgtb">&nbsp;&nbsp;</span>
+						<span id="openSpan">el+jstl</span>
+						<ul class="ulli2">
+							<li><span class="imgtb" style="background-image:url(images/tubiao-2.png)">&nbsp;&nbsp;</span>
+								src
+								<ul class="ulli3">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-5.png)">&nbsp;&nbsp;</span>
+										com.wgh
+										<ul class="ulli4">
+											<li><span class="imgtb" style="background-image:url(images/tubiao-7.png)">&nbsp;&nbsp;</span>
+												<a href="el+jstl/LinkmanForm.txt" target="myif">LinkmanForm</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								JRE System Library
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-3.png)">&nbsp;&nbsp;</span>
+								Java EE 5 Libraries
+							</li>
+							
+							<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+								WebRoot
+								<ul class="ulli5">
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										META-INF
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-4.png)">&nbsp;&nbsp;</span>
+										WEB-INF
+										<ul class="ulli6">
+											<li>
+												<span class="imgtb" style="background-image:url(images/tubiao-9.png)">&nbsp;&nbsp;</span>
+												<a href="el+jstl/web.xml" target="myif">web.xml</a>
+											</li>
+										</ul>
+									</li>
+									<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="el+jstl/index.txt" target="myif">index.jsp</a>
+									</li>
+										<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="el+jstl/el.txt" target="myif">el.jsp</a>
+										<a href="el+jstl/el.html" target="myif">
+										<span class="imgtb" style="background-image:url(images/tubiao-11.png);cursor:pointer;">&nbsp;&nbsp;</span>
+										</a>
+										
+									</li>
+										<li><span class="imgtb" style="background-image:url(images/tubiao-8.png)">&nbsp;&nbsp;</span>
+										<a href="el+jstl/jstl.txt" target="myif">jstl.jsp</a>
+										<a href="el+jstl/jstl.html" target="myif">
+										<span class="imgtb" style="background-image:url(images/tubiao-11.png);cursor:pointer;">&nbsp;&nbsp;</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<!--end this-->
+				</ul>
+			</div>
+		</div>
+		<div class="rightDiv">
+			<iframe name="myif" frameborder="0" scrolling="auto" src="">
+				
+			</iframe>
+		</div>
+	</div>
+</body>
+</html>

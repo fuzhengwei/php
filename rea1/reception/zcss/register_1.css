@@ -1,0 +1,148 @@
+/* CSS Document */
+
+	*{
+		margin:0;
+  		outline:none;
+	}
+	
+	body{
+		margin:0;
+		background-image:url(../zimages/casebg.png);
+	}
+	
+	/*用于放logo*/
+	.topDiv{
+		width:100%;
+		height:80px;
+		background-color:#000033;
+	}
+	
+	.logoDiv{
+		margin:0 auto;
+		width:900px;
+		height:80px;
+		color:#FFFFFF;
+	}
+	
+	.logoDiv ul{
+	
+	}
+	
+	#logo{
+		font-size:45px;
+		margin-top:20px;
+	}
+	
+	#logo_cn{
+		margin-top:43px;
+	}
+	
+	#login{
+		float:right;
+		margin-top:50px;
+		font-size:12px;
+		color:#CCCCCC;
+	}
+	
+	.logoDiv ul li{
+		float:left;
+		margin-right:20px;
+		list-style:none;
+	}
+	
+	.casestack{
+		width:106px;
+		height:80px;
+		float:right;
+		margin-top:-80px;
+		background-image:url(../zimages/casestack.png);
+		background-repeat:no-repeat;
+	}
+	
+	/*注册模块*/
+	.registerDiv{
+		margin:0 auto;
+		margin-top:20px;
+		width:800px;
+		height:400px;
+	}
+	
+	.registerMess{
+		width:600px;
+		height:400px;
+		float:left;
+	}
+	
+	.registerMess ul{
+		margin-top:20px;
+		width:400px;
+		height:auto;
+		border:1px #999999 solid;
+		padding:10px;
+	}
+	
+	.registerMess ul li{
+		list-style:none;
+		margin-bottom:5px;
+	}
+	
+	#point{
+		font-size:12px;
+		color:#666666;
+		margin-left:90px;
+	}
+	
+	input{
+		border:0;
+		height:25px;
+		width:200px;
+		font-weight:400;
+		background-color:#999999;
+		color:#FFFFFF;
+	
+	}
+	
+	span{
+		color:#990000;
+		font-size:12px;
+		margin-left:5px;
+	}
+	
+	.leftN{
+		width:70px;
+		float:left;
+		background-color:#003300;
+		padding:5px;
+		margin-right:10px;
+		color:#999999;
+	}
+	
+	.userHeadImg{
+		width:200px;
+		height:200px;
+		float:left;
+		margin-top:20px;
+	}
+	
+	.userHeadImg ul{
+		margin-left:-14px;
+	}
+	
+	.userHeadImg ul li{
+	 	list-style:none;
+	}
+	
+	#imgSuffixPoint{
+		font-size:12px; 
+		margin-top:5px; 
+		color:#FFFFFF; 
+		background-color:#990000; 
+		padding-top:5px; 
+		padding-bottom:5px;
+		width:150px; 
+		text-align:center;
+		height:auto;
+		display:none;
+	}
+	
+	

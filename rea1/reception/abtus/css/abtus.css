@@ -1,0 +1,73 @@
+/* CSS Document */
+.centerDiv{
+margin:0 auto;
+margin-top:10px;
+width:900px;
+height:470px;
+}
+
+.abtMessage{
+margin-top:20px;
+width:900px;
+height:30px;
+}
+
+.abtLOne{
+width:400px;
+height:25px;
+background-color:#2E2E2E;
+float:left;
+margin-left:40px;
+text-align:center;
+font-size:18px;
+color:#FFFFFF;
+padding-top:5px;
+cursor:pointer;
+}
+
+#BGC{
+background-color:#A40000;
+cursor:auto;
+}
+
+.abtLTwo{
+width:400px;
+height:25px;
+background-color:#2E2E2E;
+float:left;
+margin-left:20px;
+text-align:center;
+font-size:18px;
+color:#FFFFFF;
+padding-top:5px;
+cursor:pointer;
+}
+
+#abtLTwo{
+display:none;
+}
+
+.abtMessDetail{
+margin:0 auto;
+margin-bottom:10px;
+width:810px;
+height:390px;
+background-color:#3B3B3B;
+margin-top:10px;
+border:1px #131313 solid;
+border-top:0;
+border-bottom:2px #131313 solid;
+padding:5px;
+text-indent:2em;
+color:#999999;
+font-size:18px;
+}
+.abtMessDetail ul{
+margin-left:-30px;
+}
+
+.abtMessDetail ul li{
+list-style:none;
+margin-top:10px;
+}
+

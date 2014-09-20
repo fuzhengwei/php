@@ -1,0 +1,1664 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>小付整理oracle笔记</title>
+<link type="text/css" rel="stylesheet" href="css/mainLayOut.css" />
+<script language="javascript" type="text/javascript" src="js/jquery-1.4.2.js"></script>
+<script language="javascript" type="text/javascript" src="js/oracleText.js"></script>
+</head>
+
+<body background="img/bg1.gif">
+<div class="leftDiv">
+	<div class="topName">
+		<span>Oralce笔记</span>
+	</div>
+	<div class="cd">
+	<ul>
+			<li><a href="#1" name=00>文件操作命令</a></li>
+			<li><a href="#2" name=00>登录操作命令</a></li>
+			<li><a href="#3" name=00>表的管理</a></li>
+			<li><a href="#4" name=00>增删查改控制</a></li>
+			<li><a href="#5" name=00>sql函数</a></li>
+			<li><a href="#6" name=00>事务管理</a></li>
+			<li><a href="#7" name=00>数据库管理</a></li>
+			<li><a href="#8" name=00>数据字典</a></li>
+			<li><a href="#9" name=00>表空间，数据文件</a></li>
+			<li><a href="#10" name=00>约束</a></li>
+			<li><a href="#11" name=00>索引</a></li>
+			<li><a href="#12" name=00>角色</a></li>
+			<li><a href="#13" name=00>pl/sql</a></li>
+			<li><a href="#14" name=00>数据恢复</a></li>
+			<li><a href="#15" name=00>java操作oracle数据库</a></li>
+			<li><a href="#16" name=00>java调用存储过程</a></li>		
+	</ul>
+	</div>
+	
+	<hr />
+	<font color="#FFFFFF" style="font-weight:bold; font-size:18px;">
+		<br/>
+		
+		<span>纳百川、吞吐、成自卧龙，</span><br/>
+		<span>笑红尘、纷繁、当乃胸容。</span><br/>
+		<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		-----付政委</span><br/>
+	</font>
+</div>
+
+<div class="rightDiv">
+	<div class="btName" id="文件操作命令">
+		<span class="spanhead"><a name="1">
+		*****************<br/></a>
+		</span>
+		文件操作命令<br/>
+		<span class="spanhead">
+		*****************<p/>
+		</span>
+		
+		<span class="spanbody">
+		===========start和@<br/>
+		</span>
+		说明：运行sql脚本<br/>
+		案例：sql>@ d:\a.sql 或者 sql>START d:\a.sql<br/>
+		<span class="spanbody">
+		===========edit<br/>
+		</span>
+		说明：该命令可以编辑指定的sql脚本<br/>
+		案例：sql>edit d:\a.sql<br/>
+		<span class="spanbody">
+		===========spool<br/>
+		</span>
+		说明：该命令可以将sql*plus屏幕上的内容输出到指定的文件中去<p/>
+		
+		<span class="spanhead" id="登录操作命令"><a name="2">
+		*****************<br/></a>
+		</span>
+		登录操作命令<br/>
+		<span class="spanhead">
+		******************<p/>
+		</span>
+		<span class="spanbody">
+		===========清屏命令<br/></span>
+		clear;<br/>
+		
+		<span class="spanbody">
+		===========设置行长<br/></span>
+		set linesize 120;<br/>
+		
+		<span class="spanbody">
+		===========打开时间 如：（10:53:05 SQL>)<br/></span>
+		set time on<br/>
+		
+		<span class="spanbody">
+		===========打开执行语句时间<br/></span>
+		set timing on;<br/>
+		
+		<span class="spanbody">
+		===========显示用户<br/></span>
+		show user<br/>
+		
+		<span class="spanbody">
+		===========连接用户(conn,connect无区别)<br/></span>
+		conn system/manager<br/>
+		connect system/manager<br/>
+		conn system/manager as sysdba<br/>
+		
+		<span class="spanbody">
+		===========创建用户(必须是有创建用户权限的登陆者，才能创建)<br/></span>
+		create user xiaoming identified by m123;<br/>
+		
+		<span class="spanbody">
+		===========更改密码(在oracle自带的SQL Plus下使用)--回车后，根据提示做<br/></span>
+		password xiaoming;<br/>
+		
+		passw<br/>
+		
+		<span class="spanbody">
+		===========删除用户<br/></span>
+		--单一删除用户<br/>
+		drop user xiaoming <br/>
+		--连带把用户建的表也删除<br/>
+		drop user xiaoming cascade<br/>
+		
+		<span class="spanbody">
+		===========授权用户(connect普通，dba最大，resource表空间建表)<br/></span>
+		grant dba to xiaoming<br/>
+		grant resource to xiaoming<br/>
+		grant create session bo xiaoming with admin option<br/>
+		
+		<span class="spanbody">
+		===========授权查询其他表(在sys,system,emp表所属人可以授权)<br/></span>
+		--普通授权<br/>
+		grant select on emp to xiaoming授予查询权限<br/>
+		..... update .. ... .. ........授予更新权限<br/>
+		..... all    .. ... .. ........授予所有权限<br/>
+		--指定精细授权<br/>
+		grant update on emp(sal,ename) to monkey;<br/>
+		--授权延续<br/>
+		grant select on emp to blake with grant option<br/>
+		
+		<span class="spanbody">
+		===========对象授权(让下一用户，可以继续传递这种权限给其他人)<br/></span>
+		grant select on emp to xiaoming with grant option<br/>
+		
+		<span class="spanbody">
+		===========系统授权(对象和系统有区别一个是grant一个是admin)<br/></span>
+		system给xiaoming授权时：<br/>
+		grant connect to xiaoming with admin option;<br/>
+		grant create view to ken;<br/>
+		grant create session,create table to tom with admin option;<br/>
+		
+		<span class="spanbody">
+		===========收回对象权限(在sys,system,emp表所属人可以授权)<br/></span>
+		
+		revoke select on emp to xiaoming撤销查询权限<br/>
+		.....  update .. ... .. ........撤销更新权限<br/>
+		.....  all    .. ... .. ........撤销所有权限 <br/>
+		
+		<span class="spanbody">
+		===========收回系统权限<br/></span>
+		revoke create session from ken;<br/>
+		
+		--把对象的回收权限给用户(级联回收)<br/>
+		revoke select on emp from blake<p/>
+		
+		<span class="spancj">
+		<-------------------------------><br/></span>
+		create session   连接数据库<br/>
+		create view      键视图<br/>
+		create procedure 键过程，包，函数<br/>
+		create cluster   键簇<br/>
+		create table     建表<br/>
+		create public synonym 建同义词<br/>
+		create trigger   建触发器<br/>
+		<span class="spancj">
+		<--------------------------------><p/></span>
+		
+		<span class="spancj">
+		<--------------------------------><br/></span>
+		对象权限可以授予用户，角色，public<br/>
+		在授予全县时，如果带with grant option<br/>
+		选项，则可以将该权限授予其他用户。<br/>
+		但要注意with grant option选项不能被<br/>
+		授予的角色。<br/>
+		<span class="spancj">
+		<--------------------------------><p/></span>
+		
+		<span class="spanbody">
+		============账户锁定<br/></span>
+		--设定文件<br/>
+		create profile lock_account <br/>
+		limit failed_login_attempts 3 password_lock_time 2;<br/>
+		
+		--把锁赋给用户<br/>
+		alter user xiaoming profile lock_account<br/>
+		
+		--把用户解锁<br/>
+		alter user xiaoming account unlock<br/>
+		
+		<span class="spanbody">
+		===========终止口令(设定用户每10天延迟两天必须改密码)<br/></span>
+		--设定文件<br/>
+		create profile myprofile <br/>
+		limit password_life_time 10<br/>
+		password_grace_time 2;<br/>
+		--口令赋给用户<br/>
+		alter user xiaoming profile myprofile<br/>
+		
+		<span class="spanbody">
+		===========口令历史(指定时间内必须更改密码，而且不能和以前一样)<br/></span>
+		--设定文件<br/>
+		create profile password_history limit<br/>
+		password_life_time 10 password_grace_time 2<br/>
+		password_reuse_time 10<br/>
+		--口令赋给用户<br/>
+		alter user xiaoming profile password_history<br/>
+		
+		<span class="spanbody">
+		===========删除设定文件<br/></span>
+		drop profile filename<br/>
+		
+		<span class="spanbody">
+		===========查询非本用户下的授权表<br/></span>
+		select * from scott.emp;<br/>
+		
+		<span class="spanbody">
+		===========看表结构<br/></span>
+		desc test<p/>
+		<span class="spanhead" id="表的管理"><a name="3">
+		*****************<br/></span><a>
+		表的管理<br/>
+		<span class="spanhead">
+		*****************<br/></span>
+		<span class="spanbody">
+		============字符型<br/></span>
+		char 定长 最大2000字符<br/>
+		char(10) 那么用不用10个都是占10个，但是查询时候快，适合做身份证<br/>
+		varchar2(20) 用多少空间算多少空间<br/>
+		<span class="spanbody">
+		============数字类型<br/></span>
+		number<br/>
+		-10的38次方到10的38次方<br/>
+		number(5,2)表示一个小数的5位整数，2位小数<br/>
+		-999.99---999.9<br/>
+		-99999 - 99999<br/>
+		<span class="spanbody">
+		=============日期类型<br/></span>
+		date       包括年月日时分秒<br/>
+		timestamp  更加精确的<br/>
+		<span class="spanbody">
+		=============图片、声音、视频<br/></span>
+		blob       二进制数据  可以存放图片/声音 4G<br/>
+		<span class="spanbody">
+		=============创建表(有resource权限才能创建表)<br/></span>
+		create table test(userId varchar2(30),userName varchar2(30))<br/>
+		<span class="spanbody">
+		=============添加一个字段<br/></span>
+		alter table student add(classid number(2));<br/>
+		<span class="spanbody">
+		=============修改字段长度<br/></span>
+		alter table student modify (xm varchar2(30));<br/>
+		<span class="spanbody">
+		=============修改字段类型或者名字<br/></span>
+		alter table student modify (xm char(30));<br/>
+		<span class="spanbody">
+		=============删除一个字段<br/></span>
+		alter table student drop column sal;<br/>
+		<span class="spanbody">
+		=============修改表的名字<br/></span>
+		rename student to stu;<br/>
+		<span class="spanbody">
+		=============删除表<br/></span>
+		drop table student;<br/>
+		
+		<span class="spanbody">
+		=============插入数据（时间类型需注意）<br/></span>
+		insert into student values(1,'小明','男','11-12月-1997',2453.2,14);<br/>
+		<span class="spanbody">
+		=============更改日期格式<br/></span>
+		alter session set nls_date_format='yyyy-mm-dd';<br/>
+		
+		--也可以插入的时候设置<br/>
+		('13-03月-1988')<br/>
+		to_date('1988-12-12','yyyy-mm-dd')<br/>
+		to_date('1989/12/12','yyyy/mm/dd')<br/>
+		<span class="spanbody">
+		=============指定字段插入<br/></span>
+		insert into student(studentNumber,studentName,sex) values(123,'红红',女);<p/>
+		<span class="spanhead" id="增删查改控制"><a name="4">
+		*****************<br/><a></span>
+		增删查改控制<br/>
+		<span class="spanhead">
+		*****************<br/></span>
+		
+		<span class="spanbody">
+		=============疯狂复制插入<br/></span>
+		insert into student(studentNumber,studentName,sex) select * from student;<br/>
+		<span class="spanbody">
+		=============插入多行数据<br/></span>
+		insert into kkk (Myid,myname,mydept) select empno,ename,deptno from emp where deptno = 10;<br/>
+		<span class="spanbody">
+		=============删除数据<br/></span>
+		
+		--删除所有记录，表结构还在，写日志，可以回复，速度慢<br/>
+		delete from student;<br/>
+		
+		--删除表的结构和数据<br/>
+		drop table student;<br/>
+		
+		--删除一条记录<br/>
+		delete from student where xh='1001';<br/>
+		
+		--删除表中的所有记录，表结构还在，不写日志，无法找回删除的记录，速度快。<br/>
+		truncate table student;<br/>
+		<span class="spanbody">
+		==============改一个字段<br/></span>
+		update student set sex='女' where xh='1001';<br/>
+		<span class="spanbody">
+		==============子查询，多条件，更新<br/></span>
+		update emp set (job,sal,comm)=(select job,sal,comm from emp where ename='SMITH') where ename='SCOTT';<br/>
+		<span class="spanbody">
+		==============修改多个字段<br/></span>
+		update student set sex='男',birthday='1989-04-01'<br/>
+		where xh='1001';<br/>
+		<span class="spanbody">
+		=============查询为空与不为空<br/></span>
+		select * from student where birthday is null;<br/>
+		select * from student where birthday is not null;<br/>
+		<span class="spanbody">
+		=============查询指定列<br/></span>
+		select ename,sal,job from emp;<br/>
+		<span class="spanbody">
+		=============条件查询（where）<br/></span>
+		select ename,sal,job from emp where ename='SMITH';<br/>
+		<span class="spanbody">
+		=============条件查询（where,<）<br/></span>
+		select ename,hiredate from emp where hiredate>'1-1月-1982';<br/>
+		<span class="spanbody">
+		=============条件查询（where,and,< = >）<br/></span>
+		select ename,sal from emp where sal>=2000 and sal<=2500;<br/>
+		<span class="spanbody">
+		=============条件查询(like % _)..一个下划线代表一个字符<br/></span>
+		select ename,sal from emp where ename like '__O%';<br/>
+		<span class="spanbody">
+		=============条件查询（like %）<br/></span>
+		select ename,sal from emp where ename like 'S%';<br/>
+		<span class="spanbody">
+		=============条件查询（or in）..in可以代替or使用<br/></span>
+		select * from emp where empno=123 or empno=456 or...;<br/>
+		
+		select * from emp where empno in(123,456,...);<br/>
+		<span class="spanbody">
+		=============条件查询（null,not null）..空查询<br/></span>
+		select * from emp where mgr is null;<br/>
+		
+		select * from emp where mgr is not null;<br/>
+		<span class="spanbody">
+		=============条件查询（or and）<br/></span>
+		select * from emp where (sal > 500 or job = 'MANAGER') and ename like 'J%';<br/>
+		<span class="spanbody">
+		=============条件查询（order by）按照 什么什么排序 顺序排列<br/></span>
+		select * from emp order by sal;<br/>
+		<span class="spanbody">
+		=============条件查询（order by desc）倒叙<br/></span>
+		select * from emp order by sal desc;<br/>
+		<span class="spanbody">
+		=============条件查询（order by asc desc）一个升序一个降序<br/></span>
+		select * from emp order by deptno asc,sal desc;<br/>
+		<span class="spanbody">
+		=============条件查询（order by as）多字段 as 别名 按照别名排序<br/></span>
+		select ename,(sal+nvl(comm,0))*13 as "年薪" from emp order by "年薪"；<br/>
+		<span class="spanbody">
+		=============条件查询（数据分组max min avg sum count）<br/></span>
+		select max(sal),min(sal) from emp;<br/>
+		<span class="spanbody">
+		=============条件查询（max min 子查询）<br/></span>
+		select ename,sal from emp where sal=(select max(sal) from emp);<br/>
+		
+		select ename,sal from emp where sal=(select max(sal) from emp) or sal = (select min(sal) from emp);<br/>
+		<span class="spanbody">
+		=============条件查询（单表 单行子查询 =）<br/></span>
+		select * from emp where deptno = (select deptno from emp where ename = 'SMITH');<br/>
+		<span class="spanbody">
+		=============条件查询（单表 多行子查询 in）<br/></span>
+		select * from emp where job in (select distinct job from emp where deptno = 10);<br/>
+		<span class="spanbody">
+		=============条件查询（单表 多行子查询 all）大于all大于全部<br/></span>
+		select ename,sal,deptno from emp where sal > all(select sal from emp where deptno = 30);<br/>
+		<span class="spanbody">
+		=============条件查询（单表 多行子查询any）大于any 值大于期中一个就可以了<br/></span>
+		select ename,sal,deptno from emp where sal > any(select sal from emp where deptno = 30);<br/>
+		<span class="spanbody">
+		=============条件查询（单表 多行 多列查询）<br/></span>
+		select * from emp where (deptno,job)=(select deptno,job from emp where ename='SMITH');<br/>
+		<span class="spanbody">
+		=============条件查询（单表 多行 max）<br/></span>
+		select ename,sal,deptno from emp where sal > (select max(sal) from emp where deptno = 30);<br/>
+		<span class="spanbody">
+		=============条件查询（from 里面使用子查询）内嵌试图<br/></span>
+		select a1.ename,a1.sal,a1.deptno,a2.mysal <br/>
+		from emp a1,(select deptno,avg(sal) mysql from emp) group by deptno) a2 <br/>
+		where a1.deptno = a2.deptno and a1.sal > a2.mysal;<br/>
+		<span class="spanbody">
+		=============条件查询（三种分页之 rownum）<br/></span>
+		--查询视图<br/>
+		select * from emp;<br/>
+		--第一次分页（分尾）<br/>
+		select a1.*,rownum rn from (select * from emp) a1 where rownum <=10; <br/>
+		--第二次分页（分头）<br/>
+		select * from (select a1.*,rownum rn from (selct * from emp) a1 where rownum <= 10) where rn >= 5;<br/>
+		
+		select * from (select a1.*,rownum rn from emp a1 where rownum < 10) where rn >=5;<br/>
+		
+		select a2.* from (select a1.*,rownum rn from emp a1 where rownum < 10) a2 where rn >=5;<br/>
+		<span class="spanbody">
+		=============条件查询（三种分页之 rowid 分页）<br/></span>
+		select * from t_xiaoxi where rowid in(select rid from (select fownum rn,rid from(select rowid rid,cid from <br/>
+		t_xiaoxi order by cid desc) where rownum < 10000) where rn > 9980) roder by cid desc;<br/>
+		<span class="spanbody">
+		=============条件查询（合并查询union,union all,intersect,minus）<br/></span>
+		select ename,sal,job from emp where sal > 2500 union<br/>
+		select ename,sal,job from emp where job='manager';<br/>
+		<span class="spanbody">
+		=============条件查询(查询结果，创建表)<br/></span>
+		create table myemp2 (id,ename) as select empno,ename from emp;<br/>
+		<span class="spanbody">
+		=============条件查询(avg)平均查询<br/></span>
+		select avg(sal) from emp;<br/>
+		<span class="spanbody">
+		=============条件查询(avg 子查询)<br/></span>
+		select * from emp where sal > (select avg(sal) from emp);<br/>
+		<span class="spanbody">
+		=============条件查询（group by）【 group by， having， order by】使用顺序<br/></span>
+		--如果下面的deptno不是在后面group by中出现，那么就得删了它，因为它和前面的函数不属于同一列<br/>
+		select avg(sal),max(sal),deptno from emp group by deptno;<br/>
+		
+		select avg(sal),max(sal),deptno,jop from emp group by deptno,job;<br/>
+		<span class="spanbody">
+		=============条件查询（having）having 对分组进行筛选<br/></span>
+		select avg(sal),max(sal),deptno from emp group by deptno having avg(avg) > 2000;<br/>
+		<span class="spanbody">
+		=============条件查询（多表查询）<br/></span>
+		--查询两个表 建立= 以作链接<br/>
+		select e.ename,e.sal,d.dname from emp e,dept d where e.deptno = d.deptno;<br/>
+		<span class="spanbody">
+		=============条件查询（多表 and）<br/></span>
+		select e.ename,e.sal,d.name from emp e,dept d where e.deptno = d.deptno and d.deptno = 10;<br/>
+		<span class="spanbody">
+		=============条件查询（多表 between）between 在什么范围内<br/></span>
+		select a1.ename,a1.sal,a2.grade from emp a1,salgrade a2 where a1.sal between a2.losal and a2.hisal;<br/>
+		<span class="spanbody">
+		=============条件查询（多表 order by）<br/></span>
+		select a1.ename,a2.dname,a1.sal from emp a1,empt a2 where a1.deptno = a2.deptno order by a1.deptno;<br/>
+		<span class="spanbody">
+		=============条件查询（一表 多用 and）<br/></span>
+		select worker.ename,boss.ename from emp worker,emp boss where worker.mgr = boss.empno;<br/>
+		
+		select worker.ename,boss.ename from emp worker,emp boss where worker.mgr = boss.empno and worker.ename='FORD'<br/>
+		<span class="spanbody">
+		=============算数查询<br/></span>
+		select sal*13,ename from emp;<br/>
+		<span class="spanbody">
+		=============查询取别名<br/></span>
+		select sal*13 "年工资" ,ename from emp;<br/>
+		<span class="spanbody">
+		=============查询nvl处理null函数<br/></span>
+		select sal*13+nvl(comm,0)*13 "年工资",ename,comm from emp;<br/>
+		<span class="spanbody">
+		=============删除重复的<br/></span>
+		select distinct deptno,job from emp;<p/>
+		
+		<span class="spanhead" id="sql函数"><a name="5">
+		*****************<br/><a></span>
+		sql函数<br/>
+		<span class="spanhead">
+		******************<br/></span>
+		<span class="spanbody">
+		==============字符函数<br/></span>
+		
+		--将字符串转化为小写<br/>
+		lower(char)<br/>
+		select lower(ename) from emp;<br/>
+		
+		--将字符串转换为大写<br/>
+		upper(char)<br/>
+		select upper(ename) from emp;<br/>
+		
+		--首字母转换为大写<br/>
+		initcap<br/>
+		select initcap(ename) from emp;<br/>
+		
+		--返回字符串的长度<br/>
+		length(char)<br/>
+		select * from emp where length(ename)=5;<br/>
+		
+		--取字符串的字串(从1开始取 取3个字符)<br/>
+		substr(char,m,n)<br/>
+		select substr(ename,1,3) from emp;<br/>
+		
+		--替换函数<br/>
+		replace(char1,search_string,replace_string)<br/>
+		select replace(ename,'A','老鼠') from emp;<br/>
+		
+		--找字串的位置<br/>
+		instr(char1,char2,[,n[,m]])<br/>
+		
+		--合并字符串（||合并符号）<br/>
+		 select upper(substr(ename,1,1)) ||lower(substr(ename,2,length(ename)-1)) from emp;<br/>
+		<span class="spanbody">
+		==============数学函数<br/></span>
+		包括cos,cosh,exp,ln,log,sin,sinh,sqrt,tan,tanh,acos,asin,atan,round<br/>
+		
+		--round(n,[m])四舍五入<br/>
+		
+		select round(sal) from emp;<br/>
+		
+		select round(comm,1),comm from emp;<br/>
+		意思：55.7 55.66<br/>
+		
+		--trunc(n,[m])截取数字<br/>
+		
+		select trunc(comm,1),comm from emp;<br/>
+		意思：55.6 55.66<br/>
+		
+		--mod(m,n)取摸<br/>
+		select sal(10,2) from emp;<br/>
+		
+		--floor(n)返回小于或是等于n的最大整数<br/>
+		select floor(comm),comm from emp;<br/>
+		
+		--ceil(n)返回大于或是等于n的最小正数<br/>
+		select ceil(comm),comm from emp;<br/>
+		
+		--abs(n) 返回数字n的绝对值<br/>
+		--select abs(-13) from dual;<br/>
+		--acos(n) 返回数字的反余旋<br/>
+		--atan(n) 返回数字反正切<br/>
+		--cos(n)<br/>
+		--exp(n)  返回e的n次幂<br/>
+		--log(m,n) 返回对数值<br/>
+		--power(m,n)返回m的n次幂<br/>
+		<span class="spanbody">
+		==============日期函数<br/></span>
+		
+		--oracle默认日期格式<br/>
+		dd-mon-yy 既12-7月-1988<br/>
+		
+		--sysdate返回系统时间<br/>
+		select sysdate from emp;<br/>
+		
+		--hirdate(xx,8)加上8个月<br/>
+		select * from emp where sysdate > add_months(hiredate,8);<br/>
+		
+		select trunc(sysdate-hiredate) "入职天数",ename from emp;<br/>
+		
+		--last_day(hiredate)返回本月的最后一天<br/>
+		select hiredate,last_day(hiredate) from emp;<br/>
+		
+		select hiredate,ename from emp where last_day(hiredate)-2=hiredate;<br/>
+		<span class="spanbody">
+		==============转换函数(类型之间自动转换)<br/></span>
+		--例子<br/>
+		create table t1(id int);<br/>
+		insert into t1 values('10')<br/>
+		
+		create table t2(id varchar2(10));<br/>
+		insert into t2 values(1);<br/>
+		
+		--to_char(hiredate,"YYYY-mm-dd hh24:mi:ss")<br/>
+		select ename,to_char(hiredate,'YYYY-mm-dd hh24:mi:ss') from emp;<br/>
+		
+		--to_char(sal,"L99999.99")<br/>
+		select ename,to_char(hiredate,'YYYY-mm-dd hh24:mi:ss'),to_char(sal,'L99999.99') from emp;<br/>
+		
+		找出1980入职的<br/>
+		select * from emp where to_char(hiredate,'YYYY') = 1980;<br/>
+		<span class="spancj">
+		<----------------------------><br/></span>
+		yy:两位数字的年份 2004--04  <br/>
+		yyyy:四位数字的年份 2004年 <br/> 
+		mm：两位数字的年份    <br/>        
+		dd：2位数字的天 30-->30  <br/>   
+		hh24：8点 --》20   <br/>         
+		hh12：8点 --》08   <br/>         
+		mi，ss --》显示分钟\秒 <br/> 
+		<span class="spancj"> 
+		<----------------------------><br/></span>
+		9:显示数字，并忽略前面0<br/>
+		0:显示数字，位数不足用0补充<br/>
+		.:在指定位置显示小数点<br/>
+		,:在指定位置显示逗号<br/>
+		$:在数字前面加美元*to_char(sal,'$99,999.99')*  <br/>
+		L:本地的字符集符号<br/>
+		C:国际货币符号 <br/>
+		G:在指定位置显示组分隔符<br/>
+		D:在指定位置显示小数点符号<br/>
+		<span class="spancj"> 
+		<----------------------------><p/></span>
+		<span class="spanbody"> 
+		==============sys_context('userenv','db_name')<br/></span>
+
+		1) terminal:当前回话客户所对应的中断标识符<br/>
+		2) lanuage:语言<br/>
+		3) db_name:当前数据库名称<br/>
+		4) nls_date_format:当前回话客户所对应的日期格式<br/>
+		5) session_user:当前回话客户所对应的数据库用户名<br/>
+		6) current_schema:当前回话客户所对应默认方案名<br/>
+		7) host:返回数据库所在主机的名称<br/>
+		
+		查询所使用的是哪个数据库<br/>
+		select sys_context('userenv','db_name') from dual;<p/>
+		<span class="spanhead" id="事务管理"><a name="6">
+		*****************<br/><a></span>
+		事务管理<br/>
+		<span class="spanhead"> 
+		******************<br/></span>
+		<span class="spanbody"> 
+		=============提交事务（让事务提交，也就是删了保存点）<br/></span>
+		commit<br/>
+		<span class="spanbody"> 
+		=============建立保存点<br/></span>
+		savepoint a1;<br/>
+		
+		savepoint a2;<br/>
+		<span class="spanbody"> 
+		=============返回事务<br/></span>
+		--返回第一个保存点<br/>
+		rollback to a1;<br/>
+		
+		--返回第二个保存点<br/>
+		rollback to a2;<br/>
+		
+		--返回所有设置的保存点<br/>
+		rollback;<br/>
+		<span class="spanbody"> 
+		==============只读事务<br/></span>
+		set transaction read only;<p/>
+		
+		<span class="spanhead" id="数据库管理"><a name="7">
+		*****************<br/><a></span>
+		数据库管理<br/>
+		<span class="spanhead">
+		******************<br/></span>
+
+		<span class="spanbody">
+		=========登录方式<br/></span>
+		sys 必须以sysdba 或者 sysoper形式登录 不能以normal方式登录数据库<br/>
+		
+		system 可以以normal方式登录<br/>
+		<span class="spanbody">
+		=========关闭数据库启动数据库<br/></span>
+		--关闭<br/>
+		shutdown;<br/>
+		--开启<br/>
+		startup;<br/>
+		<span class="spanbody">
+		=========显示参数<br/></span>
+		show parameter;<br/>
+		<span class="spanbody">
+		=========备份和恢复（导出导入）oracle->bin->exp.exe(并把此文件路径复制给dos下执行)<br/></span>
+		--逻辑备份（open下）<br/>
+		
+		导出自己的一张表<br/>
+		exp userid=scott/tigger@orcl tables(emp) file=d:\e1.demp<br/>
+		
+		导出自己的多张表<br/>
+		exp userid=scott/tigger@orcl tables(emp,dept) file=d:\e1.demp<br/>
+		
+		导出其他方案的表<br/>
+		exp_full_database的权限，比如system就可以导出scott的表<br/>
+		exp userid=system/manager@orcl tables=(scott.emp)  file=d:\e1.demp<br/>
+		
+		导出表结构(无数据只有结构)<br/>
+		exp userid=scott/tigger@orcl tables=(emp)  file=d:\e1.demp rows = n<br/>
+		
+		直接导出方式（常用作处理大表）<br/>
+		exp userid=scott/tigger@orcl talbes=(emp) file=d:\e1.demp direct = y<br/>
+		
+		导出方案<br/>
+		exp userid=scott/tigger@orcl owner=scott file=d:\e1.demp<br/>
+		
+		导出其他方案<br/>
+		exp userid=system/manager@orcl owner(system,scott) file=d:\e1.demp<br/>
+		
+		导出数据库<br/>
+		exp userid=system/manager@orcl full=y inctype=complete file=d:\e1.demp<br/>
+		
+		--恢复导入imp<br/>
+		
+		导入自己表<br/>
+		imp userid=scott/tigger@orcl tables=(emp) file=d:\e1.demp<br/>
+		
+		导入表到其他用户<br/>
+		imp userid=system/manager@orcl tables<br/>
+		
+		导入表的结构<br/>
+		只导入表的结构而不导入数据<br/>
+		imp userid=scott/tigger@orcl tables=(emp) file=d:\xxx.dmp e1.demp rows=n;<br/>
+		
+		导入数据<br/>
+		如果对象（如比表） 已经存在可以只导入表的数据<br/>
+		imp userid=scott/tigger@orcl tables=(emp) file=d:\xxx.dmp ignor=y;<br/>
+		
+		导入方案<br/>
+		imp userid=scott/tigger file=d:\xxx.dmp;<br/>
+		
+		imp userid=system/manager file=d:\xxx.dmp fromuser=system touser=scott<br/>
+		
+		导入数据库<br/>
+		imp userid=system/manager full=y file=d:\xxx.dmp;<p/>
+		<span class="spancj">
+		<-------------------------><br/></span>
+		导出分为：导出表，导出方案，导出数据库三种方式<br/>
+		导出exp命令，常用选项<br/>
+		userid:用于指定执行导出操作的用户名，口令，连接字符串<br/>
+		tables:用于指定执行导出操作的表<br/>
+		owner: 用于指定执行导出操作的方案<br/>
+		full=y:用于指定执行导出操作的数据库<br/>
+		inctype:用于指定执行导出操作的增量类型<br/>
+		rows:用于指定执行导出操作是否要导出表中的数据<br/>
+		file:用于指定导出文件名<br/>
+		<span class="spancj">
+		<-------------------------><p/></span>
+		<span class="spanhead" id="数据字典"><a name="8">
+		*****************<br/><a></span>
+		数据字典<br/>
+		<span class="spanhead">
+		******************<br/></span>
+		<br/><span class="spanbody"> 
+		==============user_tables<br/></span>
+		<br/>
+		--用于显示当前用户所拥有的所有表，它至返回用户所对应方案的所有表<br/>
+		select table_name from user_tables;<br/>
+		<br/>
+		--用于显示当前用户可以访问的所有表，它不仅会返回当前用户方案的所有表，<br/>
+		还会返回当前用户可以访问的其他方案表<br/>
+		select table_name from all_tables;<br/>
+		<br/>
+		--他会显示所有方案拥有的数据库表要求是dba权限<br/>
+		select table_name from dba_tables;<br/>
+		<br/><span class="spanbody"> 
+		==============用户名，权限，角色<br/></span>
+		<br/>
+		--dba_users<br/>
+		<br/>
+		--dba_sys_privs<br/>
+		可以显示用户所具有的系统权限<br/>
+		--dba_tab_privs<br/>
+		可以显示用户所具有的对象权限<br/>
+		--dba_col_privs<br/>
+		可以显示用户所具有的列权限<br/>
+		--dba_role_privs<br/>
+		可以显示用户所具有的角色<br/>
+		<br/>
+		--查询结构<br/>
+		desc dba_users;<br/>
+		--查询用户<br/>
+		select username from dba_users;<br/>
+		--查询密码<br/>
+		select password from dba_users;<br/>
+		<br/>
+		--查询scott用户所具有的权限步骤<br/>
+		<br/>
+		-查询dba_role_privs视图结构（必须有dba权限才能查询。比如system可以查询）<br/>
+		desc dba_role_privs;<br/>
+		<br/>
+		-查询scott权限<br/>
+		select * from dba_role_privs where GRANTEE='SCOTT';<br/>
+		<br/><span class="spanbody"> 
+		==============查询测试案例<br/></span>
+		<br/>
+		--查询oracle中所有的系统权限，一般是dba<br/>
+		select * from system_privilege_map order by name<br/>
+		<br/>
+		--查询oracle中所有的角色，一般是dba<br/>
+		select * from dba_roles<br/>
+		<br/>
+		--查询oracle中所有的对象权限，一般是dba<br/>
+		select distinct privilege from dba_tab_privs<br/>
+		<br/>
+		--查询数据库的表空间<br/>
+		select tablespace_name from daba_tablespaces<br/>
+		<br/>
+		--包含多少系统权限<br/>
+		select * from dba_sys_privs where grantee='DBA'<br/>
+		<br/>
+		select * from role_sys_privs where role = 'DBA'<br/>
+		<br/>
+		--包含多少对象权限<br/>
+		select * from dba_tab_privs where grantee='角色名（connect）'<br/>
+		<br/>
+		--查询某个用户具有什么样的角色<br/>
+		select * from dba_role_privs where grantee='SCOTT'<br/>
+		<br/>
+		--显示当前用户可以访问的所有数据字典视图<br/>
+		select * from dict where comments like '%grant%'<br/>
+		<br/>
+		--显示当前数据库的全称<br/>
+		select * from global_name<br/>
+		<br/>
+		--约束信息查询 数据字典user_constraints可以显示约束信息<br/>
+		select constraint_name,constraint_type,status,validated from user_constraints where table_name='表名';<br/>
+		<br/>
+		--显示约束列<br/>
+		select column_name,position from user_cons_columns where constraint_name='约束名';<br/>
+		<br/>
+		<span class="spanhead" id="表空间，数据文件"><a name="9">
+		*****************<br/><a></span>
+		表空间，数据文件<br/>
+		<span class="spanhead">
+		******************<br/></span>
+		<br/><span class="spanbody"> 
+		==============表空间包括<br/></span>
+		<br/>
+		--索引表空间<br/>
+		<br/>
+		--undo表空间<br/>
+		<br/>
+		--临时表空间<br/>
+		<br/>
+		--非标准块的表空间<br/>
+		<br/><span class="spanbody"> 
+		==============建立表空间<br/></span>
+		建立表空间是使用create tablespace 命令完成的需要注意的是，一般情况下，建立表空间是特权用户或者dba来执行的，如果用其他用户来创<br/>
+		<br/>
+		建表空间，否则用户要具有create tablespace的系统权限<br/>
+		<br/>
+		==============建立数据表空间<br/></span>
+		在建立数据库后，为便于管理表，最好建立自己的表空间<br/>
+		create tablespace data01 datafile 'd:\test\data01.dbf' size 20m uniform size 128k<br/>
+		<br/><span class="spanbody"> 
+		==============扩展表空间<br/></span>
+		<br/>
+		1,增加数据文件<br/>
+		sql>alter tablespace sp001 add datafile 'd:\test\sp002.dbf' size 20m<br/>
+		<br/>
+		2,增加数据文件的大小<br/>
+		sql>alter database 表空间名 'd:\test\sp01.dbf' resize 20m<br/>
+		<br/>
+		3,设置文件的自动增长<br/>
+		sql>alter database 表空间名 'd:\test\sp01.dbf' autoextend on next 10m maxsize 500m;<br/>
+		<br/><span class="spanbody"> 
+		==============移动数据文件<br/></span>
+		<br/>
+		1,确定数据文件所在的表空间<br/>
+		select tablespace_name from dba_data_files where file_name='d:\test\sp01.dbf';<br/>
+		<br/>
+		2,使表空间脱机(确保数据一致性)<br/>
+		alter tablespace sp01 offline;<br/>
+		<br/>
+		3,使用命令移动数据文件到指定的目标位置<br/>
+		sql>host move d:\test\sp01.dbf c:\test\sp01.dbf<br/>
+		<br/><span class="spanbody"> 
+		==============使用数据表空间<br/></span>
+		create table mypart(deptno number(4),dname,varchar2(14),loc varchar2(13) tablespace data01);<br/>
+		<br/><span class="spanbody"> 
+		==============表空间状态控制<br/></span>
+		<br/>
+		1,使表空间脱机<br/>
+		alter tablespace 表空间名 offline;<br/>
+		<br/>
+		2,使表空间联机<br/>
+		alter tablespace 表空间名 online;<br/>
+		<br/>
+		3,使表空间只读(无update,delete,insert功能)<br/>
+		alter tablespace 表空间名 read only;<br/>
+		<br/>
+		4,使表空间可读可写<br/>
+		alter tablespace 表空间名 read write;<br/>
+		<br/><span class="spanbody"> 
+		==============查询表空间下的所有表<br/></span>
+		select * from all_tables where tablespace_name='表空间名'<br/>
+		<br/><span class="spanbody"> 
+		==============知道表名，查看该表属于哪个空间<br/></span>
+		select tablespace_name,table_name from user_tables where table_name='emp';<br/>
+		<br/>
+		<span class="spanhead"><a name="10">
+		*****************<br/><a></span>
+		约束<br/>
+		<span class="spanhead">
+		******************<br/></span>
+		<br/><span class="spanbody"> 
+		==============约束条件（五种）<br/></span>
+		<br/>
+		--not null<br/>
+		不为空<br/>
+		--unique<br/>
+		唯一但可以为空<br/>
+		--primary key<br/>
+		主键<br/>
+		--foreign key<br/>
+		外键<br/>
+		--check<br/>
+		比如年龄大于一岁小于一百岁的<br/>
+		<br/><span class="spanbody"> 
+		==============增加约束<br/></span>
+		<br/>
+		--增加not null<br/>
+		使用modify<br/>
+		--增加其他约束<br/>
+		使用add<br/>
+		<br/><span class="spanbody"> 
+		==============建表实例<br/></span>
+		<br/>
+		--建一个商品表<br/>
+		create table goods (goodsId char(8) primary key,<br/>
+							goodsName varchar2(30),<br/>
+							unitprice number(10,2) check(unitprice > 0),<br/>
+							category varchar2(8),<br/>
+							provider varchar2(30));<br/>
+		--建一个客户表<br/>
+		create table customer(customerId char(8) primary key,<br/>
+							  name varchar2(50) not null,<br/>
+							  address varchar2(50),<br/>
+							  email varchar2(50) unique,<br/>
+							  sex char(2) default '男' check(sex in('男','女')),<br/>
+							  cardId char(18));<br/>
+		--建立一个购买表<br/>
+		create table purchase(customerId char(8) references customer(customerId),<br/>
+							  goodsId char(8) references goods(goodsId),<br/>
+							  nums number(10) check(nums between 1 and 30);)<br/>
+		<br/>
+		--增加新约束商品名不为空<br/>
+		alter table goods modify goodsName not null;<br/>
+		<br/>
+		--增加身份证，不允许重复cardunique 自定义名)<br/>
+		alter table customer add constraint cardunique unique(cardId) <br/>
+		<br/>
+		--增加客户住址固定为海淀，朝阳，东城，西城(addresscheck 自定义名)<br/>
+		alter table customer add constraint addresscheck check(address in('东城','西城','朝阳'));<br/>
+		<br/>
+		--删除约束<br/>
+		alter table 表明 drop constraint 约束名称<br/>
+		<br/>
+		--删除主键约束的时候，可能有错误，比如<br/>
+		alter talbe 表名 drop primary key;<br/>
+		这是因为如果在两张表存在主从关系，那么在阐述主表的主键约束时，必须带上cascade 选项如<br/>
+		alter table 表明 drop primary key cascade;<br/>
+		<br/><span class="spanbody"> 
+		==============表级定义，列级定义<br/></span>
+		<br/>
+		--表级定义<br/>
+		建表的字段都完后，再写约束条件<br/>
+		create table employee2<br/>
+		(emp_id number(4),name varchar2(15),dept_id number(2),<br/>
+		constraint pk_employee primary key (emp_id),<br/>
+		constraint fk_department foreign key(dept_id),<br/>
+		rererences department4(dept_id));<br/>
+		<br/>
+		--列级定义<br/>
+		建表的字段同时，就把约束条件写上(constraint pk_de如果不写，系统会自定义)<br/>
+		create table department4<br/>
+		(dept_id number(2) constraint pk_de primary key,<br/>
+		name varchar2(12),<br/>
+		loc varchar2(12));<br/>
+		<br/>
+		<span class="spanhead" id="索引"><a name="11">
+		*****************<br/><a></span>
+		索引<br/>
+		<span class="spanhead">
+		******************<br/></span>
+		<br/><span class="spanbody"> 
+		==============使用原则<br/></span>
+		--在达标上建立索引才有意义<br/>
+		--在where自居或是连接条件上经常引用的列上建立索引<br/>
+		--索引的层次不要超过4层<br/>
+		<br/><span class="spanbody"> 
+		==============建立索引的缺点<br/></span>
+		--建立索引，系统要占用大约为表的1.2倍的硬盘和内存空间来保存索引<br/>
+		--跟新数据时候，要同意更新索引<br/>
+		<br/><span class="spanbody"> 
+		==============单列索引<br/></span>
+		--建索引<br/>
+		create index 索引名 on 表名（列名）<br/>
+		<br/><span class="spanbody"> 
+		==============复合索引<br/></span>
+		--建符合索引<br/>
+		create index emp_inx1 on emp(ename,job);<br/>
+		create index emp_idx1 on emp(job,ename);<br/>
+		<br/>
+		<span class="spanhead" id="角色"><a name="12">
+		*****************<br/><a></span>
+		角色<br/>
+		<span class="spanhead">
+		******************<br/></span>
+		<br/><span class="spanbody"> 
+		==============connect角色<br/></span>
+		包括权限<br/>
+		alter session<br/>
+		create cluster<br/>
+		create database link<br/>
+		create session<br/>
+		create table<br/>
+		create view<br/>
+		create sequence<br/>
+		<br/><span class="spanbody"> 
+		===============resource角色<br/></span>
+		create cluster<br/>
+		create indextype<br/>
+		create table<br/>
+		create sequence<br/>
+		create type<br/>
+		create procedure<br/>
+		create trigger<br/>
+		<br/><span class="spanbody"> 
+		===============dba角色<br/></span>
+		<br/>
+		dba角色具有所有的系统权限<br/>
+		以及with admin option选项<br/>
+		默认的dba用户为sys system<br/>
+		他们可以将任何系统选线授予<br/>
+		其他用户。但是要注意的是dba<br/>
+		角色不具备sysdba和sysoper的<br/>
+		特权(启动和关闭数据库)<br/>
+		<br/><span class="spanbody"> 
+		===============自定义角色<br/></span>
+		--建立角色（不验证）<br/>
+		如果角色是公用的角色，可以采用不验证的方式建立角色<br/>
+		create role 角色名 not identified;<br/>
+		<br/>
+		--建立角色（数据库验证）<br/>
+		采用这样的方式时，角色名、口令存放在数据库中。<br/>
+		当激活该角色时，必须提供口令。在建立这种角色时<br/>
+		需要为其提供口令<br/>
+		create role 角色名 identified by xxx;<br/>
+		<br/><span class="spanbody"> 
+		================自定义角色授权<br/></span>
+		--授权需知<br/>
+		给角色授权和给用户授权却别于<br/>
+		系统权限unlimiter tablespace<br/>
+		对象权限with grantoption<br/>
+		选项不能授权角色<br/>
+		<br/>
+		--授权步骤<br/>
+		conn system/manger<br/>
+		grant create session to 角色名 with admin option<br/>
+		conn scott/tiger@orcl<br/>
+		grant select on scott.emp to 角色名<br/>
+		grant insert,update,delete on scott.emp to 角色名<br/>
+		<br/><span class="spanbody"> 
+		=================权限分配给用户（由dba来完成）<br/></span>
+		conn system/manager<br/>
+		grant 角色名 to blake with admin option<br/>
+		因为给了with admin option<br/>
+		所以有延续分配权限的功能<br/>
+		
+		<br/><span class="spanbody"> 
+		=================删除角色（dba执行）<br/></span>
+		conn system/manager<br/>
+		drop role 角色名<br/>
+		<span class="spanbody"> 
+		=================显示角色信息<br/></span>
+		--显示所有<br/>
+		select * from dba_roles;<br/>
+		--显示系统具有的系统权限<br/>
+		select privilege,admin_option from role_sys_privs where role='角色名'；<br/>
+		--显示对象权限<br/>
+		通过数据字典视图dba_tab_privs可以查看角色具有的对象权限是列的权限<br/>
+		--显示默认角色<br/>
+		select granted_role,default_role from dba_role_privs where grantee='用户名';<br/>
+		<br/>
+		<span class="spanhead"><a name="13">
+		*****************<br/><a></span>
+		pl/sql<br/>
+		<span class="spanhead">
+		******************<br/></span>
+		<br/><span class="spanbody"> 
+		=================介绍<br/></span>
+		--过程，函数触发器是pl/sql编写<br/>
+		--过程，函数，触发器是在oracle中<br/>
+		--pl/sql是非常强大的数据库过程语言<br/>
+		--过程，函数可以在java程序中调用<br/>
+		<br/>
+		--提高应用程序的运行性能<br/>
+		--模块化的设计思想[分页，订单...]<br/>
+		--减少网络传输量<br/>
+		--提高安全性能<br/>
+		<br/>
+		--移植性不好<br/>
+		<span class="spanbody"> 
+		=================简单测试案例<br/></span>
+		--创建表<br/>
+		create table mytest(name varchar2(30),passwd varchar2(30));<br/>
+		--创建过程<br/>
+		create procedure 过程名 is<br/>
+		begin<br/>
+		insert into mytest values('adminone','one');<br/>
+		end;<br/>
+		--替换方式创建<br/>
+		create or replace procedure sp_pro1 is<br/>
+		begin<br/>
+		insert into mytest values('adminone','one');<br/>
+		end;<br/>
+		<br/>
+		--调用过程<br/>
+		exec 过程名(如果有参数，就带参数)<br/>
+		<br/>
+		call 过程名(如果有参数，就带参数)<br/>
+		<br/>
+		
+		--查看错误信息<br/>
+		show error;<br/><span class="spanbody"> 
+		=================块hello word<br/></span>
+		--打开输出<br/>
+		set serveroutput on<br/>
+		--关闭输出<br/>
+		set serveroutput off<br/>
+		--测试<br/>
+		begin <br/>
+		dbms_output.put_line('hello,word');<br/>
+		end;<br/>
+		/<br/>
+		<br/>
+		hello,word<br/>
+		<br/><span class="spanbody"> 
+		=================接收从控制台的变量<br/></span>
+		--单个信息（declare声明）<br/>
+		declare<br/>
+		v_ename varchar2(20);<br/>
+		begin<br/>
+		select ename into v_ename varchar2(5) from emp where empno=&no;<br/>
+		dbms_output.put_line('雇员号'||v_ename);<br/>
+		end;<br/>
+		/<br/>
+		
+		--多个信息<br/>
+		declare<br/>
+		v_ename varchar2(20);<br/>
+		v_sal number(7,5);<br/>
+		begin<br/>
+		select ename,sal into v_ename,v_sal from emp where empno=&no;<br/>
+		dbms_output.put_line('雇员名：'||v_ename||'雇员薪水：'||v_sal);<br/>
+		end;<br/>
+		/<br/>
+		
+		--捕获异常（当no不存在数据表中时候，抛出异常）<br/>
+		declare<br/>
+		v_ename varchar2(20);<br/>
+		v_sal number(7,5);<br/>
+		begin<br/>
+		select ename,sal into v_ename,v_sal from emp where empno=&no;<br/>
+		dbms_output.put_line('雇员名：'||v_ename||'雇员薪水：'||v_sal);<br/>
+		exception<br/>
+		when no_data_found then<br/>
+		dbms_output.put_line('嗨，哥们，你输入有错误！');<br/>
+		end;<br/>
+		/<br/>
+		
+		<span class="spanbody"> 
+		=================带输入参数的<br/></span>
+		--定义<br/>
+		create procedure test3(name varchar2,newsal number) is<br/>
+		begin<br/>
+		update emp set sal=newsal where ename=name;<br/>
+		end;<br/>
+		/<br/>
+		
+		--使用<br/>
+		exec test3('SMITH');<br/>
+		<span class="spanbody"> 
+		=================函数<br/></span>
+		
+		--函数用于返回特定的数据，当建立函数时，<br/>
+		在函数投不必须包含return子句，而在函数体内<br/>
+		必须包含return语句返回的数据。我们可以使用<br/>
+		create function来建立函数<br/>
+		<br/>
+		--案例<br/>
+		<br/>
+		创建<br/>
+		create function xf_fun2(xfname varchar2) return <br/>
+		number is yearsal number(7,2);<br/>
+		begin<br/>
+		select sal*12+nvl(comm,0)*12 into yearsal from emp where ename=xfname;<br/>
+		return yearsal;<br/>
+		end;<br/>
+		<br/>
+		使用<br/>
+		sqlplus中<br/>
+		<br/>
+		var abc number<br/>
+		call xf_fun2('SCOTT') into:abc;<br/>
+		print abc<br/>
+		<br/>
+		java中<br/>
+		select annual_income('SCOTT') from dual;<br/>
+		可以通过rs.getInt(1);得到返回结果<br/>
+		<br/><span class="spanbody"> 
+		=================包<br/></span>
+		包用于在逻辑上组合过程和函数，它由包规范和包体两部分组成<br/>
+		--创建包<br/>
+		create package test_package is<br/>
+			   procedure update_sal(name varchar2,newsal number);<br/>
+			   function annual_income(name varchar2) return number;<br/>
+		end;<br/>
+		<br/>
+		--创建包体<br/>
+		create package body<br/>
+		create or replace package body sp_package is<br/>
+		procedure update_sal(name varchar2,newsal number)<br/>
+		is<br/>
+		begin<br/>
+		update emp set sal = newsal where ename=name;<br/>
+		end;<br/>
+		function annual_income(name varchar2)<br/>
+		return number is<br/>
+		annual_salary number;<br/>
+		begin select sal*12+nvl(comm,0) into annual_salary from emp<br/>
+		where ename=name;<br/>
+		return annual_salary;<br/>
+		end;<br/>
+		end;<br/>
+		<br/>
+		--调用包的过程或者函数<br/>
+		call sp_package.update_sal('SCOTT',120);<br/>
+		<br/><span class="spanbody"> 
+		=================pl/sql类型<br/></span>
+		--标量类型<br/>
+		<br/>
+		1：定义一个变长字符串<br/>
+		v_ename varchar2(10)<br/>
+		2：定义一个小数<br/>
+		v_sal number(6,2)<br/>
+		3：定义一个小数并赋值<br/>
+		v_sal2 number(6,2):=5.4<br/>
+		4：定义一个日期类型的数据<br/>
+		v_hiredate date;<br/>
+		5：定义一个布尔变量，不为空<br/>
+		v_valid boolean not null default false;<br/>
+		<br/>
+		定长定义案例<br/>
+		declare<br/>
+		c_tax_rate number(3,2):=0.03;<br/>
+		v_ename varchar2(5);<br/>
+		v_sal number(7,2);<br/>
+		v_tax_sal number(7,2);<br/>
+		begin<br/>
+		select ename,sal into v_ename,v_sal from emp where empno=&no;<br/>
+		v_tax_sal:=v_sal*v_tax_rate;<br/>
+		dbms_output.put_line('姓名:'||v_ename||'工资:'||v_sal||'交税:'||v_tax_sal)<br/>
+		end;<br/>
+		<br/>
+		非定长定义案例<br/>
+		declare<br/>
+		c_tax_rate number(3,2):=0.03;<br/>
+		v_ename emp.ename%type;<br/>
+		v_sal emp.sal%type;<br/>
+		v_tax_sal number(7,2);<br/>
+		begin<br/>
+		select ename,sal into v_ename,v_sal from emp where empno=&no;<br/>
+		v_tax_sal:=v_sal*c_tax_rate;<br/>
+		dbms_output.put_line('姓名:'||v_ename||'工资:'||v_sal||'交税:'||v_tax_sal)<br/>
+		end;<br/>
+		<br/>
+		--复合类型composite<br/>
+		1,pl/sql记录（类似高级语言的类）<br/>
+		declare <br/>
+		type emp_record_type is record(<br/>
+		name emp.ename%type,<br/>
+		salary emp.sal%type,<br/>
+		title emp.job%type);<br/>
+		sp_record emp_record_type;<br/>
+		begin<br/>
+		select ename,sal,job into sp_record<br/>
+		from emp where empno=7788;<br/>
+		dbms_output.put_line('员工名：'||sp_record.name);<br/>
+		end;<br/>
+		<br/>
+		2,pl/sql表(相当于高级语言里面的数组,但是这里面的下标可以为负数)<br/>
+		declare<br/>
+		type sp_table_type is table of emp.ename%type<br/>
+		index by binary_integer;<br/>
+		sp_table sp_table_type;<br/>
+		begin<br/>
+		select ename into sp_table(0) from emp where empno=7788;<br/>
+		dbms_output.put_line('员工名：'||sp_table(0));<br/>
+		end;<br/>
+		
+		3,游标<br/>
+		declare<br/>
+		type sp_emp_cursor is ref cursor;<br/>
+		test_cursor sp_emp_cursor;<br/>
+		v_ename emp.ename%type;<br/>
+		v_sal emp.sal%type;<br/>
+		begin<br/>
+		open test_cursor for select ename,sal from emp;<br/>
+		loop<br/>
+			fetch test_cursor into v_ename,v_sal;<br/>
+			exit when test_cursor%notfound;<br/>
+			dbms_output.put_line('名字:'||v_ename||'工资:'||v_sal);<br/>
+		end loop;<br/>
+		close test_cursor;<br/>
+		end;<br/>
+		<br/><span class="spanbody"> 
+		=================各种控制语句<br/></span>
+		--条件分支<br/>
+		if-then<br/>
+		if-then-else<br/>
+		if-then-elsif-else<br/>
+		<br/>
+		--案例（if-then）<br/>
+		create or replace procedure sp_pro6(spName varchar2) is<br/>
+		v_sal emp.sal%type;<br/>
+		begin<br/>
+		select sal into v_sal from emp where ename=spName;<br/>
+		if v_sal<2000 then<br/>
+		update emp set sal=sal*110% where ename=spName;<br/>
+		end if;<br/>
+		end;<br/>
+		
+		--案例（if-then-else）不等于号<><br/>
+		create or replace procedure sp_pro7(spName varchar2) is<br/>
+		v_comm emp.comm%type;<br/>
+		begin<br/>
+		select comm into v_comm from emp where ename=spName;<br/>
+		if v_comm<>0 then<br/>
+		update emp set comm=comm+100 where ename=spName;<br/>
+		else<br/>
+		update emp set comm=comm+200 where ename=spName;<br/>
+		end if;<br/>
+		end;<br/>
+		
+		--案例（if-then-elsif-else）<br/>
+		create or replace procedure sp_pro7(spNo number) is<br/>
+		v_job emp.job%type;<br/>
+		begin<br/>
+		select job into v_job from emp where empno=spNo;<br/>
+		if v_job='PRESIDENT' then<br/>
+		update emp set sal=sal+1000 where empno=spNo;<br/>
+		elsif v_job='MANAGER' then<br/>
+		update emp set sal=sal+500 where empno=spNo;<br/>
+		else<br/>
+		update emp set sal=sal+200 where empno=spNo;<br/>
+		end if;<br/>
+		end;<br/>	
+		<br/>
+		--循环语句<br/>
+		loop<br/>
+			end loop至少循环一次<br/>
+		<br/>
+		while 只有条件为true才执行<br/>
+		<br/>
+		--案例（loop *users表需要创建*）<br/>
+		create or replace procedure sp_pro9(spName varchar2) is<br/>
+		v_num number:=1;<br/>
+		begin<br/>
+		loop<br/>
+		insert into users values(v_num,spName);<br/>
+		exit when v_num=10;<br/>
+		v_num:=v_num+1;<br/>
+		end loop;<br/>
+		end;<br/>
+		<br/>
+		--案例（while）<br/>
+		create or replace procedure sp_pro10(spName varchar2) is<br/>
+		v_num number:=11;<br/>
+		begin<br/>
+		while v_num<=20 loop<br/>
+		insert into users(v_num,spName);<br/>
+		v_num:=v_num+1;<br/>
+		end loop;<br/>
+		end;<br/>
+		<br/>
+		--案例（for）<br/>
+		for i int reverse 1..10 loop<br/>
+		insert into users values(i,'test');<br/>
+		end loop;<br/>
+		end;<br/>
+		<br/>
+		--案例（goto，null）<br/>
+		declare<br/>
+		i int:=1;<br/>
+		begin<br/>
+		boop<br/>
+		dbms_output.put_line('输出i='||i);
+		if i=10; then
+		goto end_loop;
+		end if;
+		i:=i+1;
+		end loop;
+		<<end_loop>>
+		dbms_output.put_line('循环结束');<br/>
+		end;<br/>
+		<br/>
+		--案例（分页过程）<br/>
+		-建表<br/>
+		create table book(bookId number,bookName varchar2(50),publishHouse varchar2(50));<br/>
+		<br/>
+		-编程过程(in代表这是一个输入参数 out表示输出参数)<br/>
+		create or replace procedure sp_pro11(spBookId in number,spbookName in varchar2,sppublishHouse in varchar2) is<br/>
+		begin<br/>
+		insert into book values(spBookId,spbookName,sppublishHouse);<br/>
+		end;<br/>
+		<br/>
+		-java 链接数据库<br/>
+		参照下面<br/>
+		<br/>
+		-创建CallableStatement<br/>
+		CallableStatement cs = ct.prepareCall("{call ps_pro11(?,?,?)}");<br/>
+		cs.setInt(1,10);<br/>
+		cs.setString(2,"笑傲江湖");<br/>
+		cs.setString(3,"人民出版社");<br/>
+		<br/>
+		cs.execute();<br/>
+		<br/>
+		-编写过程（有返回值）<br/>
+		create or replace procedure sp_pro12<br/>
+		(spno in number,spName out varchar2) is<br/>
+		begin<br/>
+		select ename into spName from emp where empno=spno;<br/>
+		end;<br/>
+		<br/>
+		-java创建CallableStatement（多个变量也类似）<br/>
+		CallableStatement cs = ct.prepareCall("{call sp_pro12(?,?)}");<br/>
+		cs.setInt(1,7788);<br/>
+		cs.registerOutParameter(2,oracle.jdbc.OracleTypes.VARCHAR);<br/>
+		cs.execute();<br/>
+		String name=cs.getString(2);<br/>
+		<br/>
+		-返回结果集,在该包中,我定义类型<br/>
+		-建包<br/>
+		create or replace package testpackage as<br/>
+		type test_cursor is ref cursor;<br/>
+		end testpackage;<br/>
+		-建存储过程<br/>
+		create or replace procedure testc<br/>
+		(myno in number,p_cursor out testpackage.test_cursor) is<br/>
+		begin<br/>
+		open p_cursor for select * from emp where deptno=no;<br/>
+		end testc;<br/>
+		<br/>
+		-在java中使用<br/>
+		CallableStatement cs = ct.prepareCall("{call sp_pro9(?,?)}");<br/>
+		cs.setInt(1,10);<br/>
+		cs.registerOutParamenter(2,oracle.jdbc.OracleTypes.CURSOR);<br/>
+		cs.execute();<br/>
+		ResultSet rs = (ResultSet)cs.getObject(2);<br/>
+		<br/>
+		while(rs.next()){	<br/>
+		System.out.println(rs.getInt(2)+""+rs.getString(2));<br/>
+		}<br/>
+		<br/>
+		--案例分页<br/>
+		create or replace package testpackage as<br/>
+		type test_cursor is ref cursor;<br/>
+		end testpackage;<br/>
+		<br/>
+		create or replace procedure fenye<br/>
+		(tableName in varchar2,<br/>
+		Pagesize in number,<br/>
+		PageNow in number,<br/>
+		myrows out number,<br/>
+		myPageCount out number,<br/>
+		p_cursor out testpackage.test_cursor<br/>
+		)is<br/>
+		v_sql varchar2(1000);<br/>
+		v_begin number:=(PageNow-1)*Pagesize+1;<br/>
+		v_end number:=PageNow*Pagesize;<br/>
+		begin<br/>
+		v_sql:='select a2.* from(select a1.*,rownum rn from (select * from '||tableName||') a2 where rownum<='||v_end||') a2 where <br/>
+		<br/>
+		rn>'||v_begin;<br/>
+		open p_cursor for v_sql;<br/>
+		v_sql:='select count(*) from '||tableName;<br/>
+		execute immediate v_sql into myrows;<br/>
+		if mod(myrows,Pagesize)=0 then<br/>
+		myPageCount:=myrows/Pagesize;<br/>
+		else<br/>
+		myPageCount:=myrows/Pagesize+1;<br/>
+		end if;<br/>
+		end;<br/>
+		<br/>
+		--java中使用<br/>
+		CallableStatement cs = ct.prepareCall("{call fenye(?,?,?,?,?,?)}");<br/>
+				<br/>
+					cs.setString(1,"emp");<br/>
+					cs.setInt(2,5);<br/>
+					cs.setInt(3,1);<br/>
+					cs.registerOutParameter(4, oracle.jdbc.OracleTypes.INTEGER);<br/>
+					cs.registerOutParameter(5, oracle.jdbc.OracleTypes.INTEGER);<br/>
+					cs.registerOutParameter(6, oracle.jdbc.OracleTypes.CURSOR);<br/>
+					<br/>
+					cs.execute();<br/>
+					int rowNum = cs.getInt(4);<br/>
+					int pageCount = cs.getInt(5);<br/>
+					ResultSet rs = (ResultSet)cs.getObject(6);<br/>
+					<br/>
+					System.out.println("rowNum="+rowNum);<br/>
+					System.out.println("总页数"+pageCount);<br/>
+					<br/>
+					while(rs.next()){<br/>
+						System.out.println(rs.getInt(1));<br/>
+					}<br/><span class="spanbody"> 
+		=================例外处理<br/></span>
+		<br/>
+		--预定义例外(提供了二十多个例外)<br/>
+		declare<br/>
+		v_ename emp.ename%type;<br/>
+		begin<br/>
+		select ename into v_ename from emp where empno=&gno;<br/>
+		dbms_output.putline('名字'||v_ename);<br/>
+		exception<br/>
+		when no_data_found then<br/>
+		dbms_output.put_line('编号没有！');<br/>
+		end;<br/>
+		--其他预定义例外<br/>
+		login_denide<br/>
+		当非法登录时，会出发该例外<br/>
+		<br/>
+		not_logged_on<br/>
+		如果用户没有登录就执行dml操作，会出发该例外<br/>
+		<br/>
+		storage_error<br/>
+		如果超出了内存空间或是内存被损坏，就触发该例外<br/>
+		<br/>
+		timeout_on_resource<br/>
+		如果oracle在等待资源时，出现了超时就触发该例外<br/>
+		<br/>
+		--非预定义例外<br/>
+		<br/>
+		--自定义例外<br/>
+		create or replace procedure ex_text(spNo number)<br/>
+		is<br/>
+		myex exception;<br/>
+		begin<br/>
+		update emp set sal=sal+1000 where empno=spNo;<br/>
+		if sql%notfound then<br/>
+		raise myex;<br/>
+		end if;<br/>
+		exception <br/>
+		when myex then<br/>
+		dbms_output.put_line('没有用户被更新');<br/>
+		end;<br/>
+		<br/><span class="spancj">
+		<------------------------><br/></span>
+		case_not_found<br/>
+		如果when字句中没有包含必须<br/>
+		的条件分支，就会触发<br/>
+		case_not_found的例外<br/>
+		<br/>
+		cursor_already_open<br/>
+		当重新打开已经打开的游标时，<br/>
+		会隐含的出发例外<br/>
+		<br/>
+		dup_val_on_index<br/>
+		在唯一索引所对应的列上插入<br/>
+		重复的值时，会隐含的出发例外<br/>
+		<br/>
+		invalid_cursor<br/>
+		当视图在不合法的游标上执行<br/>
+		操作时，会触发该例外<br/>
+		<br/>
+		invalid_number<br/>
+		当输入的数据有误时，<br/>
+		会触发该例外<br/>
+		<br/>
+		too_many_rows<br/>
+		当执行select into 语句时，<br/>
+		如果返回超过一行，就报错。<br/>
+		<br/>
+		zero_divide<br/>
+		当执行2/0就会抛出异常<br/>
+		<br/>
+		value_error<br/>
+		如果变量的长度不足，就会异常<br/><span class="spancj">
+		<------------------------><br/></span>
+		<br/><span class="spanbody"> 
+		=================oracle视图<br/></span>
+		视图是一个虚拟的表，其内容有查询定义，同真是的表一样，视图包含一些列带有名称<br/>
+		的列和行数据。但是，视图并不在数据库中以数据值集形式存在。<br/>
+		<br/>
+		--创建视图<br/>
+		create view myview as select * from emp where sal<1000;<br/>
+		<br/>
+		select * from myview;<br/>
+		--创建多表为一个视图<br/>
+		create view myview2 as select emp.empno,emp.ename,dept.dname from emp,dept where emp.deptno= dept.deptno;<br/>
+		<br/>
+		--删除视图<br/>
+		drop view 视图名<br/>
+		<br/>
+		--视图只可读[with read only]<br/>
+		create view 视图名 as select 语句[with read only]<br/>
+		<br/><span class="spanbody"> 
+		=================编写规范<br/></span>
+		--注释<br/>
+		单行注释 --<br/>
+		多行注释 /*...*/<br/>
+		<br/>
+		--表示符号的命名规范<br/>
+		定义变量，用v_作为前缀 v_sal<br/>
+		定义常量，用c_作为前缀 c_rate<br/>
+		定义游标，用_cursor作为后缀emp_cursor<br/>
+		定义例外，用e_作为前缀 e_error<br/>
+		<br/>
+		<span class="spanhead" id="数据恢复"><a name="14">
+		*****************<br/><a></span>
+		数据恢复<br/>
+		<span class="spanhead">
+		******************<br/></span>
+		<br/><span class="spanbody"> 
+		==============1:建立回滚点<br/></span>
+		savepoint aa;<br/>
+		<br/><span class="spanbody"> 
+		==============2:删除数据(可回复删除)<br/></span>
+		delete from student;<br/>
+		<br/><span class="spanbody"> 
+		==============3:恢复数据<br/></span>
+		rollback to aa;<br/>
+		<br/><span class="spanbody"> 
+		==============自增长归零<br/></span>
+		alter table onehref auto_increment = 0;<br/>
+		<br/>
+		<span class="spanhead" id="java操作oracle数据库"><a name="15">
+		******************<br/><a></span>
+		java操作oracle数据库<br/>
+		<span class="spanhead"> 
+		******************<br/></span>
+		<br/><span class="spanbody"> 
+		==============jdbc_odbc连接<br/></span>
+		--第一步<br/>
+		控制面板->管理工具->数据源ODBC->添加Oracle in OraDb10_home1->完成->OK->确定<br/>
+		<br/>
+		--第二部java代码<br/>
+		Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");<br/>
+		Connection ct = DriverManager.getConnection("jdbc:odbc:test","scott","tigger");<br/>
+		<br/><span class="spanbody">
+		*****************<br/></span>
+		--第一步<br/>
+		加载jar包<br/>
+		<br/>
+		--第二步<br/>
+		import java.sql.*;<br/>
+		Class.forName("oracle.jdbc.driver.OracleDriver");<br/>
+		Connection ct = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl","scott","tigger")<br/>
+		<br/><span class="spanbody"> 
+		==============java里面控制事务<br/></span>
+		--设置不能默认提交（默认不让执行一句提交一句）<br/>
+		ct.setAutoCommit(false);<br/>
+		<br/>
+		--提交事务（执行完sql语句提交）<br/>
+		ct.commit();<br/>
+		<br/>
+		--异常回滚(在发生异常里面写)<br/>
+		ct.rollback();<br/>
+		<br/>
+		<span class="spanhead" id="java调用存储过程"><a name="16">
+		*****************<br/><a></span>
+		java调用存储过程<br/>
+		<span class="spanhead">
+		*****************<br/></span>
+		<br/>
+		//连接部分在上面<br/>
+		CallableStatement cs = ct.prepareCall("{call plsqltest(?,?)}");<br/>
+		<br/>
+		cs.setString(1,"SMITH");<br/>
+		cs.setInt(2,10);<br/>
+		--执行<br/>
+		cs.execute();<br/>
+		<br/>
+	</div>
+</div>
+</body>
+</html>

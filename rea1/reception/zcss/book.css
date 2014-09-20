@@ -1,0 +1,330 @@
+/* CSS Document */
+	*{
+		margin:0;
+		outline: none;
+	}
+	
+	img{
+       border:none;
+    }
+
+	
+	body{
+		margin:0;
+	}
+	
+	.sortListDiv{
+		width:100%;
+		height:79px;
+		border-bottom:1px #CCCCCC solid;
+	}
+	
+	.Announcement{
+		width:314px;
+		height: 77px;
+		font-size:12px;
+		float: left;
+		border: 1px silver solid;
+	}
+	
+	.Announcement ul{
+		margin-left: -30px;
+		margin-top: 5px;
+	}
+	
+	.Announcement ul li{
+		list-style: none;
+	}
+	
+	.listDiv{
+		width:800px;/*以后可用js控制*/
+		height:79px;
+		margin-left:316px;
+		border-left:1px #CCCCCC solid;
+	}
+	
+	.listDiv ul{
+		background-color:#666666;
+		margin-left:-30px;
+	
+	}
+	
+	.listDiv ul li{
+		list-style:none;
+		float:left;
+		margin-right:10px;
+		width:80px;
+		height:60px;
+		margin-top:-10px;
+		cursor:pointer;
+	}
+	
+	.logoDiv{
+		width:100%;
+		height:150px;
+		height:150px;
+		background-color:#3399FF;
+	}
+	
+	.logoImg{
+		width:316px;
+		height:150px;
+		background-color:#CC66FF;
+		float:left;
+	}
+	
+	
+	
+	.logo{
+		width:316px;
+		height:101px;
+		background-color:#CC6699;
+		background-image:url(../zimages/loginlogo.png);
+	}
+	
+	.userMess{
+		width:312px;
+		height:45px;
+		background-color:#330000;
+		border:2px #CCCCCC solid;
+	}
+	
+	.user{
+		width:250px;
+		height:45px;
+		float:left;
+	}
+	
+	.user ul{
+		margin-left:-30px;
+		margin-top:9px;
+	}
+	
+	.user ul li{
+		list-style:none;
+		font-size:22px;
+		color:#FFFFFF;
+	}
+	
+	.userExit{
+		float:left;
+		font-size:25px;
+		color:#999999;
+		margin-left:5px;
+		margin-top:7px;
+		border-left:1px #FFFFFF solid;
+		cursor:pointer;
+		padding:1px;
+	}
+	
+	.logoWord{
+		width:800px;
+		height:150px;
+		float:left;
+		color:#FFFFFF;
+		font-size:30px;
+	}
+	
+	.logoWord ul{
+		margin-top:40px;
+	}
+	
+	.logoWord ul li{
+		list-style:none;
+	}
+	
+	.bookListDiv{
+		width:100%;
+		
+	}
+	
+	.bookMI{
+		width:1016px;
+		float:left;
+	}
+	
+	.bookMess{
+		width:315px;
+		height:500px;
+		float:left;
+		border-bottom:1px #CCCCCC solid;
+		border-right:1px #CCCCCC solid;
+	}
+	
+	.bookM{
+		width:200px;
+		height:30px;
+		float:right;
+		margin-top:20px;
+		border-bottom:1px #CCCCCC solid;
+	}
+	
+	.bookIntroduce{
+		width:699px;
+		height:500px;
+		float:left;
+		border-bottom:1px #CCCCCC solid;
+		border-right:1px #CCCCCC solid;
+	}
+	
+	.bookImg{
+		width:157px;
+		height:220px;
+		float:left;
+		margin-top:10px;
+		margin-left:10px;
+		background-image:url(../zimages/bookImg.png);
+		border:2px #000000 solid;
+	}
+	
+	.bookName{
+		margin-top:10px;
+		margin-left:10px;
+		width:473px;
+		height:80px;
+		background-color:#666666;
+		float:left;
+		border:2px #999999 solid;
+	}
+	
+	.Bname{
+		width:400px;
+		color:#FFFFFF;
+		font-size:30px;
+		margin-top:23px;
+		margin-left:10px;
+		text-overflow: ellipsis;
+   		-o-text-overflow: ellipsis;
+    	overflow: hidden;
+		white-space: nowrap;
+	}
+	
+	.bookDown{
+		margin-top:55px;
+		margin-left:10px;
+		width:473px;
+		height:80px;
+		background-color:#666666;
+		float:left;
+		border:2px #999999 solid;
+	}
+	
+	.bookDiscuss{
+		margin-left:10px;
+		margin-top:10px;
+		width:644px;
+		height:241px;
+		float:left;
+		border:2px #CCCCCC solid;
+	}
+	
+	.discuss{
+		white-space:normal;
+		word-wrap : break-word ;
+		word-break:break-all;
+		width:600px;
+		height:200px;
+		margin-left:20px;
+		padding:2px;
+		font-size:12px;
+		text-overflow: ellipsis;
+   		-o-text-overflow: ellipsis;
+    	overflow: hidden;
+		white-space: nowrap;
+	}
+	
+	.distitle{
+		width:600px;
+		height:20px;
+		margin-left:20px;
+	}
+	
+	.bookAssistant{
+		width:220px;
+		height:900px;
+		float:left;
+		border-bottom:1px #CCCCCC solid;
+	}
+	
+	.shareBook{
+		margin:0 auto;
+		margin-top:20px;
+		width:200px;
+		height:45px;
+		background-color:#FF0000;
+		border:1px #CCCCCC solid;
+		background-color:#336600;
+		text-align:center;
+		color:#FFFFFF;
+		font-size:24px;
+		padding-top:15px;
+		cursor:pointer;
+		
+	}
+	
+	.searchBook ul{
+		margin-left:-16px;
+		margin-top:10px;
+	}
+	
+	.searchBook ul li{
+		list-style:none;
+		float:left;
+	}
+	
+	.bookLanguage ul{
+		margin-top:50px;
+		font-size:12px;
+	
+	}
+	
+	.sjfl{
+		width:230px;
+		height:20px;
+		margin-top:20px;
+		float:left;
+		padding:2px;
+		color:#666666;
+		font-size:12px;
+	}
+	
+	.bookLanguage a:link {
+		color: #666666;
+		text-decoration: none;
+	}
+	.bookLanguage a:visited {
+		text-decoration: none;
+		color: #666666;
+	}
+	.bookLanguage a:hover {
+		text-decoration: underline;
+		color: #000000;
+	}
+	.bookLanguage a:active {
+		text-decoration: none;
+		color: #666666;
+	}
+	
+	.page{
+		margin-top:30px;
+		margin-bottom:40px;
+		width:1020px;
+		height:80px;
+		background-color:#999999;
+		float:left;
+	}
+	
+	.page_up,.page_down{
+		width:100px;
+		background-color:#333333;
+		border:2px #FFFFFF solid;
+		padding-top:10px;
+		padding-bottom:10px;
+		float:left;
+		margin-top:15px;
+		margin-left:15px;
+		color:#FFFFFF;
+		font-size:24px;
+		text-align:center;
+		cursor:pointer;
+	}

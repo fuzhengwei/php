@@ -1,0 +1,110 @@
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>分布类--将一个类分成几部分</title>
+
+<link type="text/css" rel="stylesheet" 
+
+href="../../../js/SyntaxHighlighter/SyntaxHighlighter.css"></link>
+
+	<style>
+	/* @import url(SyntaxHighlighter.css); */
+
+	body {
+		font-family: Arial;
+		font-size: 12px;
+	}
+	</style>
+</head>
+
+<body>
+<h3>分布类--将一个类分成几部分</h3>
+<h5>分布类的出现使得程序的结构更加合理，代码的组织更加紧密</h5>
+<textarea name="code" class="c#">
+partial class account
+{
+	public int addition(int a,int b)
+	{
+		return a + b;
+	}
+}
+
+partial class accout
+{
+	public int multiplication(int a,int b)
+	{
+		return a * b;
+	}
+}
+
+partial class accout
+{
+	public int subration(int a,int b)
+	{
+		return a - b;
+	}
+}
+
+partial class account
+{
+	public int division(int a,int b)
+	{
+		return a / b;
+	}
+}
+
+private void Form1_Load(object sender,EventArgs e)
+{
+	comboBox1.SelectedIndex = 0;
+	
+	comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+}
+
+private void button1_Click(object sender,EventArgs e)
+{
+	try
+	{
+		account at = new account();
+		
+		int M = int.Parse(txtNo1.Text.Trim());
+		
+		int N = int.Parse(txtNo2.Text.Trime());
+		
+		string str = comboBox1.Text;
+		
+		switch(str)
+		{
+			case "加":txtResult.Text = at.addition(M,N).ToString();break;
+			
+			case "减":txtResult.Text = at.subtration(M,N).ToString();break;
+			
+			case "乘":txtResult.Text = at.multiplication(M,N).ToString();break;
+			
+			case "除":txtResult.Text = at.division(M,N).ToString();break;
+		}
+	}
+	catch(Exception ex)
+	{
+		MessageBox.Show(ex.Message);
+	}
+}
+</textarea>
+
+</body>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushCSharp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPhp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushVb.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushSql.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushDelphi.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPython.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>

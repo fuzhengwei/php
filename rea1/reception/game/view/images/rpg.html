@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="620" height="420" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<img src="girl1.jpg" id = "role" hidden />
+<img src="flower1.jpg" id = "flower" hidden />
+<img src="npc1.jpg" id = "npc1" hidden />
+<img src="stone1.jpg" id = "stone1" hidden />
+<img src="water1.jpg" id = "water1" hidden />
+<button onclick="start()">开始</button>
+<script>
+
+var c=document.getElementById("myCanvas");
+var pen=c.getContext("2d");
+//pen.shadowBlur = 20, pen.shadowColor = "#0f0";
+//pen.strokeText("开始",180,100);
+//context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+var dirs = [[ 0, 1 ], [ 0, -1 ], [-1, 0 ], [ 1, 0 ]];
+var keyLeft=37,keyUp=38,keyRight=39,keyDown=40;
+var left=1;down=0;right=2;up=3;
+var size=20;
+var wCut=21;
+var hCut=21;
+var autoGo;
+var flowers=[
+	[21,11],[21,12],[21,13],[22,11],[22,13],[23,11],[23,12],[23,13]
+];
+var stones=[
+	[3,2],[4,2],[4,3],[4,4],[3,4]
+];
+var waters=[
+	[22,12]
+]
+var map;
+var r = document.getElementById("role");
+var f= document.getElementById("flower");
+var imgNpc1= document.getElementById("npc1");
+var imgStone1= document.getElementById("stone1");
+var imgWater1= document.getElementById("water1");
+var barrier;
+
+function Map(flowers,stones,waters,npcs){
+	this.flowers=flowers;
+	this.stones=stones;
+	this.waters=waters;
+	this.npcs=npcs;
+}
+var task=0;
+function Cube(img,x,y){
+	this.img=img;
+	this.x=x;
+	this.y=y;
+}
+document.onkeydown=function(ev){
+	var e = window.event||ev;
+	switch(e.keyCode){
+		case keyLeft:
+		role.dir=left;
+		role.x--;
+		if(!checkRole(role)){
+			role.x++;
+		}
+		break;
+		case keyRight:
+		role.dir=right;
+		role.x++;
+		if(!checkRole(role)){
+			role.x--;
+		}
+		break;
+		case keyUp:
+		role.dir=up;
+		role.y--;
+		if(!checkRole(role)){
+			role.y++;
+		}
+		break;
+		case keyDown:
+		role.dir=down;
+		role.y++;
+		if(!checkRole(role)){
+			role.y--;
+		}
+		break;
+	}
+	role.walk();
+}
+
+function checkRole(o){
+	for(var i=0;i<barrier.length;i++){
+		if(o.x==barrier[i][0]&&o.y==barrier[i][1]){
+			for(var i=0;i<map.npcs.length;i++){
+				if(o.x==map.npcs[i].x&&o.y==map.npcs[i].y){
+					map.npcs[i].talk();
+				}
+			}
+			return false;
+		}
+	}
+	return true;
+}
+
+function Role(dir,x,y){
+	this.x=x;
+	this.y=y;
+	this.dir=dir;
+	this.walk=function(){
+		
+		this.x=this.x<0?0:this.x;
+		this.y=this.y<0?0:this.y;
+		this.x=this.x>30?30:this.x;
+		this.y=this.y>20?20:this.y;
+		if(this.action==undefined){
+			this.action=0;
+		}
+		this.action++;
+		this.action=this.action==3?0:this.action;
+		this.print();
+		if(this.walkMore!=undefined){
+			this.walkMore();
+		}
+	}
+	
+	this.print=function(){
+		pen.shadowBlur = 0;
+		pen.fillStyle='#222';
+		pen.fillRect(0,0,620,420);
+		pen.fillStyle='#fff';
+		pen.fillRect(10,10,600,400);	
+		pen.fillStyle='#00f';
+		this.drawArray(map.flowers,f);
+		this.drawArray(map.stones,imgStone1);
+		this.drawArray(map.waters,imgWater1);
+		this.drawNpc(map.npcs);
+		if(this.printMore!=undefined){
+			this.printMore();
+			this.printMore=undefined;
+		}
+		pen.drawImage(r,this.action*wCut,this.dir*hCut,wCut,hCut,10+20*this.x,10+20*this.y,20,20);
+	}
+	this.drawNpc=function(o){
+		for(var i=0;i<o.length;i++){
+			this.drawXY(pen,o[i].x,o[i].y,o[i].img);
+		}
+	}
+	this.drawArray = function(o,img){
+		for(var i=0;i<o.length;i++){
+			this.drawXY(pen,o[i][0],o[i][1],img);
+		}
+	}
+	this.drawXY=function(pen,x,y,img){
+		pen.drawImage(img,10+20*x,10+20*y,20,20);
+	}
+	
+}
+var role;
+var npc1
+function start(){
+	map = new Map(flowers,stones,waters,new Array());
+	npc1= new Cube(imgNpc1,3,3);
+	npc1.talk = function(){
+	//	alert(task);
+		pen.fillStyle="#eee"
+		if(task==0){
+			pen.strokeText("给我一点水,我将支付你20G",240,180);
+			if(true==confirm("接收任务吗?")){
+				task++;
+			}
+		}else if(task==1){
+			pen.strokeText("东南方有一个花园,我把水桶藏在,右下角的花丛中!!",240,180);
+			alert("知道了");
+			role.walkMore=function(){
+				if(role.x==23&&role.y==13){
+					pen.strokeText("发现水桶!",240,180);
+					alert("有发现!");
+					task++;
+					this.walkMore=undefined;
+				}
+			}
+		}else if(task==2){
+			pen.strokeText("花丛中有个水池,但只能从他左边取水!!",240,180);
+			alert("知道了");
+			role.walkMore=function(){
+				if(role.x==21&&role.y==12){
+					pen.strokeText("打满水了!",240,180);
+					alert("有发现!");
+					task++;
+					this.walkMore=undefined;
+				}
+			}
+		}else if(task==3){
+			pen.strokeText("得到20G,任务完成",240,180);
+			alert("成功完成任务");
+		}
+		
+	}
+	map.npcs.push(npc1);
+	createbarrierFromMap(map);
+	role=new Role(down,0,0);
+	autoGo=setInterval(autoG,500);
+}
+
+function createbarrierFromMap(o){
+	barrier=new Array();
+	for(var i=0;i<o.stones.length;i++){
+		barrier[barrier.length]=o.stones[i];
+	}
+	for(var i=0;i<o.waters.length;i++){
+		barrier[barrier.length]=o.waters[i];
+	}
+	for(var i=0;i<o.npcs.length;i++){
+		barrier[barrier.length]=[o.npcs[i].x,o.npcs[i].y];
+	}
+}
+	
+function autoG(){
+	role.walk();
+}
+
+
+</script>
+
+</body>
+</html>

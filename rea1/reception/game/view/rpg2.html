@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8" />
+<script src="js/engine.js"></script>
+<style type="text/css">
+
+	body{  margin:0pxauto;  text-align:center;  }  
+</style>
+</head>
+<body>
+<p hidden>你的浏览器不支持HTML5 </p>
+<canvas id="myCanvas" width="920" height="520" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<img src="images/role1.jpg" id = "role" hidden />
+<img src="images/flower1.jpg" id = "flower" hidden />
+<img src="images/npc1.png" id = "npc1" hidden />
+<img src="images/stone1.jpg" id = "stone1" hidden />
+<img src="images/water1.jpg" id = "water1" hidden />
+<img src="images/grassland1.jpg" id = "grassland1" hidden />
+<img src="images/msg1.png" id = "msg1" hidden />
+<img src="images/head_role1.png" id = "hrole1" hidden />
+<img src="images/head_npc1.png" id = "hnpc1" hidden />
+
+<script>
+var c=document.getElementById("myCanvas");
+var session = window.sessionStorage;
+var grasslands=new Array();
+for(var i=0;i<mapW-1;i++){
+	for(var j=0;j<mapH-1;j++){
+		grasslands[grasslands.length]=[i,j];
+	}
+}
+var flowers=[
+	[21,11],[21,12],[21,13],[22,11],[22,13],[23,11],[23,12],[23,13],[8,10],[8,11],[8,12]
+];
+var stones=[
+	[3,2],[4,2],[4,3],[4,4],[3,4],[9,11],[10,10],[11,9],[12,8],[13,7],[14,6]
+];
+
+for(var i=0;i<20;i++){
+	stones[stones.length]=[0,i];
+	stones[stones.length]=[29,i];
+	if(i!=10&&i!=11&&i!=12)
+	stones[stones.length]=[8,i];
+}
+for(var i=0;i<30;i++){
+	stones[stones.length]=[i,0];
+	stones[stones.length]=[i,19];
+}
+var waters=[
+	[22,12]
+]
+
+
+var r = document.getElementById("role");
+var iflower= document.getElementById("flower");
+var imgNpc1= document.getElementById("npc1");
+var istone= document.getElementById("stone1");
+var iwater= document.getElementById("water1");
+var igrassland= document.getElementById("grassland1");
+var imsg= document.getElementById("msg1");
+var imgHrole1= document.getElementById("hrole1");
+var imgHnpc1= document.getElementById("hnpc1");
+
+
+var cellSize=100;
+var task=0;
+config(c);
+init();
+var role;
+drawOKText("START",function(){
+	role.print();
+});
+
+
+
+function init(){
+	var npcs=[];
+	npcs[0]= new Npc('大花',imgNpc1,imgHnpc1,3,3);
+	npcs[1]= new Npc('小花',imgNpc1,imgHnpc1,23,8);
+	npcs[1].talk=function(obj){
+		var o=this;
+		if(task<=3){
+			drawMsgText(this,"555555...(小声哭泣)").setOkBtn("怎么了,小妹妹?",function(){
+				this.stop=false;
+				drawMsgText(o,"我东西掉了,(大哭)").setOkBtn("什么东西啊?",function(){
+					if(task==2)
+						task++;
+					this.stop=false;
+					drawMsgText(o,".......").setOkBtn("回去问大花看,什么情况");
+				}).setCancelBtn("不理她");
+			}).setCancelBtn("不理她");
+		}
+		if(task==4||task==5){
+			pause();
+			drawMsgText(this,"我在花园中玩的时候,水桶掉了");
+			drawCancelText("哥哥去找",function(){
+				if(task==4)
+					task++;
+				resume();
+			});
+				obj.addTaskPoint=function(){
+					if(this.x==23&&this.y==12){
+						drawMsgText(this,"发现一个水桶");
+						drawOKText("捡起",function(){
+							task++;
+							obj.addTaskPoint=undefined;
+						});
+						drawCancelText("放弃",function(){
+							obj.print();
+						});
+					}
+				}
+		}
+		if(task>5&&task<8){
+			drawMsgText(this,"谢谢大哥哥");
+			drawOKText("你要乖~~",function(){
+				resume();
+			});
+		}
+		if(task==8||task==9){
+			drawMsgText(this,"怪物好像躲在池子下方的花丛中").setOkBtn("知道了",function(){
+				task=9;
+				var ca=this;
+				obj.addTaskPoint=function(){
+					if(this.x==22&&this.y==13){
+						monster=new Monster(monsters.length-1);
+						obj.meetMonster();	
+					obj.attackSuccess=function(){
+						obj.print();
+						task=10;
+						ca.stop=false;
+						drawMsgText(obj,"打赢Boss,湖水渐渐的干净了").setOkBtn("战斗胜利");
+						obj.attackSuccess=undefined;
+					}
+					obj.attackFail=function(){
+						ca.stop=false;
+						drawMsgText("被Boss打死了").setOkBtn("战斗失败");
+						obj.attackSuccess=undefined;
+					}
+
+				}
+			}
+			}).setCancelBtn("问关于怪物的情况",function(){
+				var ca = this;
+				obj.addTaskPoint=function(){
+					if(this.x==22&&this.y==13){
+						monster=new Monster(monsters.length-1);
+						obj.meetMonster();	
+						obj.attackSuccess=function(){
+							task=10;
+							ca.stop=false;
+							drawMsgText(obj,"打赢Boss,湖水渐渐的干净了").setOkBtn("战斗胜利");
+							obj.attackSuccess=undefined;
+							obj.addTaskPoint=undefined;
+						}
+						obj.attackFail=function(){
+							ca.stop=false;
+							drawMsgText("被Boss打死了").setOkBtn("战斗失败");
+							obj.attackSuccess=undefined;
+							obj.addTaskPoint=undefined;
+						}
+					}
+				}
+				this.stop=false;
+				drawMsgText(o,"你最好把等级练高点去,不然会有危险").setOkBtn("谢谢小妹妹");
+			});
+		}
+		if(task>9){
+			drawMsgText(this,"大哥哥真厉害*_*").setOkBtn("-_-");
+		}
+	}
+	npcs[0].talk = function(obj){
+		var o=this;
+		if(task==0){
+			drawMsgText(o,"能帮我打一桶水吗?").setOkBtn("接受任务",function(){
+				task++;
+			}).setCancelBtn("不接受",function(){
+				this.stop=false;//内套的对象要设置
+				drawMsgText(o,"我的水桶掉了,求求你了?")
+				.setOkBtn("好吧",function(){task++;})
+				.setCancelBtn("不接受");
+			});
+
+		}else if(task==1||task==2){
+			drawMsgText(this,"我的水桶不见了,你要好好找找","知道了",function(){
+				if(task==1)
+					task++;	
+			});
+		}else if(task==3||task==4){
+			drawMsgText(this,"什么我妹妹在哭,那水桶可能被她藏起来了","那去问问你妹妹",function(){
+				if(task==3)
+					task++;	
+			});
+		}else if(task==5){
+			drawMsgText(this,"我妹妹太淘气了","是啊");
+		}else if(task==6||task==10){
+			drawMsgText(this,"花丛中有个水池,取水位置会随时间变化,你要好好尝试下","知道了",function(){
+						resume();
+					});
+			obj.addTaskPoint=function(){
+				if(this.x==23&&this.y==13){
+					drawMsgText(this,"可以取水,是否打水?","打水",function(){
+						task++;
+						obj.addTaskPoint=undefined;
+					},"不打");
+				}
+			}
+		}else if(task==7){
+			drawMsgText(o,"这桶水不行,好像又被怪物给污染了").setOkBtn("那怎么办",function(){
+				task++;
+				this.stop=false;
+				drawMsgText(o,"我妹妹好像就是被那怪物吓过,你去问我妹妹看看").setOkBtn("好的");
+			});
+		}else if(task>7&&task<11){
+			drawMsgText(this,"你要小心").setOkBtn("知道了");
+		}else if(task==11){
+			drawMsgText(this,"真的是太感谢你了").setOkBtn("不用客气");
+		}
+		
+	}
+	var map = new Map(grasslands,flowers,stones,waters,npcs);
+	var barriers=createbarrierFromMap(map);
+	role=new Role("主角",r,imgHrole1,down,0,1,1,1);
+	role.createMonster = function(o){
+		if(this.x<8&&this.y<6){
+			var i = Math.random()*4>>>0;
+			//o[o.length]=new Monster(i);
+			return  new Monster(i);
+		}else if(this.x>8&&this.x<16&&this.y>6&&this.y<16){
+			var i = Math.random()*8>>>0;
+			//o[o.length]=new Monster(i);
+			return  new Monster(i);
+		}else if(this.x>16&&this.x<24&&this.y>6){
+			var i = Math.random()*15>>>0;
+			//o[o.length]=new Monster(i);
+			return  new Monster(i);
+		}else{
+			var i = Math.random()*16>>>0;
+			return  new Monster(i);
+		}
+		return o;
+	}
+	regist({
+		barrier:barriers,
+		role:role,
+		map:map,
+		msgY:425,
+		viewStyle:{
+			w:9,
+			h:5,
+			cellSize:100
+		},
+		mapStyle:{
+			w:30,
+			h:20
+		},
+		button:{
+			ok:{
+				x:430,
+				y:455
+			},
+			cancel:{
+				x:430,
+				y:485
+			}
+		},
+		pics:{//素材图片
+			flower:iflower,
+			water:iwater,
+			stone:istone,
+			grassland:igrassland,
+			message:imsg
+		}
+	});
+}
+</script>
+
+</body>
+</html>

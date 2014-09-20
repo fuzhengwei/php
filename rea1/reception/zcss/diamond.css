@@ -1,0 +1,26 @@
+/* CSS Document */
+*{
+	margin:0;
+	outline:none;
+}
+
+body{
+	margin:0;
+	outline:none;
+}
+
+.topDiv{
+	width:100%;
+	height:60px;
+	font-size:24px;
+	border-bottom:1px #CCCCCC solid;
+	text-align:center;
+	padding-top:40px;
+}
+
+a{
+	text-decoration:none;
+	color:#330000;
+	font-weight:bolder;
+}
+

@@ -1,0 +1,60 @@
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Convert类用于将一个基本数据类型转换为另一个基本数据类型</title>
+
+<link type="text/css" rel="stylesheet" 
+
+href="../../../js/SyntaxHighlighter/SyntaxHighlighter.css"></link>
+
+	<style>
+	/* @import url(SyntaxHighlighter.css); */
+
+	body {
+		font-family: Arial;
+		font-size: 12px;
+	}
+	</style>
+</head>
+
+<body>
+<h3>Convert类用于将一个基本数据类型转换为另一个基本数据类型</h3>
+<h5>受支持的类型：Boolean Char SByte Byte Int16 Int32 Int64 UInt16 UInt32 UInt64 Single Double DateTime String</h5>
+<textarea name="code" class="c#">
+private void button1_Click(object sender,EventArgs e)
+{
+	string str = "转换前的数据类型：\n";
+	bool xBool = false;
+	float xSingle = 4.0f;
+	double xDouble = 5.0;
+	decimal xDecimal = 6.0m;
+	string xString = "7";
+	char xChar = '8';
+	
+	Convert.ToInt64(xBool);
+	Convert.ToInt64(xSingle);
+	Convert.ToInt64(xDouble);
+	Convert.ToInt64(xDecimal);
+	Convert.ToInt64(xString);
+	Convert.ToInt64(xChar);
+}
+</textarea>
+
+</body>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushCSharp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPhp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushVb.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushSql.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushDelphi.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPython.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>

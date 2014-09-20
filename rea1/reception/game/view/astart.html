@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="420" height="220" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var c=document.getElementById("myCanvas");
+var pen=c.getContext("2d");
+pen.shadowBlur = 20, pen.shadowColor = "#0f0";
+pen.strokeText("¿ªÊ¼",180,100);
+var dirs = [[ 0, 1 ], [ 0, -1 ], [-1, 0 ], [ 1, 0 ]];
+
+var barrier = new Array();
+var open = new Array();
+var close=new Array();
+var start = new Cube(0,0);
+var end= new Cube(39,19);
+var path;
+function Cube(x,y){
+	this.x=x;
+	this.y=y;
+	this.equals=function(o){
+		if(this.x==o.x&&this.y==o.y){
+			return true;
+		}
+		return false;
+	}
+}
+for(var i=0;i<300;i++){
+	var x=Math.random()*40>>>0;
+	var y=Math.random()*20>>>0;
+	barrier.push(new Cube(x,y));
+}
+
+c.onmousedown = function(e){
+	if(e.x>170&&e.x<210&&e.y>90&&e.y<120){
+		print();
+		astart();
+	}
+}
+
+function drawCube(cube,pen,color){
+	if(color!=undefined){
+		pen.fillStyle=color;
+	}
+	pen.fillRect(10+cube.x*10,10+cube.y*10,9,9);
+}
+
+function print(){
+	pen.shadowBlur=20;
+	pen.fillStyle='#222';
+	pen.shadowBlur = 0;
+	pen.fillStyle='#222';
+	pen.fillRect(0,0,420,220);
+	pen.fillStyle='#eee';
+	pen.fillRect(10,10,400,200);	
+	pen.fillStyle='#00f';
+	
+	for(var i=0;i<barrier.length;i++){
+		drawCube(barrier[i],pen);
+	}
+	drawCube(start,pen,'#f00')
+	drawCube(end,pen,'#0f0')
+	pen.shadowBlur=20;
+}
+
+function check(x,y){
+  if (x < 0 || y < 0 || x > 39 || y > 19)
+    return true;
+  return false;
+}
+function astart(){
+	open.push(start);
+	
+	var parent = open.pop();
+	close.push(parent);
+	var flag = false;
+	
+	while(!flag){
+		for(var i=0;i<4;i++){
+			var newx=parent.x+dirs[i][0];
+			var newy=parent.y+dirs[i][1];
+			if(check(newx,newy)){
+				continue;
+			}
+			var nCube=new Cube(newx,newy);
+			if(end.equals(nCube)){
+				end.parent = parent;
+				flag = true;
+				break;
+			}
+			
+			if(contains(close,nCube)){
+				continue;
+			}
+			if(contains(barrier,nCube)){
+				continue;
+			}
+			
+			if(contains(open,nCube)){
+				var g=10;
+				if(parent.g+g<nCube.g){
+					nCube.parent=parent;
+					nCube.g=parent.g+g;
+					nCube.f=nCube.g+nCube.h;
+				}
+				continue;
+			}else{
+				if(parent.g==undefined){
+					parent.g=0;
+				}
+				nCube.g=parent.g+10;
+				nCube.h=10*(abs(end.x-nCube.x)+abs(end.y-nCube.y));
+				nCube.f=nCube.g+nCube.h;
+				nCube.parent=parent;
+				open.push(nCube);
+			}
+		}
+		
+		if(open.length==0){
+			alert("No Way!!");
+			return;
+		}
+		
+		open.sort(function(a,b){
+			return b.f-a.f;
+		});
+		
+		parent=open.pop();
+		close.push(parent);	
+	}
+	
+	var p = end;
+	path = new Array();
+	while(p.parent!=undefined){
+		path.push(p);
+		p=p.parent;
+	}
+	for(var i=0;i<path.length;i++){
+		drawCube(path[i],pen,'#ff0');
+	}
+}
+function abs(a){
+	return (a>0?a:-a);
+}
+
+function contains(a,c){
+	for(var i=0;i<a.length;i++){
+		if(a[i].equals(c)){
+			return true;
+		}
+	}
+	return false;
+}
+</script>
+
+</body>
+</html>

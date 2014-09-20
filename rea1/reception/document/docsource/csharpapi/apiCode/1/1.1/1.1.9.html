@@ -1,0 +1,65 @@
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>迭代器--相同类型的值的有序序列的一段代码</title>
+
+<link type="text/css" rel="stylesheet" 
+
+href="../../../js/SyntaxHighlighter/SyntaxHighlighter.css"></link>
+
+	<style>
+	/* @import url(SyntaxHighlighter.css); */
+
+	body {
+		font-family: Arial;
+		font-size: 12px;
+	}
+	</style>
+</head>
+
+<body>
+<h3>迭代器--相同类型的值的有序序列的一段代码</h3>
+<h5>迭代器是可以返回相同类型的值的有序序列的一段代码。</h5>
+<textarea name="code" class="c#">
+public class Famil:System.Collections.IEnumerable
+{
+	string[] MyFamily = {"父亲","母亲"};
+	
+	//对IEnumerator接口实现GetEnumerator方法创建迭代器
+	public System.Collections.IEnumerator GetEnumerator()
+	{
+		for(int i = 0; i < MyFamily.Length; i ++)
+		{
+			yield return MyFamily[i];//使用 yield return 语句一次返回每个元素
+		}
+	}
+}
+private void Form1_Load(object sender,EventArgs e)
+{
+	Family myfamily = new Family();
+	//使用foreach语句便利Family类中的内容并输出
+	foreach(string str in myfamily)
+	{
+		richTextBox1.Text += str + "\n";
+	}
+}
+</textarea>
+
+</body>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushCSharp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPhp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushVb.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushSql.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushDelphi.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPython.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>

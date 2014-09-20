@@ -1,0 +1,308 @@
+/* CSS Document */
+	a:link {
+	color: #333333;
+	text-decoration: none;
+	}
+	a:visited {
+		text-decoration: none;
+		color: #333333;
+	}
+	a:hover {
+		text-decoration: none;
+		color: #000000;
+	}
+	a:active {
+		text-decoration: none;
+		color: #333333;
+	}
+	
+	*{
+		margin:0;
+		outline: none;
+	}
+	
+	body{
+		margin:0;
+		background-image:url(../zimages/casebg.png);
+	}
+ 
+    img{
+       border:none;
+    }
+	
+	/*用于放logo*/
+	.topDiv{
+		width:100%;
+		height:80px;
+		background-color:#000033;
+	}
+	
+	.logoDiv{
+		margin:0 auto;
+		width:900px;
+		height:80px;
+		color:#FFFFFF;
+		
+	}
+	
+	.logoDiv ul{
+	
+	}
+	
+	#logo{
+		font-size:45px;
+		margin-top:20px;
+	}
+	
+	#logo_cn{
+		margin-top:43px;
+	}
+	
+	#login{
+		float:right;
+		margin-top:50px;
+		font-size:12px;
+		color:#CCCCCC;
+	}
+	
+	.logoDiv ul li{
+		float:left;
+		margin-right:20px;
+		list-style:none;
+	}
+	
+	.casestack{
+		width:106px;
+		height:80px;
+		float:right;
+		margin-top:-80px;
+		background-image:url(../zimages/casestack.png);
+		background-repeat:no-repeat;
+	}
+	
+	/*内容区域*/
+	.bodyDiv{
+		margin:0 auto;
+		width:1200px;
+		height:600px;
+	}
+	
+	.leftList{
+		width:200px;
+		height:450px;
+		float:left;
+		 /*position:absolute;设置这个absolute是为了让右面的内容区域可以距离这个位置200px不至于出去*/
+	}
+	
+	.leftList ul{
+		margin-top:20px;
+	}
+	
+	.leftList ul li{
+		list-style:none;
+		background-image:url(../zimages/caselist.png);
+		background-repeat:no-repeat;
+		width:120px;
+		height:50px;
+		font-size:22px;
+		padding-top:12px;
+		text-align:center;
+		color:#333333;
+	}
+	
+	.contentDiv{
+		width:700px;
+		height:250px;
+		float:left;
+		margin-top:20px;
+	}
+	
+	.userDiv{
+		width:150px;
+		height:250px;
+		float:left;
+	}
+	
+	.userHeadImg{
+		width:150px;
+		height:150px;
+	}
+	
+	.userHeadImgBg{
+		width:150px;
+		height:150px;
+		position:absolute;
+		float:left;
+		margin-top:-150px;
+		background-image:url(../zimages/userImgBg.png);
+	}
+	
+	.userNameBg{
+		width:150px;
+		height:50px;
+		background-image:url(../zimages/username.png);
+	}
+	
+	.userNameBg ul li{
+		list-style:none;
+		padding-top:16px;
+		text-align:left;
+		margin-left:-20px;
+		color:#FFFFFF;
+		font-weight:bold;
+	}
+	
+	/*案例标题+部分内容*/
+	.contentDetil{
+		width:550px;
+		height:250px;
+		float:left;
+		background-image:url(../zimages/cdetil.png);
+	}
+	
+	.cdHead{
+		margin:0 auto;
+		margin-top:15px;
+		width:485px;
+  		height:50px;
+		padding-right:15px;
+		background-image:url(../zimages/cdhead.png);
+		color:#666666;
+		font-weight:bolder;
+	}
+	
+	.cdHead ul{
+		margin-left:-20px;
+	}
+	
+	.cdHead ul li{
+		list-style:none;
+		padding-top:17px;
+		text-overflow: ellipsis;
+   		-o-text-overflow: ellipsis;
+    	overflow: hidden;
+		white-space: nowrap;
+	}
+	
+	.cdBody{
+		margin:0 auto;
+		width:500px;
+		height:120px;
+		background-image:url(../zimages/cdbody.png);
+	}
+	
+	.cdBody ul{
+		width:440px;
+		font-size:12px;
+	}
+		
+	.cdBody ul li{
+		margin-left:-15px;
+		padding-top:20px;
+		list-style:none;
+	
+		
+	}
+	
+	.cdBottom{
+		margin:0 auto;
+		width:500px;
+		height:40px;
+	}
+	
+	.cdBottom ul{
+		margin-left:-18px;
+	}
+	
+	.cdBottom ul li{
+		list-style:none;
+		float:left;
+		margin-right:29px;
+		padding-top:10px;
+		width:90px;
+		height:40px;
+		background-image:url(../zimages/cdb.png);
+		background-repeat:no-repeat;
+		text-align:center;
+		color:#FFFFFF;
+		cursor:pointer;
+	}
+	
+	/*靠右面的搜索区域*/
+	.serachDiv{
+		width:250px;
+		height:500px;
+		float:left;
+		margin-top:20px;
+	}
+	
+	.serach,.language{
+		margin:0 auto;
+		width:250px;
+		height:50px;
+		background-image:url(../zimages/serach.png);
+		background-repeat:no-repeat;
+	}
+	
+	#stt{
+		margin-top:10px;
+		height:28px;
+		width:170px;
+		margin-left:20px;
+		color:#000033;
+		font-size:12px;
+		background:transparent;
+		border: 0px;
+	}
+	
+	#sub{
+		width:34px;
+		height:33px;
+		background:transparent;
+		border:0;
+		background-image:url(../zimages/serachbt.png);
+		float:right;
+		margin-top:8px;
+		margin-right:15px;
+	}
+	
+	.language{
+		height:35px;
+		width:235px;
+		background-image:url(../zimages/language.png);
+		text-align:left;
+		padding-top:15px;
+		padding-left:15px;
+		background-repeat:no-repeat;
+	}
+	
+	/*分页模块div*/
+	.pagination{
+		width:700px;
+		height:50px;
+		float:left;
+		margin-bottom:20px;
+	}
+	
+	.pagination ul{
+		margin-top:10px;
+		
+	}
+	
+	.pagination ul li{
+		float:right;
+		margin-right:20px;
+		list-style:none;
+		background-color:#333333;
+		color:#FFFFFF;
+		font-weight:bolder;
+		padding:5px;
+		padding-left:20px;
+		padding-right:20px;
+		cursor:pointer;
+	}
+	
+	.pagination ul li a{
+		color:#FFFFFF;
+		text-decoration: none;
+	 }

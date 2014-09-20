@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="js/engine.js"></script>
+<title>JS Rpg 教程</title>
+</head>
+<body>
+<p hidden>你的浏览器不支持HTML5 </p>
+
+<canvas id="myCanvas" width="520" height="520" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<img src="images/role1.jpg" id = "role" hidden />
+<img src="images/flower1.jpg" id = "flower" hidden />
+<img src="images/npc1.png" id = "npc1" hidden />
+<img src="images/stone1.jpg" id = "stone1" hidden />
+<img src="images/water1.jpg" id = "water1" hidden />
+<img src="images/grassland1.jpg" id = "grassland1" hidden />
+<img src="images/msg1.png" id = "msg1" hidden />
+<img src="images/head_role1.png" id = "hrole1" hidden />
+<img src="images/head_npc1.png" id = "hnpc1" hidden />
+
+<script>
+
+</script>
+
+<script>
+//初始化图片
+var irole = document.getElementById("role");
+var flower= document.getElementById("flower");
+var inpc= document.getElementById("npc1");
+var istone= document.getElementById("stone1");
+var iwater= document.getElementById("water1");
+var imgGrassland= document.getElementById("grassland1");
+var msg= document.getElementById("msg1");
+var faceRole= document.getElementById("hrole1");
+var faceNpc= document.getElementById("hnpc1");
+//2块草地
+var grassland=[[0,0],[0,1]];
+//2块花丛
+var flowers=[[1,0],[1,1]];
+//2块石头
+var stones=[[2,0],[2,1]];
+//2块水
+var water=[[3,0],[3,1]];
+//通过id得到画布
+var canvas=document.getElementById("myCanvas");
+//初始化画面
+config(canvas);
+//初始化游戏及各种参数
+var task=0;
+function init(){
+	var npc= new Npc('花花',inpc,faceNpc,4,0);//Npc名字 图片 头像 坐标XY
+	npc.talk=function(obj){
+		if(task==0){//task为0的时候触发
+			pause();
+			drawMsgText(this,"去坐标[0,0],那有我要的东西?");
+			drawOKText("OK",function(){
+				task++;
+				obj.addTaskPoint=function(){//当点击ok 接受任务时 追加一个任务节点
+				if(this.x==0&&this.y==0){ //任务节点为坐标[0,0] 此if里的代码是走到[0,0]位置上时触发
+					pause();
+					drawMsgText(this,"被老鼠夹夹了");
+					drawOKText("捡起老鼠夹",function(){
+						task=3;
+						resume();
+						obj.addTaskPoint=undefined;
+					});
+					drawCancelText("扔到河里",function(){
+						task=2;
+						resume();
+						obj.addTaskPoint=undefined;
+					});
+				}
+			}
+				resume();
+			});
+			drawCancelText("NO",function(){
+				resume();
+			});
+		}else if(task==2){
+			pause();
+			drawMsgText(this,"把我东西扔河里?你去死吧");
+			drawCancelText("被打ing...",function(){
+				resume();
+			});
+		}else if(task==3){
+			pause();
+			drawMsgText(this,"哈哈,被夹了,还拿回来给我,你猪啊");
+			drawCancelText("被笑...",function(){
+				resume();
+			});
+		}
+	}
+	var npcs=[];
+	npcs[0]=npc;
+	var map = new Map(grassland,flowers,stones,water,npcs);
+	var bs=createbarrierFromMap(map);//把不能行走的加入barrier
+	var role1=new Role("主角",irole,faceRole,down,0,2,2,1);//名字 图片 头像 方向 动态 坐标XY 初始等级
+	regist({
+		barrier:bs,//不能行走区域
+		role:role1,//主角
+		map:map,//地图
+		msgY:425,//消息y坐标
+		viewStyle:{//视图长宽比例
+			h:5,//视图高为 5*cellSize
+			w:7 ,
+			cellSize:100//视图每个格子尺寸
+		},
+		mapStyle:{
+			w:30,//地图宽
+			h:20,//地图高
+		},
+		button:{
+			ok:{//ok按钮坐标 
+				x:0,//设置为0 则根据比例自动位置
+				y:465
+			},//cancel按钮坐标
+			cancel:{
+				x:0,
+				y:485
+			}
+		},
+		pics:{//素材图片
+			flower:flower,
+			water:iwater,
+			stone:istone,
+			grassland:imgGrassland,
+			message:msg
+		}
+	});
+}
+init();
+
+//游戏开始按钮  点击后执行 打印
+drawOKText("START",start);
+
+
+</script>

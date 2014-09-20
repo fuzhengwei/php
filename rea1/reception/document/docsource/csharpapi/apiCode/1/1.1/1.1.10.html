@@ -1,0 +1,67 @@
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>泛型--处理算法和数据结构</title>
+
+<link type="text/css" rel="stylesheet" 
+
+href="../../../js/SyntaxHighlighter/SyntaxHighlighter.css"></link>
+
+	<style>
+	/* @import url(SyntaxHighlighter.css); */
+
+	body {
+		font-family: Arial;
+		font-size: 12px;
+	}
+	</style>
+</head>
+
+<body>
+<h3>泛型--处理算法和数据结构</h3>
+<h5>泛型是用于处理算法、数据结构的一种编程方法。同时java里也有泛型哦，别告诉我你不知道！</h5>
+<textarea name="code" class="c#">
+public class Finder
+{
+	public static int Find<T>(T[] items,T item)
+	{
+		for(int i = 0; i < items.Length; i ++)
+		{
+			if(items[i].Equals(item))
+			{	
+				return i;
+			}
+		}
+	}
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			//调用翻学那个方法，并定义数组指定数字
+			int i = Finder.Find<int>(new int[]{1,2,3,4,5,6,8,9},6);
+			//输出中数字在数组中的位置
+			Console.WriteLine("6在数组中的位置："+i.ToString);
+			Console.ReadLine();
+		}
+	}
+}
+</textarea>
+
+</body>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushCSharp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPhp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushVb.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushSql.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushDelphi.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPython.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>

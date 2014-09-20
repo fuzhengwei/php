@@ -1,0 +1,181 @@
+<%@ page language="java" import="java.util.*" pageEncoding="GB18030"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:useBean class="com.wgh.LinkmanForm" id="linkman"></jsp:useBean>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<%
+	request.setCharacterEncoding("GBK");
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    <title>My JSP 'jstl.jsp' starting page</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+  </head>
+  
+  <body>
+  	<div style="font-size: 24px;">JSTL标签笔记</div><br/>
+  	<!-- jstl c:out 输出标签  escapeXml属性-->
+  	<div style="color:fuchsia;border: 1px aqua solid;">jstl c:out 输出标签  escapeXml属性</div>
+    escapeXml属性值为false时：<c:out value="<hr>" escapeXml="false"></c:out>
+    escapeXml属性值为true时：<c:out value="<hr>"></c:out>
+  	<hr/>
+  	
+  	<!-- jstl 测试两种语法 -->
+  	<div style="color:fuchsia;border: 1px aqua solid;">jstl 测试两种语法</div>
+  	第一种语法格式：<c:out value="${user}" default="user值为空"></c:out><br/>
+  	第二种语法格式：<c:out value="${user}">user值为空</c:out>
+  	<hr/>
+  	
+  	<!-- jstl c:set 设置标签 -->
+  	<div style="color:fuchsia;border: 1px aqua solid;">jstl c:set 设置标签 </div>
+  	应用语法1定义一个session范围内的变量user，值为 xiaofu<br/>
+  	<c:set var="user" value="xiaofu" scope="session"></c:set>
+  	输出变量user的值为：${ sessionScope.user }
+  	<p/>
+  	应用语法2定义一个request范围内的变量money，值为12.5*6的结果<br/>
+  	<c:set var="money" scope="request">
+  		${ 12.5*6 }
+  	</c:set>
+  	输出变量money的值为：${ requestScope.money }
+  	<p/>
+  	应用语法3为JavaBean "LinkmanForm"设置各种属性并应用&lt;c:out&gt;标签输出个属性值<br/>
+  	<c:set value="1" target="${linkman}" property="id"></c:set>
+  	<c:set value="xiaofu" target = "${linkman}" property="name"></c:set>
+  	id属性值为：<c:out value="${linkman.id}"></c:out><br/>
+  	name属性值：<c:out value="${linkman.name}"></c:out>
+  	<p/>
+  	应用语法4为JavaBean "LinkmanForm" 设置各属性并应用&lt;c:out&gt;标签输出各种属性值<br/>
+  	<c:set target="${linkman}" property="tel">83952008</c:set>
+  	tel属性值为：<c:out value="${linkman.tel}"></c:out>
+  	<hr/>
+  	
+  	<!-- c:remove移除标签 -->
+  	<div style="color:fuchsia;border: 1px aqua solid;">c:remove移除标签</div>
+  	<c:set var="softName" value="小付JSTL笔记" scope="page"></c:set>
+  		移除前输出变量softName的值：<c:out value="${pageScope.softName}" default="softName的值为空"></c:out>
+  		<br/>
+  		<c:remove var="softName" scope="page"/>
+  		移除后输出变量softName的值：<c:out value="${pageScope.softName}" default="softName的值为空"></c:out>
+  	<hr/>
+  	
+  	<!-- c:catch捕获异常标签 -->
+  	<div style="color:fuchsia;border: 1px aqua solid;">jstl c:out 输出标签  escapeXml属性</div>
+  	<c:catch var="exception">
+  		<%
+  			int number = Integer.parseInt(request.getParameter("number"));
+  			out.println("合计金额："+521*number);
+  		%>
+  	</c:catch>
+	抛出异常信息:<c:out value="${exception}"></c:out>
+	<hr/>
+	<!-- 条件标签 c:if -->
+	<div style="color:fuchsia;border: 1px aqua solid;">条件标签 c:if</div>
+	未来的世界是：方向比努力重要，能力比知识重要，健康比成绩重要，生活比文凭重要，情商比智商重要！
+	<c:if test="${empty param.comment}">
+		<form action="" method="post">
+			评论：
+			<textarea rows="4" cols="30" name="comment"></textarea>
+			<br/>
+			<br/>
+			<input type="submit" value="发表评论">
+		</form>
+	</c:if>
+	<c:out value="${param.comment}"></c:out>
+	<hr/>
+	<!-- 条件标签 c:choose c:when c:otherwise -->	
+	<div style="color:fuchsia;border: 1px aqua solid;">条件标签 c:choose c:when c:otherwise</div>
+	<c:if test="${not empty param.cuser}">
+		<c:set var="cuser" scope="session" value="${param.cuser}"></c:set>
+	</c:if>
+	<c:choose>
+		<c:when test="${empty sessionScope.cuser}">
+			<form action="" method="post">
+				用户名：<input name="cuser" type="text" id="cuser"/>
+				<input type="submit" value="登录"><br/>
+			</form>
+		</c:when>
+		<c:otherwise>
+				欢迎登录：${ sessionScope.cuser }[<a href="index.jsp">退出</a>]
+		</c:otherwise>
+	</c:choose>
+	<hr/>
+	<!-- 条件标签 c:choose c:when c:otherwise 显示时间问候 -->
+	<div style="color:fuchsia;border: 1px aqua solid;">条件标签 c:choose c:when c:otherwise 显示时间问候</div>
+	<jsp:useBean id="now" class="java.util.Date"></jsp:useBean>
+		<c:out value="${now.hours}"></c:out>:<c:out value="${now.minutes}"></c:out>
+		<c:choose>
+			<c:when test="${now.hours >= 0 && now.hours < 5}">
+				凌晨好 
+			</c:when>
+			<c:when test="${now.hours >= 5 && now.hours < 8}">
+				早上好
+			</c:when>
+			<c:when test="${now.hours >= 8 && now.hours < 11}">
+				上午好
+			</c:when>
+			<c:when test="${now.hours >= 11 && now.hours < 13}">
+				中午好
+			</c:when>
+			<c:when test="${now.hours >= 13 && now.hours < 17}">
+				下午好
+			</c:when>
+			<c:otherwise>
+				晚上好
+			</c:otherwise>
+		</c:choose>
+		<hr/>
+	<!-- 循环标签c:forEach -->
+	<div style="color:fuchsia;border: 1px aqua solid;">循环标签c:forEach</div>
+	<%
+		List<String> list = new ArrayList<String>();
+		list.add("床上等你");
+		list.add("CSDN");
+		list.add("http://www.csdn.net/");
+		request.setAttribute("list",list);
+	%>
+	利用&lt;c:forEcah&gt;标签遍历List集合的结果如下：<br/>
+	<c:forEach items="${requestScope.list}" var="key" varStatus="id" begin="0">
+			${ id.index }&nbsp;${ key }<br/>
+	</c:forEach>
+	<hr/>
+	<!-- 循环标签c:forTokens -->
+	<div style="color:fuchsia;border: 1px aqua solid;">循环标签c:forTokens</div>
+	<c:set var="sourceStr" value="编程词典软件涵盖技术、函数、控件、实例、项目、方案、界面，以及所有实例程序。
+	是开发人员必备的工具"></c:set>
+	原字符串：<c:out value="${sourceStr}"></c:out>
+	<br/>******************分割后的字符串******************<br/>
+	<c:forTokens items="${sourceStr}" delims="、，。" var="item">
+		${ item }<br/>
+	</c:forTokens>
+	<hr/>
+	<!-- 导入标签c:import -->
+	<div style="color:fuchsia;border: 1px aqua solid;">导入标签c:import</div>
+	c:import导入标签<br/>
+	<c:import url="index.jsp" charEncoding="GBK"></c:import>
+	<hr/>
+	<!-- 重定向标签c:redirect -->
+	<div style="color:fuchsia;border: 1px aqua solid;">重定向标签c:redirect</div>
+	不传参数的重定向<br/>
+	&lt;c:redirect url=""&gt;&lt;/c:redirect&gt;<br/>
+	传参数的重定向<br/>
+	&lt;c:redirect url=""&gt;
+		&lt;c:param name="user" value="xiaofu"&gt;&lt;/c:param&gt;
+	&lt;/c:redirect&gt;
+	<hr/>
+	<!-- 生成URL标签c:url -->
+	<div style="color:fuchsia;border: 1px aqua solid;">生成URL标签c:url</div>
+	<c:url value="index.jsp" var="url" scope="session">
+		<c:param name="user" value="xiaofu"></c:param>
+	</c:url>
+	<a href="${ url }">生成的url</a>
+	<hr/>
+  </body>
+</html>

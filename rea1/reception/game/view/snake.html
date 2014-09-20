@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="620" height="420" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.shadowBlur = 20, ctx.shadowColor = "#0f0";
+ctx.strokeText("开始",280,180);
+var running=false;
+var session = window.sessionStorage;
+c.onmousedown = function(e){
+	if(!running){
+		if(e.x>260&&e.x<340&&e.y>180&&e.y<220){
+			if(pause){
+				pause=false;
+				contiGame(snack);
+				running=true;
+				return;
+			}else{
+				start();
+			}
+		}
+	}else{
+		if(!pause){
+			pause=true;
+			pauseGame();
+			snack.print();
+			running=false;
+		}
+	}
+}
+function pauseGame(){
+	auto=window.clearInterval(auto);
+}
+function contiGame(){
+	if(auto==undefined){
+		auto=setInterval(autoMove,snack.getSpeed());
+	}
+}
+var S=10;
+var left=37,up=38,right=39,down=40;
+var speed=0;
+var score;
+var auto;
+var snack;
+var pause=false;
+
+function start(){
+	window.clearInterval(auto)
+	snack = new Snack(right,ctx,0);
+	//回调实现速度更新 snack中不用声明 直接在外部.xxx=fun 就能注册上一个回调
+	snack.changeSpeed=function(speed){
+		auto=window.clearInterval(auto);
+		if(auto==undefined){
+			auto=setInterval(autoMove,speed);
+		}
+	}
+	
+	snack.printMore=function(o){
+		o.pen.fillStyle='#222';
+		var s=session.getItem("score");
+		s=s==null?0:s;
+		o.pen.strokeText(('最高分:' +s + '  分数:'+this.getScore()+' 速度:'+this.level),400,30);
+		if(pause){
+			ctx.strokeText("继续",280,200);
+		}
+	}
+	snack.eat(new Cube(3,3));
+	snack.eat(new Cube(3,4));
+	snack.eat(new Cube(3,5));
+	snack.createFood();
+	//auto=setInterval(autoMove,snack.getSpeed());
+}
+function autoMove(){
+	running = true;
+	snack.move();
+}
+
+document.onkeydown=function(ev){
+	var e = window.event||ev;
+	if(!running){
+		return;
+	}
+	
+	switch(e.keyCode){
+		case left:
+			snack.direction=snack.direction==right?snack.direction:left;//反方向不可行
+			if(snack.direction==left){//同方向  可加速前进
+				snack.move();
+			}
+		break;
+		case right:
+			 snack.direction=snack.direction==left?snack.direction:right;
+			 if(snack.direction==right){
+				snack.move();
+			}
+		break;
+		case up:
+			snack.direction=snack.direction==down?snack.direction:up;
+			 if(snack.direction==up){
+				snack.move();
+			}
+		break;
+		case down:
+		 if(snack.direction==down){
+				snack.move();
+			}
+			snack.direction=snack.direction==up?snack.direction:down;
+		break;
+	}
+}
+
+function gameOver(){
+	auto=window.clearInterval(auto);
+	running = false;
+	ctx.fillStyle='#eee';
+	var max=session.getItem("score");
+	var score= (10*snack.body.length-30);
+	if(max==null||max<score){
+		session.setItem("score",score);
+		
+	}
+	ctx.strokeText("游戏结束:"+score,260,190);
+	ctx.strokeText("重玩",280,210);
+}
+	
+function Snack(direction,pen,level){
+	this.pen = pen;
+	this.direction = direction;
+	this.body = new Array();
+	this.eat=eat;
+	this.level=level;
+	function eat(c){
+		this.body[this.body.length]=c;
+	}
+	this.getSpeed=function(){
+		return (((100-10*this.level)<10)?100:(100-10*this.level));
+	}
+	this.print=print;
+	var ckey=0;//shadow闪烁效果控制
+	this.getScore=function(){
+		return (this.body.length*10-30);
+	}
+	
+	function print(){
+		pen.shadowBlur = 0;
+		pen.fillStyle='#222';
+		pen.fillRect(0,0,620,420);
+		pen.fillStyle='#eee';
+		pen.fillRect(10,10,600,400);
+		
+		pen.shadowBlur=20;
+		if(pen.shadowColor=='#00ff00'){
+			pen.shadowColor='#0000ff';
+		}else{
+			pen.shadowColor='#00ff00'
+		}
+		for(var i=0;i<this.body.length;i++){
+			if(i==0){ 
+				pen.fillStyle='#f00';
+			}else{ 
+				pen.fillStyle='#f66';
+			}
+			pen.fillRect(S*this.body[i].x+S,S*this.body[i].y+S,S-1,S-1);
+		}
+		if(ckey==0){
+			pen.fillStyle='#ff0';
+			ckey=1;
+		}else{
+			pen.fillStyle='#f0f';
+			ckey=0;
+		}
+		pen.fillRect(S*this.food.x+S,S*this.food.y+S,S,S);
+		
+		if(this.printMore!=undefined)
+			this.printMore(this);
+	}
+	this.moveLeft=function (){
+		if(this.direction==right) {
+			return;
+		}
+		var xx=this.body[0].x-1;
+		var yy=this.body[0].y;
+		if(xx>=0&&this.checkFood(xx,yy)){
+			this.body.unshift(new Cube(xx,yy));
+			if(this.food.x==xx&&this.food.y==yy){
+				this.createFood();
+			}else{
+				this.body.pop();	
+			}
+			this.print();
+		}else{
+			//alert("撞墙啦!");
+			gameOver();
+		}
+	}
+	this.moveRight=function(){
+		if(this.direction==left){
+			return;
+		}
+		var xx=this.body[0].x+1;
+		var yy=this.body[0].y;
+		if(xx<60&&this.checkFood(xx,yy)){
+			this.body.unshift(new Cube(xx,yy));
+			if(this.food.x==xx&&this.food.y==yy){
+				this.createFood();
+			}else{
+				this.body.pop();	
+			}
+			this.print();
+		}else{
+			//alert("撞墙啦!");
+			gameOver();
+		}
+	}
+	this.moveUp=function(){
+		if(this.direction==down){
+			return;
+		}
+		var xx=this.body[0].x;
+		var yy =this.body[0].y-1;
+		if(yy>=0&&this.checkFood(xx,yy)){
+			this.body.unshift(new Cube(xx,yy));
+			if(this.food.x==xx&&this.food.y==yy){
+				this.createFood();
+			}else{
+				this.body.pop();	
+			}
+			this.print();
+		}else{
+			//alert("撞墙啦!");
+			gameOver();
+		}
+	}
+	this.moveDown=function(){
+		if(this.direction==up){
+			return;
+		}
+		var yy=this.body[0].y+1;
+		var xx=this.body[0].x;
+		if(yy<40&&this.checkFood(xx,yy)){
+			this.body.unshift(new Cube(xx,yy));
+			if(this.food.x==xx&&this.food.y==yy){
+				this.createFood();
+			}else{
+				this.body.pop();	
+			}
+			this.print();
+		}else{
+			//alert("撞墙啦!");
+			gameOver();
+		}
+	}
+	this.checkFood=function(x,y){
+		for(var i=0;i<this.body.length;i++){
+			if(this.body[i].x==x&&this.body[i].y==y){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	this.move=function(){
+		switch(this.direction){
+			case up:
+				this.moveUp();
+				break;
+			case down:
+				this.moveDown();
+				break;
+			case left:
+				this.moveLeft();
+				break;
+			case right:
+				this.moveRight();
+				break;
+		}
+	}
+	function cSpeed(){
+		auto=window.clearInterval(auto);
+		auto=setInterval(autoMove,this.getSpeed());
+	}
+	this.createFood=function(){
+		var f=new Cube(Math.random() * 59>>>0,Math.random()*40>>>0);
+		for(var i=0;i<this.body.length;i++){
+			var xx=this.body[i].x;
+			var yy = this.body[i].y;
+			if(xx==f.x&&yy==f.y){
+			    this.createFood();
+				return;
+			}
+		}
+		if((this.body.length/10)>this.level){
+			this.level++;
+			if(this.changeSpeed==undefined){
+				this.changeSpeed=cSpeed;
+			}
+			this.changeSpeed(this.getSpeed());
+		}
+		this.food = f;
+	}
+	
+}
+function Cube(x,y){
+	this.x = x;
+	this.y = y;
+}
+</script>
+
+</body>
+</html>

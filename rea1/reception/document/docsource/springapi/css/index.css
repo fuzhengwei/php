@@ -1,0 +1,107 @@
+/* CSS Document */
+	*{
+		margin:0 auto;
+	}
+
+	a:link {
+		color: #CCCCCC;
+		text-decoration: none;
+	}
+	a:visited {
+		text-decoration: none;
+		color: #999999;
+	}
+	a:hover {
+		text-decoration: underline;
+		color: #CCCCCC;
+	}
+	a:active {
+		text-decoration: none;
+		color: #FFFFFF;
+	}
+
+	body{
+		overflow:hidden;
+	}
+	
+	
+	.mainDiv{
+		width:100%;
+		height:600px;
+	}
+	
+	.leftDiv{
+		width:420px;
+		height:550px;
+		border:2px #000000 solid;
+		float:left;
+		position:fixed;
+		background-image:url(../images/bg.jpg);
+	}
+	
+	/*左面下面的div*/
+	.leftBottomDiv{
+		width:420px;
+		height:495px;
+		color:#CCCCCC;
+		overflow-y:scroll;
+	}
+	
+	.ulli{
+		margin-top:5px;
+		margin-left:-20px;
+	}
+	
+	.ulli li{
+		list-style:none;
+	}
+	
+	.ulli2{
+		margin-left:-18px;
+		display:none;
+	}
+	
+	.ulli3{
+		margin-left:-20px;
+	}
+	
+	.ulli4{
+		margin-left:-20px;
+	}
+	
+	.ulli5{
+		margin-left:-20px;
+	}
+	
+	.ulli6{
+		margin-left:-20px;
+	}
+	
+	/*
+	 * 点击打开
+	 */
+	
+	#openSpan{
+		cursor:pointer;
+	}
+	
+	.imgtb{
+		background-image:url(../images/tubiao-1.png);
+		width:19px;
+		height:19px;
+		background-repeat:no-repeat;
+	}
+
+	
+	.rightDiv{
+		width:auto;
+		height:700px;
+		border:1px #FFFFFF solid;
+		float:left;
+		margin-left:424px;
+	}
+	
+	iframe{
+		width:1500px;
+		height:550px;
+	}

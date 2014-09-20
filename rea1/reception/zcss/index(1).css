@@ -1,0 +1,169 @@
+/* CSS Document */
+*{
+	margin:0;
+	outline:none;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+body{
+	margin:0;
+	outline:none;
+	background-image:url(../zimages/index_bg.jpg);
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+a{
+	text-decoration:none;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.headDiv{
+	margin:0 auto;
+	width:200px;
+	height:100px;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.lLogoDiv{
+	width:100px;
+	height:27px;
+	margin-top:40px;
+	margin-left:50px;
+	position:absolute;
+	background-image:url(../zimages/logo_3_0.png);
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.topDiv{
+	margin:0 auto;
+	width:900px;
+	height:50px;
+}
+
+.xhx{
+	width: 900px;
+	height: 4px;
+	background-image:url(../zimages/xhx.jpg);
+}
+
+.topDiv ul{
+	width:700px;
+	height:50px;
+	margin:0 auto;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.topDiv ul li{
+	margin:0 auto;
+	list-style:none;
+	float:left;
+	margin-left:110px;
+	color:#FFFFFF;
+	font-size:18px;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+	padding-bottom:23px;
+}
+
+.topDiv ul li a{
+	color:#6E6E6E;
+	text-decoration:none;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.centerDiv{
+	margin:0 auto;
+	margin-top:10px;
+	width:900px;
+	height:400px;
+	font-family:"Times New Roman", Times, serif;
+}
+
+.cleftDiv{
+	width:750px;
+	height:300px;
+	float:left;
+	position: absolute;
+	background-image:url(../zimages/logo_1_REA.png);
+}
+
+.crightDiv{
+	height:300px;
+	width:50px;
+	margin-left:850px;
+	text-align:left;
+	float:right;
+	font-size:300px;
+	color:#771E18;
+	font-family:"Times New Roman", Times, serif;
+	position: absolute;
+	background-image:url(../zimages/logo_1_1.png);
+	background-repeat:no-repeat;
+}
+
+
+/*µ×²¿*/
+.bottomDiv{
+	width:100%;
+	height:130px;
+	background-color:#101010;
+	float:left;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.bleftDiv{
+	width:770px;
+	height:100px;
+	float:left;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.bldLogo{
+	margin-top:40px;
+	margin-left:20px;
+	width:88px;
+	height:23px;
+	float:left;
+	background-image:url(../zimages/logo_3_1.png);
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.bleftDiv ul{
+	margin-left:80px;
+	margin-top:40px;
+	font-size:9px;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.bleftDiv ul li{
+ 	list-style:none;
+	margin-bottom:5px;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.brightDiv{
+	margin-top:10px;
+	width:450px;
+	height:100px;
+	float:right;
+	
+}
+
+.brightDiv ul{
+	margin-top:30px;
+	margin-left:20px;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.brightDiv ul li{
+	padding:10px;
+	list-style:none;
+	float:left;
+	margin-right:10px;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}
+
+.brightDiv ul li a{
+	color:#CCCCCC;
+	font-size:14px;
+	font-family:"Helvetica Neue", "STHeiti", "Microsoft YaHei", Î¢ÈíÑÅºÚ, Helvetica, Arial, sans-serif;
+}

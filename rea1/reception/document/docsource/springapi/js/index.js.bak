@@ -1,0 +1,11 @@
+/* CSS Document */
+
+	$(function(){
+		$(".leftBottomDiv ul li span[id=openSpan]").toggle(function(){
+			$(this).next("ul").show('slow');
+		},function(){
+			$(this).next("ul").hide('slow');
+		});
+
+		alert(document.body.);
+	});

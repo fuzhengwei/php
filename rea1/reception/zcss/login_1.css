@@ -1,0 +1,122 @@
+/* CSS Document */
+	*{
+		margin:0;
+  		outline:none;
+	}
+	
+	body{
+		margin:0;
+		background-image:url(../zimages/casebg.png);
+	}
+	
+	/*用于放logo*/
+	.topDiv{
+		width:100%;
+		height:80px;
+		background-color:#000033;
+	}
+	
+	.logoDiv{
+		margin:0 auto;
+		width:900px;
+		height:80px;
+		color:#FFFFFF;
+	}
+	
+	.logoDiv ul{
+	
+	}
+	
+	#logo{
+		font-size:45px;
+		margin-top:20px;
+	}
+	
+	#logo_cn{
+		margin-top:43px;
+	}
+	
+	#login{
+		float:right;
+		margin-top:50px;
+		font-size:12px;
+		color:#CCCCCC;
+	}
+	
+	.logoDiv ul li{
+		float:left;
+		margin-right:20px;
+		list-style:none;
+	}
+	
+	.casestack{
+		width:106px;
+		height:80px;
+		float:right;
+		margin-top:-80px;
+		background-image:url(../zimages/casestack.png);
+		background-repeat:no-repeat;
+	}
+	
+	/*登录模块*/
+	.loginDiv,.infoDisplay{
+		margin:0 auto;
+		margin-top:20px;
+		width:400px;
+		height:300px;
+		background-color:#009999;
+		
+	}
+	
+	.infoDisplay{
+		margin-bottom:20px;
+		background-color:#339900;
+	}
+	
+	.loginDiv ul{
+		padding-top:30px;
+		margin:0 auto;
+	}
+	
+	.loginDiv ul li{
+		list-style:none;
+		margin-top:20px;
+	}
+	
+	.loginDiv ul li span a{
+		text-decoration:blink;
+		color:#CCCCCC;
+		font-size:12px;
+	}
+	
+	input{
+		width:300px;
+		height:50px;
+		border:0;
+		text-align:center;
+		color:#333333;
+		font-size:18px;
+		border:1px #FFFFFF solid;
+	}
+	
+	.infoDisplay ul{
+		padding-top:10px;
+		margin-left:-20px;
+		color:#000033;
+		font-size:12px;
+	}
+	
+	.infoDisplay ul li{
+		list-style:none;
+		margin-bottom:5px;
+	}
+	
+	.infoDisplay ul li span{
+		font-size:24px;
+		color:#FFFFFF;
+	}	
+	
+	/*定义css给jq用*/
+	.jq_user_name{
+		border:1px #FF0000 solid;
+	}

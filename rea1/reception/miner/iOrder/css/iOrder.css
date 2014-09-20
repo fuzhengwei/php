@@ -1,0 +1,220 @@
+﻿@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0 auto;
+	outline:none;
+	font-family:"微软雅黑";
+}
+.header {
+	margin:auto;
+}
+.foot {
+	margin:auto;
+}
+div.foot {
+	background-color:#333333;
+	height:50px;
+	width:100%;
+	position:fixed;
+	bottom:0;
+	left:0;
+}
+p.foot {
+	margin:0px;
+	position:absolute;
+	left:650px;
+	text-align:center;
+	line-height:50px;
+	font-size:15px;
+}
+div.top {
+	background-color:#333333;
+	height:35px;
+}
+a {
+	text-decoration:none;
+}
+a.top {
+	color:#FFF;
+}
+p.top {
+	position:absolute;
+	left:1000px;
+	top:8px;
+}
+span.top {
+}
+span.anyi_sina {
+	position:absolute;
+	left:85px;
+	top:-1px;
+}
+p.title {
+	position:absolute;
+	top:39px;
+	left:240px;
+}
+font.logo {
+	vertical-align:middle;
+	font-size:26px;
+	font-weight:bolder;
+	position:absolute;
+	top:30px;
+}
+ul.title {
+	list-style:none;
+	height:40px;
+	width:624px;
+	position:absolute;
+	top:75px;
+	left:500px;
+}
+li.title {
+	float:left;
+	margin-right:40px;
+	font-size:21px;
+}
+hr {
+	position:absolute;
+	top:120px;
+	left:240px;
+	width:920px;
+	border:1px #4CC6F1 solid;
+}
+a.title {
+	color:#7A7C8A;
+}
+ul li a.title:hover {
+	color:#4CC6F1;
+}
+div.feedback_main {
+	position:absolute;
+	left:300px;
+	top:150px;
+}
+span.feedback_remark {
+	font-size:13px;
+	color:gray;
+}
+li.feedback_left {
+	width:70px;
+	text-align: right;
+	line-height: 20px;
+	color: #333;
+	float:left;
+	font-size:14px;
+	list-style:none;
+}
+li.feedback_right {
+	width: 670px;
+	height: 22px;
+	font-size: 14px;
+	color: #999999;
+	line-height: 22px;
+}
+.feedback_content ul li {
+	float:left;
+	list-style:none;
+	display:list-item;
+	margin-top:15px;
+	margin-right:5px;
+}
+.feedback {
+	position:absolute;
+	top:380px;
+	left:114px;
+}
+textarea {
+	resize:none;
+}
+div.help_main_left_title {
+}
+ul.help_main_left_title {
+	list-style:none;
+	position:absolute;
+	top:180px;
+	left:180px;
+}
+ul.help_main_left_title li {
+	margin-bottom:30px;
+	margin-left:30px;
+	height:50px;
+	width:180px;
+	text-align:center;
+	line-height:50px;
+}
+a.help_main_left_title {
+	color:#4CC6F1;
+	font-size:21px;
+	font-weight:lighter;
+}
+div.privacy_content {
+	position:absolute;
+	top:180px;
+	left:485px;
+	font-size:13px;
+	width:700px;
+}
+img {
+	border-width:0px;
+}
+input.feedback {
+	background-image:url(../img/submit_fqa.jpg);
+	border-width:0px;
+	width:118px;
+	height:35px;
+}
+div.update_date_list {
+	position:absolute;
+	top:160px;
+	left:270px;
+}
+h2.update_date_title {
+	display: block;
+	font-size: 18px;
+	color: #4cb7ea;
+	font-weight: normal;
+}
+div.update_date_list ul {
+	margin-left:-25px;
+	list-style:none;
+	font-size: 14px;
+}
+div.update_date_list ul li {
+	text-align:center;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	width:150px;
+	margin-top:8px;
+}
+h1.update_content {
+	position:absolute;
+	top:300px;
+	left:500px;
+}
+div.update_content {
+	position:absolute;
+	top:160px;
+	left:490px;
+}
+div.help_content {
+	position:absolute;
+	top:180px;
+	left:485px;
+}
+div.content {
+	position:absolute;
+	bottom:130px;
+	left:200px; 
+}
+div.content a h6 {
+	position:absolute;
+	top:91px;
+	left:38px;
+	color:#FFF;
+	font-weight:lighter;
+}
+span.feedback_remark{
+	margin-left:43px;
+}

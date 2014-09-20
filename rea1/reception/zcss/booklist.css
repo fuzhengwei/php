@@ -1,0 +1,196 @@
+/* CSS Document */
+*{
+margin:0;
+outline:none;
+}
+
+body{
+margin:0;
+background-image:url(../book/view/images/bj.jpg);
+}
+
+.headDiv{
+	margin-top:-20px;
+	width:100%;
+	height:100px;
+	background-image:url(../book/view/images/hd.jpg);
+}
+
+.logoDiv{
+	margin:0 auto;
+	width:900px;
+	height:100px;
+}
+
+.leftLogoDiv{
+	margin-top:30px;
+	width:300px;
+	float:left;
+	color:#FFFFFF;
+	font-size:45px;
+}
+
+.leftLogoDiv a{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.rightLogoDiv{
+	width:250px;
+	height:100px;
+	float:right;
+}
+
+#seachDiv{
+	padding:5px;
+	padding-left:40px;
+	width:200px;
+	height:35px;
+	background-color:transparent;
+	border:1px #666666 solid;
+	color:#666666;
+	margin-top:40px;
+	background-image:url(../book/view/images/serlogo.png);
+	background-repeat:no-repeat;
+}
+
+.bodyDiv{
+	margin:0 auto;
+	margin-top:20px;
+	width:1000px;
+	height:500px;
+	
+}
+
+.user_div{
+	padding-top:5px;
+	padding-bottom:5px;
+	width:195px;
+	color:#333333;
+	padding-left:5px;
+	text-align:left;
+	font-weight:bolder;
+	margin-bottom:10px;
+}
+	
+.user_div a{
+	color:#333333;
+	text-decoration:none;
+}
+
+.leftBodyDiv{
+	width:200px;
+	height:500px;
+	float:left;
+}
+
+.leftBodyDiv ul li{
+	list-style:none;
+	padding-left:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+	list-style:none;
+	border-bottom:1px #999999 solid;
+	margin-bottom:10px;
+	font-size:12px;
+	color:#333333;
+	cursor:pointer;
+}
+
+.leftBodyDiv ul li a{
+	text-decoration:none;
+	color:#333333;
+}
+
+.rightBodyDiv{
+	width:800px;
+	height:500px;
+	float:left;
+}
+
+.rightBodyDiv ul{
+	margin-left:-20px;
+}
+
+.rightBodyDiv ul li{
+	list-style:none;
+	float:left;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+
+.bookbg_img{
+	width:125px;
+	height:160px;
+	background-image:url(../book/view/images/book_bg.png);
+	cursor:pointer;
+}
+
+.bookbg_img label{
+	display:none;
+}
+
+.bookimg{
+	margin-top:10px;
+	margin-left:12px;
+	width:110px;
+	height:146px;
+	float:left;
+}
+
+.MD{
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-right:10px;
+	width:300px;
+	height:auto;
+	background-color:#006699;
+	float:left;
+	position:absolute;
+	font-size:12px;
+	background-image:url(../zimages/casebg.png);
+	display:none;
+}
+
+#downBook{
+	color:#000000;
+	text-decoration:none;
+	font-weight:bolder;
+}
+
+.MD ul li{
+	margin-bottom:2px;
+}
+
+.pagination{
+	width:700px;
+	height:50px;
+	float:left;
+	margin-bottom:20px;
+}
+
+.pagination ul{
+	margin-top:10px;
+}
+
+.pagination ul li{
+	float:right;
+	margin-right:20px;
+	list-style:none;
+	background-color:#333333;
+	color:#FFFFFF;
+	font-weight:bolder;
+	padding:5px;
+	padding-left:20px;
+	padding-right:20px;
+	cursor:pointer;
+}
+
+.pagination ul li a{
+	color:#FFFFFF;
+	text-decoration:none;
+}
+
+.cnzz{
+	background-color:#FFFFFF;
+}

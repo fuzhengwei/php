@@ -1,0 +1,31 @@
+/* CSS Document */
+*{
+	margin:0;
+	outline:none;
+}
+
+a{
+	text-decoration:none;
+	color:#000000;
+}
+
+body{
+	margin:0;
+	outline:none;
+}
+
+.titleDiv{
+	margin:0 auto;
+	width:700px;
+	font-size:36px;
+	text-align:center;
+	padding-top:20px;
+	padding-bottom:10px;
+	border-bottom:2px #CC6600 solid;
+}
+
+
+ul li{
+	list-style:decimal-leading-zero;
+	margin-top:10px;
+}

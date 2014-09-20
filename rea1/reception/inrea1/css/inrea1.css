@@ -1,0 +1,85 @@
+/* CSS Document */
+.centerDiv{
+	margin:0 auto;
+	margin-top:10px;
+	width:900px;
+	height:500px;
+}
+
+.bottomDiv{
+	width:100%;
+	height:150px;
+	background-color:#101010;
+	float:left;
+}
+
+.talents{
+	margin:0 auto;
+	margin-bottom:20px;
+	width:700px;
+	height:auto;
+	color:#909090;
+}
+
+.inRea1Menu{
+margin-top:20px;
+width:900px;
+height:30px;
+}
+
+.inRea1Menu div a{
+	color:#FFFFFF;
+	font-size:14px;
+	font-weight:bolder;
+	text-decoration: none;
+}
+
+.PMOne,.PMTwo,.PMThree,.PMFour{
+	width:200px;
+	height:23px;
+	background-color:#2E2E2E;
+	float:left;
+	margin-left:10px;
+	color:#FFFFFF;
+	text-align:center;
+	font-size:14px;
+	padding-top:7px;
+	cursor:pointer;
+	font-weight:bolder;
+}
+
+.PMOne{
+	margin-left:35px;
+	cursor:auto;
+}
+
+#BGC{
+background-color:#A40000;
+cursor:auto;
+}
+
+.offers{
+	margin:0 auto;
+	margin-top:20px;
+	margin-bottom:50px;
+	margin-left:35px;
+	width:830px;
+	height:auto;
+	background-color:#2E2E2E;
+	float:left;
+	border:1px #131313 solid;
+	border-top:0;
+	border-bottom:2px #131313 solid;
+}
+
+.offers ul{
+	margin-top:35px;
+	margin-bottom:50px;
+}
+
+.offers ul li{
+	color:#FFFFFF;
+	list-style:none;
+	margin-bottom:10px;
+	font-size:16px;
+}

@@ -1,0 +1,66 @@
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>WriteLine方法--写入流</title>
+
+<link type="text/css" rel="stylesheet" 
+
+href="../../../js/SyntaxHighlighter/SyntaxHighlighter.css"></link>
+
+	<style>
+	/* @import url(SyntaxHighlighter.css); */
+
+	body {
+		font-family: Arial;
+		font-size: 12px;
+	}
+	</style>
+</head>
+
+<body>
+<h3>WriteLine方法--写入流</h3>
+<h5>Console类的WriteLine方法</h5>
+<textarea name="code" class="c#">
+//示例
+static void Main(string[] args)
+{
+	Console.WriteLine("这里输出的是一个空格：");
+	Console.WriteLine();
+	Console.WriteLine("这里输出的是一个字符：");
+	Console.WriteLine('A');
+	Console.WriteLine("这里输出的是一个字符串：");
+	Console.WriteLine("ABCDEFG");
+	Console.WriteLine("这里输出的是一个Int32型数字：");
+	Console.WriteLine(560);
+	Console.WriteLine("这里输出的是一个布尔型值");
+	Console.WriteLine(true);
+	Console.ReadLine();
+}
+
+private void button1_Click(objcet sender,EventArgs e)
+{
+	using(StreamWrite sw = new StreamWrite("WriteLine.txt"))
+	{
+		sw.WriteLine("欢迎加入付禄娃的群5307397");
+	}
+}
+</textarea>
+
+</body>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushCSharp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPhp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushVb.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushSql.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushDelphi.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPython.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>

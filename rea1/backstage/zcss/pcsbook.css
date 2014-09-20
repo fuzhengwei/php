@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+	.resource_book_review{
+		word-wrap:break-word; 
+		word-break:break-all;
+		width: 250px;
+		height: 140px;
+	}

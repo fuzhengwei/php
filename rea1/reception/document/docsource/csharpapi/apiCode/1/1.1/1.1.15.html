@@ -1,0 +1,79 @@
+</html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>new运算符--创建一个新的类型实例</title>
+
+<link type="text/css" rel="stylesheet" 
+
+href="../../../js/SyntaxHighlighter/SyntaxHighlighter.css"></link>
+
+	<style>
+	/* @import url(SyntaxHighlighter.css); */
+
+	body {
+		font-family: Arial;
+		font-size: 12px;
+	}
+	</style>
+</head>
+
+<body>
+<h3>new运算符--创建一个新的类型实例</h3>
+<h5>1、对象创建表达式，用于创建一个类类型或者值类型的实例<br/>
+	2、数组创建表达式，用于创建一个数组类型实例<br/>
+	3、代表创建表达式，用于创建一个新的代表类型实例</h5>
+<textarea name="code" class="c#">
+struct SampleStruct
+{
+	public int x;
+	public int y;
+	public SampleStruct(int x,int y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+}
+class SampleClass
+{
+	public string name;
+	public int id;
+	public SampleClass()
+	{
+	}
+	public Sampleclass(int id,string name)
+	{
+		this.id = id;
+		this.name = name;
+	}
+}
+class MainClass
+{
+	static void Main()
+	{
+		SampleStruct Location1 = new SampleStuct();
+		SampleClass Employee1 = new SampleClass();
+		Console.WriteLine("Default values:");
+		Console.WriteLine("Struct members:{0},{1}",Location1.x,Location1.y);
+		Console.WriteLine("Class members:{0},{1}",Employee1.name,Employee1.id);
+	}
+}
+</textarea>
+
+</body>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shCore.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushCSharp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPhp.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushJScript.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushVb.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushSql.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushXml.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushDelphi.js"></script>
+<script class="javascript" src="../../../js/SyntaxHighlighter/shBrushPython.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</html>
